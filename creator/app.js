@@ -1,4 +1,4 @@
-const APP_VERSION = "0.5.1";
+const APP_VERSION = "0.5.2";
 
 const text = {
   en: {
@@ -1650,14 +1650,38 @@ function setMode(mode) {
 function renderPreview() {
   const chapter = currentChapter();
   if (!chapter) return;
-  const html = chapter.kind === "html"
+  const content = chapter.kind === "html"
     ? resolvePreviewAssetUrls(chapter.content)
     : makePreviewHtml(chapter.content);
-  els.previewFrame.srcdoc = html;
+  els.previewFrame.srcdoc = applyPreviewSecurityPolicy(content);
 }
 
 function makePreviewHtml(content) {
   return `<!doctype html><html><head><meta charset="utf-8"><style>${bookCss()}</style></head><body>${resolvePreviewAssetUrls(content)}</body></html>`;
+}
+
+function applyPreviewSecurityPolicy(html) {
+  const doc = new DOMParser().parseFromString(html, "text/html");
+  doc.querySelectorAll("base, meta[http-equiv='Content-Security-Policy' i]").forEach((node) => node.remove());
+
+  const policy = [
+    "default-src 'none'",
+    "img-src data: blob:",
+    "media-src data: blob:",
+    "font-src data:",
+    "style-src 'unsafe-inline' data: blob:",
+    "script-src 'unsafe-inline' data: blob:",
+    "connect-src blob:",
+    "worker-src blob:",
+    "frame-src 'none'",
+    "form-action 'none'",
+    "base-uri 'none'"
+  ].join("; ");
+  const meta = doc.createElement("meta");
+  meta.setAttribute("http-equiv", "Content-Security-Policy");
+  meta.setAttribute("content", policy);
+  doc.head.prepend(meta);
+  return "<!doctype html>\n" + doc.documentElement.outerHTML;
 }
 
 function resolvePreviewAssetUrls(html, seenAssets = new Set()) {

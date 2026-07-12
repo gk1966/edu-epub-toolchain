@@ -1,4 +1,4 @@
-const CACHE_NAME = "edu-epub-creator-v1";
+const CACHE_NAME = "edu-epub-creator-v2";
 const APP_SHELL = [
   "./",
   "./index.html",

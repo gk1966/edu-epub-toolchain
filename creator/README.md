@@ -2,7 +2,7 @@
 
 A local-first, browser-based **authoring tool** for building interactive,
 accessible educational **EPUB 3** books — visually or in XHTML source — and
-exporting a valid EPUB package (mimetype, container.xml, package.opf,
+exporting a structured EPUB package (mimetype, container.xml, package.opf,
 nav.xhtml, NCX, accessibility metadata, organized assets, optional cover).
 
 ## Features
