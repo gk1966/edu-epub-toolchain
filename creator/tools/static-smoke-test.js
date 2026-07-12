@@ -61,6 +61,9 @@ const checks = {
   accessible3dLesson: app.includes("3D lesson with accessible alternative") && app.includes("interactive-fallback"),
   beforeUnloadGuard: app.includes('window.addEventListener("beforeunload"') && app.includes("projectDirty"),
   importErrorHandling: app.includes('setStatus(t("loadError"))') && app.includes('setStatus(t("importError"))'),
+  previewIframeSandboxed: html.includes('id="previewFrame"') && html.includes('sandbox="allow-scripts allow-forms"'),
+  previewCspBlocksNetwork: app.includes("function applyPreviewSecurityPolicy") && app.includes('"default-src \'none\'"') && app.includes('"connect-src blob:"'),
+  previewUsesSecurityPolicy: app.includes("els.previewFrame.srcdoc = applyPreviewSecurityPolicy(content);"),
 };
 
 const failed = Object.entries(checks)
