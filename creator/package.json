@@ -1,0 +1,12 @@
+{
+  "name": "edu-epub-creator",
+  "version": "0.5.1",
+  "description": "A simple local-first educational EPUB creator for interactive learning books.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node tools/static-smoke-test.js"
+  },
+  "author": "Georgios Korakakis",
+  "license": "MIT"
+}

@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Georgios Korakakis">
+  <meta name="theme-color" content="#176b5b">
+  <title>Edu EPUB Creator</title>
+  <link rel="stylesheet" href="./styles.css?v=20260610-langs">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">E</span>
+      <div>
+        <strong>Edu EPUB Creator</strong>
+        <span id="appSubtitle">Create EPUB 3 learning books for Edu Ebook Reader</span>
+      </div>
+    </div>
+    <div class="top-actions">
+      <label class="language-picker" for="languageSelect">
+        <span id="uiLanguageLabel">Language</span>
+        <select id="languageSelect">
+          <option value="en">EN</option>
+          <option value="el">EL</option>
+        </select>
+      </label>
+      <button id="newProjectButton" type="button">New</button>
+      <button id="saveProjectButton" type="button">Save JSON</button>
+      <label id="openProjectButton" class="file-button" for="openProjectInput">Open JSON</label>
+      <input id="openProjectInput" type="file" accept="application/json,.json" hidden>
+      <button id="checkEpubButton" type="button">Check EPUB</button>
+      <button id="exportButton" class="primary" type="button">Export EPUB</button>
+      <a id="installAppLink" class="file-button" href="./install.html" title="Install application">Install</a>
+    </div>
+  </header>
+
+  <main class="app-layout">
+    <aside class="sidebar" aria-label="Book chapters">
+      <div class="panel-heading">
+        <h2 id="chaptersTitle">Chapters</h2>
+        <button id="addChapterButton" class="icon-button" type="button" title="Add chapter" aria-label="Add chapter">+</button>
+      </div>
+      <div class="chapter-actions">
+        <details class="import-menu">
+          <summary id="importMenuSummary">Import…</summary>
+          <div class="import-menu-list">
+            <button id="importHtmlButton" type="button">Import HTML chapter</button>
+            <button id="importHtmlPackageButton" type="button">Import HTML package</button>
+            <button id="importWordButton" type="button">Import Word</button>
+            <button id="importDocButton" type="button">Import text/Markdown</button>
+            <button id="importEpubButton" type="button">Import EPUB</button>
+          </div>
+          <input id="importHtmlInput" type="file" accept=".html,.htm,.xhtml,text/html,application/xhtml+xml" hidden>
+          <input id="importHtmlPackageInput" type="file" multiple webkitdirectory directory hidden>
+          <input id="importWordInput" type="file" accept=".docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document" hidden>
+          <input id="importDocInput" type="file" accept=".md,.markdown,.txt,text/markdown,text/plain" hidden>
+          <input id="importEpubInput" type="file" accept=".epub,application/epub+zip" hidden>
+        </details>
+      </div>
+      <ol id="chapterList" class="chapter-list"></ol>
+      <div class="move-actions">
+        <button id="moveUpButton" type="button" title="Move selected chapter up">Up</button>
+        <button id="moveDownButton" type="button" title="Move selected chapter down">Down</button>
+        <button id="deleteChapterButton" class="danger" type="button" title="Delete selected chapter">Delete</button>
+      </div>
+      <section class="code-library" aria-label="Code library">
+        <div class="panel-heading">
+          <h2 id="libraryTitle">Code library</h2>
+        </div>
+        <p id="libraryHint" class="hint">Insert ready EPUB-safe learning blocks into the current chapter.</p>
+        <input id="snippetSearch" type="search" placeholder="Search blocks" autocomplete="off">
+        <label class="snippet-category-field">
+          <span id="libraryCategoryLabel">Category</span>
+          <select id="snippetCategory"></select>
+        </label>
+        <div id="snippetList" class="snippet-list"></div>
+      </section>
+    </aside>
+
+    <section class="workspace" aria-label="EPUB editor">
+      <section class="metadata-band" aria-label="Book metadata">
+        <label>
+          <span id="titleLabel">Title</span>
+          <input id="bookTitle" type="text" autocomplete="off">
+        </label>
+        <label>
+          <span id="creatorLabel">Author</span>
+          <input id="bookCreator" type="text" autocomplete="off">
+        </label>
+        <label>
+          <span id="bookLanguageLabel">Book language</span>
+          <select id="bookLanguage">
+            <option value="en">English</option>
+            <option value="el">Greek</option>
+            <option value="af">Afrikaans</option>
+            <option value="sq">Albanian</option>
+            <option value="ar">Arabic</option>
+            <option value="hy">Armenian</option>
+            <option value="eu">Basque</option>
+            <option value="bn">Bengali</option>
+            <option value="bg">Bulgarian</option>
+            <option value="ca">Catalan</option>
+            <option value="zh">Chinese</option>
+            <option value="hr">Croatian</option>
+            <option value="cs">Czech</option>
+            <option value="da">Danish</option>
+            <option value="nl">Dutch</option>
+            <option value="et">Estonian</option>
+            <option value="fi">Finnish</option>
+            <option value="fr">French</option>
+            <option value="ka">Georgian</option>
+            <option value="de">German</option>
+            <option value="he">Hebrew</option>
+            <option value="hi">Hindi</option>
+            <option value="hu">Hungarian</option>
+            <option value="is">Icelandic</option>
+            <option value="id">Indonesian</option>
+            <option value="ga">Irish</option>
+            <option value="it">Italian</option>
+            <option value="ja">Japanese</option>
+            <option value="ko">Korean</option>
+            <option value="lv">Latvian</option>
+            <option value="lt">Lithuanian</option>
+            <option value="mk">Macedonian</option>
+            <option value="ms">Malay</option>
+            <option value="mt">Maltese</option>
+            <option value="no">Norwegian</option>
+            <option value="fa">Persian</option>
+            <option value="pl">Polish</option>
+            <option value="pt">Portuguese</option>
+            <option value="ro">Romanian</option>
+            <option value="ru">Russian</option>
+            <option value="sr">Serbian</option>
+            <option value="sk">Slovak</option>
+            <option value="sl">Slovenian</option>
+            <option value="es">Spanish</option>
+            <option value="sw">Swahili</option>
+            <option value="sv">Swedish</option>
+            <option value="th">Thai</option>
+            <option value="tr">Turkish</option>
+            <option value="uk">Ukrainian</option>
+            <option value="ur">Urdu</option>
+            <option value="vi">Vietnamese</option>
+            <option value="cy">Welsh</option>
+          </select>
+        </label>
+        <label>
+          <span id="licenseLabel">License</span>
+          <select id="bookLicense">
+            <option value="CC BY 4.0">CC BY 4.0</option>
+            <option value="CC BY-NC-SA 4.0">CC BY-NC-SA 4.0</option>
+            <option value="All rights reserved">All rights reserved</option>
+          </select>
+        </label>
+        <label class="cover-field">
+          <span id="coverLabel">Cover</span>
+          <span class="cover-controls">
+            <label class="file-button" id="coverButton" for="coverInput">Choose image</label>
+            <input id="coverInput" type="file" accept="image/*,.png,.jpg,.jpeg,.webp,.gif,.svg" hidden>
+            <button type="button" id="removeCoverButton" hidden>Remove</button>
+            <span id="coverName" class="cover-name"></span>
+          </span>
+        </label>
+      </section>
+
+      <section class="chapter-editor" aria-label="Current chapter editor">
+        <div class="editor-header">
+          <label class="chapter-title-field">
+            <span id="chapterTitleLabel">Chapter title</span>
+            <input id="chapterTitleInput" type="text" autocomplete="off">
+          </label>
+          <span id="chapterKindBadge" class="kind-badge">XHTML</span>
+        </div>
+
+        <div class="toolbar" aria-label="Editing tools">
+          <button type="button" data-command="formatBlock" data-value="h1">H1</button>
+          <button type="button" data-command="formatBlock" data-value="h2">H2</button>
+          <button type="button" data-command="formatBlock" data-value="h3">H3</button>
+          <button type="button" data-command="formatBlock" data-value="p">P</button>
+          <button type="button" data-command="bold"><strong>B</strong></button>
+          <button type="button" data-command="italic"><em>I</em></button>
+          <button type="button" data-command="justifyLeft" id="alignLeftButton" title="Align left" aria-label="Align left"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><g stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="2" y1="3.5" x2="14" y2="3.5"/><line x1="2" y1="6.5" x2="10" y2="6.5"/><line x1="2" y1="9.5" x2="13" y2="9.5"/><line x1="2" y1="12.5" x2="9" y2="12.5"/></g></svg></button>
+          <button type="button" data-command="justifyCenter" id="alignCenterButton" title="Center" aria-label="Center"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><g stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="2" y1="3.5" x2="14" y2="3.5"/><line x1="4" y1="6.5" x2="12" y2="6.5"/><line x1="2.5" y1="9.5" x2="13.5" y2="9.5"/><line x1="4.5" y1="12.5" x2="11.5" y2="12.5"/></g></svg></button>
+          <button type="button" data-command="justifyRight" id="alignRightButton" title="Align right" aria-label="Align right"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><g stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="2" y1="3.5" x2="14" y2="3.5"/><line x1="6" y1="6.5" x2="14" y2="6.5"/><line x1="3" y1="9.5" x2="14" y2="9.5"/><line x1="7" y1="12.5" x2="14" y2="12.5"/></g></svg></button>
+          <button type="button" data-command="justifyFull" id="alignJustifyButton" title="Justify" aria-label="Justify"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><g stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="2" y1="3.5" x2="14" y2="3.5"/><line x1="2" y1="6.5" x2="14" y2="6.5"/><line x1="2" y1="9.5" x2="14" y2="9.5"/><line x1="2" y1="12.5" x2="14" y2="12.5"/></g></svg></button>
+          <button type="button" data-command="insertUnorderedList">List</button>
+          <button type="button" id="insertLinkButton">Link</button>
+          <button type="button" id="setAltButton">Alt text</button>
+          <button type="button" id="insertCalloutButton">Note</button>
+          <button type="button" id="insertQuizButton">Quiz</button>
+          <label class="toolbar-field">
+            <span id="columnSplitLabel">Left %</span>
+            <input id="columnLeftInput" type="number" min="20" max="80" step="5" value="50">
+          </label>
+          <button type="button" id="insertColumnsButton">2 Columns</button>
+          <button type="button" id="insertAssetButton">Insert asset</button>
+          <input id="assetInsertInput" type="file" multiple hidden>
+        </div>
+
+        <div class="mode-tabs" role="tablist" aria-label="Editor modes">
+          <button id="visualTab" class="active" type="button" role="tab" aria-selected="true">Visual</button>
+          <button id="sourceTab" type="button" role="tab" aria-selected="false">XHTML</button>
+          <button id="previewTab" type="button" role="tab" aria-selected="false">Preview</button>
+        </div>
+
+        <div id="visualEditor" class="visual-editor" contenteditable="true" spellcheck="true" role="textbox" aria-multiline="true"></div>
+        <textarea id="sourceEditor" class="source-editor" spellcheck="false"></textarea>
+        <iframe id="previewFrame" class="preview-frame" title="EPUB chapter preview"></iframe>
+      </section>
+    </section>
+
+    <aside class="assets-panel" aria-label="Assets and export status">
+      <div class="panel-heading">
+        <h2 id="assetsTitle">Assets</h2>
+        <label class="icon-button file-plus" for="assetInput" title="Add assets" aria-label="Add assets">+</label>
+        <input id="assetInput" type="file" multiple hidden>
+      </div>
+      <p id="assetHint" class="hint">Add images, video, audio, CSS or HTML files. HTML can also become a chapter.</p>
+      <ul id="assetList" class="asset-list"></ul>
+      <section class="description-block">
+        <label>
+          <span id="descriptionLabel">Book description</span>
+          <textarea id="bookDescription"></textarea>
+        </label>
+      </section>
+      <section class="status-block" aria-live="polite">
+        <h2 id="statusTitle">Status</h2>
+        <p id="statusMessage">Ready.</p>
+      </section>
+    </aside>
+  </main>
+
+  <dialog id="validationDialog" class="validation-dialog" aria-labelledby="validationDialogTitle">
+    <form method="dialog" class="validation-dialog-card">
+      <div class="validation-dialog-header">
+        <div>
+          <p class="eyebrow">Pre-export check</p>
+          <h2 id="validationDialogTitle">EPUB check</h2>
+        </div>
+        <button class="icon-button" value="cancel" type="submit" aria-label="Close check">×</button>
+      </div>
+      <p id="validationSummary" class="validation-summary" aria-live="polite"></p>
+      <ul id="validationList" class="validation-list"></ul>
+      <div class="validation-dialog-actions">
+        <button value="cancel" type="submit">Close</button>
+        <button id="validationExportButton" class="primary" type="button" hidden>Export anyway</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="./vendor/jszip.min.js"></script>
+  <script src="./vendor/mammoth.browser.min.js"></script>
+  <script src="./vendor/marked.umd.js"></script>
+  <script src="./app.js?v=20260610-langs"></script>
+  <script>
+    if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker.register("./service-worker.js").catch(function () {});
+      });
+    }
+  </script>
+
+<footer style="margin:2rem auto 1rem; text-align:center; font-size:0.75rem; opacity:0.6;">Created by Georgios Korakakis &middot; Assistant Professor, Department of Graphic Design and Visual Communication, School of Applied Arts and Culture, University of West Attica</footer>
+</body>
+</html>

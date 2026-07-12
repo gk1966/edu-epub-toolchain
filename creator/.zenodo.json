@@ -1,0 +1,21 @@
+{
+  "title": "Edu EPUB Creator: A local-first authoring tool for interactive educational EPUB 3",
+  "version": "0.5.1",
+  "upload_type": "software",
+  "license": "MIT",
+  "creators": [
+    {
+      "name": "Korakakis, Georgios",
+      "orcid": "0009-0005-0042-6348",
+      "affiliation": "University of West Attica"
+    }
+  ],
+  "keywords": [
+    "EPUB 3",
+    "authoring tool",
+    "open educational resources",
+    "accessibility",
+    "interactive learning"
+  ],
+  "description": "A local-first, browser-based authoring tool for building interactive, accessible educational EPUB 3 books with a visual editor, a reusable block library, multimedia and 3D/HTML import, and standards-compliant EPUB 3 export."
+}

@@ -1,0 +1,15 @@
+{
+  "name": "Edu EPUB Creator",
+  "short_name": "Edu Creator",
+  "description": "A local-first, browser-based authoring tool for building accessible, interactive educational EPUB 3 books.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f8f6",
+  "theme_color": "#176b5b",
+  "icons": [
+    { "src": "./icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "./icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" },
+    { "src": "./icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
