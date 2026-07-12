@@ -1,0 +1,24 @@
+{
+  "title": "Edu Ebook Reader: A DRM-free progressive web app for interactive 3D educational EPUB content",
+  "version": "1.0.0",
+  "upload_type": "software",
+  "license": "MIT",
+  "creators": [
+    {
+      "name": "Korakakis, Georgios",
+      "orcid": "0009-0005-0042-6348",
+      "affiliation": "University of West Attica"
+    }
+  ],
+  "keywords": [
+    "EPUB 3",
+    "open educational resources",
+    "progressive web app",
+    "WebGL",
+    "3D visualization",
+    "chemistry education",
+    "accessibility",
+    "DRM-free"
+  ],
+  "description": "Open-source, DRM-free Progressive Web App for reading interactive, accessible educational EPUB 3 content offline and locally, including scripted and WebGL 3D material. A companion sp hybridization demonstration module is available as a separate repository."
+}

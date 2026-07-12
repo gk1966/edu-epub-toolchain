@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1f6f5f">
+  <meta name="author" content="Georgios Korakakis">
+  <title>Edu Ebook Reader</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <button class="icon-button menu-button" id="menuButton" type="button" aria-label="Book panel" title="Book panel" data-i18n-aria="bookPanel" data-i18n-title="bookPanel">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">E</span>
+        <div>
+          <strong>Edu Ebook Reader</strong>
+          <small id="bookTitle">No book loaded</small>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <button class="icon-button" id="prevButton" type="button" aria-label="Previous" title="Previous" data-i18n-aria="previous" data-i18n-title="previous" disabled>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+        <button class="icon-button" id="nextButton" type="button" aria-label="Next" title="Next" data-i18n-aria="next" data-i18n-title="next" disabled>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+        <button class="icon-button" id="fontDownButton" type="button" aria-label="Smaller text" title="Smaller text" data-i18n-aria="smallerText" data-i18n-title="smallerText" disabled>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19h4M7 19l4-12h2l4 12m-8-5h6"/></svg>
+        </button>
+        <button class="icon-button" id="fontUpButton" type="button" aria-label="Larger text" title="Larger text" data-i18n-aria="largerText" data-i18n-title="largerText" disabled>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 19h4M5 19l5-14h3l5 14m-7-6h6M19 8v6M16 11h6"/></svg>
+        </button>
+        <button class="icon-button" id="themeButton" type="button" aria-label="Reading theme" title="Reading theme" data-i18n-aria="readingTheme" data-i18n-title="readingTheme" disabled>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 6.5 6.5 0 0 1-9-9Z"/></svg>
+        </button>
+        <button class="icon-button" id="bookmarkButton" type="button" aria-label="Add bookmark" title="Add bookmark" data-i18n-aria="addBookmark" data-i18n-title="addBookmark" disabled>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4.5A1.5 1.5 0 0 1 7.5 3h9A1.5 1.5 0 0 1 18 4.5V21l-6-3.5L6 21V4.5Z"/></svg>
+        </button>
+        <label class="language-control" for="languageSelect">
+          <span data-i18n="languageLabel">Language</span>
+          <select id="languageSelect" aria-label="Language" data-i18n-aria="languageLabel">
+            <option value="en">EN</option>
+            <option value="el">EL</option>
+          </select>
+        </label>
+        <label class="upload-button" for="epubInput">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V3m0 0 4 4m-4-4-4 4M5 15v4h14v-4"/></svg>
+          <span data-i18n="fileButton">File</span>
+        </label>
+        <input id="epubInput" type="file" accept=".epub,.pdf,.txt,.md,.markdown,.html,.htm,.xhtml,.docx,.odt,.fb2,.cbz,application/epub+zip,application/pdf,text/plain,text/markdown,text/html,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.oasis.opendocument.text" hidden>
+        <a class="upload-button install-link" href="./install.html" title="Install" data-i18n-title="installApp" aria-label="Install" data-i18n-aria="installApp">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>
+          <span data-i18n="installApp">Install</span>
+        </a>
+      </div>
+    </header>
+
+    <div class="reading-progress" aria-hidden="true">
+      <span id="progressBar"></span>
+    </div>
+
+    <main class="shell">
+      <aside class="sidebar" id="sidebar" aria-label="Book panel" data-i18n-aria="bookPanel">
+        <section class="panel">
+          <h2 data-i18n="contentsTitle">Contents</h2>
+          <ol id="tocList" class="toc-list"></ol>
+        </section>
+
+        <section class="panel search-panel">
+          <label for="searchInput" data-i18n="searchLabel">Search</label>
+          <div class="search-row">
+            <input id="searchInput" type="search" placeholder="Term..." data-i18n-placeholder="searchPlaceholder" disabled>
+            <button id="searchButton" class="compact-button" type="button" disabled>OK</button>
+          </div>
+          <div id="searchResults" class="search-results"></div>
+        </section>
+
+        <section class="panel accessibility-panel">
+          <h2 data-i18n="accessibilityTitle">Accessibility</h2>
+
+          <label class="control-label" for="fontScaleRange">
+            <span data-i18n="fontSizeLabel">Text size</span>
+            <span id="fontScaleValue">100%</span>
+          </label>
+          <input id="fontScaleRange" type="range" min="78" max="160" step="2" value="100">
+
+          <label class="control-label" for="themeSelect" data-i18n="themeLabel">Reading theme</label>
+          <select id="themeSelect">
+            <option value="paper" data-i18n="themePaper">Default</option>
+            <option value="sepia" data-i18n="themeSepia">Sepia</option>
+            <option value="night" data-i18n="themeNight">Night</option>
+            <option value="highContrast" data-i18n="themeHighContrast">High contrast</option>
+          </select>
+
+          <label class="control-label" for="fontFamilySelect" data-i18n="fontFamilyLabel">Font</label>
+          <select id="fontFamilySelect">
+            <option value="system" data-i18n="fontSystem">System</option>
+            <option value="readable" data-i18n="fontReadable">Readable</option>
+            <option value="serif" data-i18n="fontSerif">Book serif</option>
+            <option value="mono" data-i18n="fontMono">Monospace</option>
+          </select>
+
+          <label class="control-label" for="lineHeightRange">
+            <span data-i18n="lineHeightLabel">Line spacing</span>
+            <span id="lineHeightValue">1.65</span>
+          </label>
+          <input id="lineHeightRange" type="range" min="140" max="220" step="5" value="165">
+
+          <label class="control-label" for="textWidthSelect" data-i18n="textWidthLabel">Text width</label>
+          <select id="textWidthSelect">
+            <option value="narrow" data-i18n="widthNarrow">Narrow</option>
+            <option value="normal" data-i18n="widthNormal">Normal</option>
+            <option value="wide" data-i18n="widthWide">Wide</option>
+          </select>
+
+          <label class="toggle-row">
+            <input id="letterSpacingToggle" type="checkbox">
+            <span data-i18n="letterSpacingLabel">Increase letter spacing</span>
+          </label>
+
+          <label class="toggle-row">
+            <input id="reduceMotionToggle" type="checkbox">
+            <span data-i18n="reduceMotionLabel">Reduce motion</span>
+          </label>
+
+          <div class="speech-controls">
+            <button id="readAloudButton" type="button" data-i18n="readAloudButton" disabled>Read aloud</button>
+            <button id="stopSpeechButton" type="button" data-i18n="stopButton" disabled>Stop</button>
+          </div>
+        </section>
+
+        <section class="panel learning-panel">
+          <h2 data-i18n="learningTitle">My learning</h2>
+          <p id="learningProgress" class="learning-progress" aria-live="polite">Open a book to keep local progress.</p>
+          <div class="learning-actions">
+            <button id="addBookmarkButton" class="compact-button" type="button" data-i18n="addBookmark" disabled>Add bookmark</button>
+            <button id="exportLearningButton" class="compact-button" type="button" data-i18n="exportLearning" disabled>Export notes</button>
+          </div>
+          <div class="learning-section">
+            <h3 data-i18n="bookmarksTitle">Bookmarks</h3>
+            <ul id="bookmarkList" class="learning-list"></ul>
+          </div>
+          <div class="learning-section">
+            <label for="noteInput" data-i18n="noteLabel">Note for this page</label>
+            <textarea id="noteInput" rows="3" data-i18n-placeholder="notePlaceholder" placeholder="Write a private note..." disabled></textarea>
+            <button id="saveNoteButton" class="compact-button" type="button" data-i18n="saveNote" disabled>Save note</button>
+            <ul id="noteList" class="learning-list"></ul>
+          </div>
+        </section>
+
+        <section class="panel security-panel">
+          <h2 data-i18n="securityTitle">Security</h2>
+          <ul>
+            <li><span class="dot ok"></span><span data-i18n="securityLocal">Local file</span></li>
+            <li><span class="dot ok"></span><span data-i18n="securitySandbox">Sandbox</span></li>
+            <li><span class="dot ok"></span><span data-i18n="securityNetwork">External network blocked</span></li>
+            <li><span class="dot warn"></span><span data-i18n="securityDrm">Does not bypass DRM</span></li>
+          </ul>
+        </section>
+      </aside>
+
+      <section class="reader-pane" aria-label="EPUB reading area" data-i18n-aria="readerArea">
+        <div class="empty-state" id="emptyState">
+          <div class="empty-symbol" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><path d="M11 8h18a8 8 0 0 1 8 8v24H17a6 6 0 0 0-6-6V8Z"/><path d="M17 40h20"/><path d="M17 16h13M17 23h15M17 30h10"/></svg>
+          </div>
+          <h1 data-i18n="emptyTitle">Educational reading on every screen</h1>
+          <p data-i18n="emptySubtitle">Open local EPUB 3, PDF, TXT, Markdown, HTML, DOCX, ODT, FB2 or CBZ files for teaching, studio work and self-study.</p>
+          <label class="primary-action" for="epubInput" data-i18n="openFile">Open file</label>
+          <div class="empty-chips" aria-label="Features" data-i18n-aria="featuresLabel">
+            <span data-i18n="chipMobile">Mobile</span>
+            <span>Tablet</span>
+            <span data-i18n="chipDesktop">Desktop</span>
+            <span>PWA</span>
+            <span>PDF</span>
+            <span>DOCX</span>
+            <span>CBZ</span>
+          </div>
+        </div>
+
+        <iframe id="readerFrame" title="EPUB content" data-i18n-title="epubContent" sandbox="allow-scripts allow-forms" allow="fullscreen" allowfullscreen hidden></iframe>
+        <div id="pdfViewer" class="pdf-viewer" hidden>
+          <canvas id="pdfCanvas" aria-label="PDF page" data-i18n-aria="pdfPage"></canvas>
+        </div>
+        <article id="textViewer" class="text-viewer" hidden></article>
+        <button id="prevEdge" class="edge-nav edge-prev" type="button" aria-label="Previous" title="Previous" data-i18n-aria="previous" data-i18n-title="previous" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+        </button>
+        <button id="nextEdge" class="edge-nav edge-next" type="button" aria-label="Next" title="Next" data-i18n-aria="next" data-i18n-title="next" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </section>
+    </main>
+
+    <footer class="mobile-controls" aria-label="Reading navigation" data-i18n-aria="readingNavigation">
+      <button id="mobilePrevButton" type="button" data-i18n="backButton" disabled>Back</button>
+      <span id="chapterIndicator">0 / 0</span>
+      <button id="mobileNextButton" type="button" data-i18n="forwardButton" disabled>Forward</button>
+    </footer>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </div>
+
+  <script src="./vendor/jszip.min.js"></script>
+  <script src="./app.js" defer></script>
+
+<footer style="margin:2rem auto 1rem; text-align:center; font-size:0.75rem; opacity:0.6;">Created by Georgios Korakakis &middot; Assistant Professor, Department of Graphic Design and Visual Communication, School of Applied Arts and Culture, University of West Attica</footer>
+</body>
+</html>

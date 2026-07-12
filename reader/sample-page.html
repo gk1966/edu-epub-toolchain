@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="el">
+<head>
+  <meta charset="utf-8">
+  <title>Demo HTML μαθήματος</title>
+  <style>
+    body { font-family: system-ui, sans-serif; }
+    button { padding: 0.6rem 0.9rem; }
+    #answer { font-weight: 700; }
+  </style>
+</head>
+<body>
+  <h1>Demo HTML μαθήματος</h1>
+  <p>Αυτό το HTML ανοίγει μέσα σε sandbox.</p>
+  <button type="button" id="check">Δοκιμή διαδραστικότητας</button>
+  <p id="answer" aria-live="polite"></p>
+  <script>
+    document.getElementById("check").addEventListener("click", () => {
+      document.getElementById("answer").textContent = "Το τοπικό script έτρεξε μέσα στο sandbox.";
+    });
+  </script>
+</body>
+</html>

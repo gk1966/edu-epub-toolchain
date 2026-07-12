@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FictionBook xmlns="http://www.gribuser.ru/xml/fictionbook/2.0">
+  <description>
+    <title-info>
+      <book-title>Demo FB2 βιβλίου</book-title>
+      <lang>el</lang>
+    </title-info>
+  </description>
+  <body>
+    <section>
+      <title><p>Demo FB2 βιβλίου</p></title>
+      <p>Αυτό είναι ένα μικρό FictionBook αρχείο για δοκιμή.</p>
+      <p>Η εφαρμογή το μετατρέπει σε καθαρό κείμενο για ασφαλή ανάγνωση.</p>
+    </section>
+  </body>
+</FictionBook>
