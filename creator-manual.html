@@ -1,0 +1,50 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Edu EPUB Creator — manual</title><link rel="stylesheet" href="guide.css"><script defer src="guide.js"></script></head><body>
+<nav class="nav"><div class="wrap"><div class="logo"><span class="dot">E</span><span>EPUB 3 Toolchain — Review Preview</span></div><div class="links"><a href="index.html">Home</a><a href="creator-guide.html">Creator guide</a><a href="reader-guide.html">Reader guide</a><a href="creator-manual.html">Creator manual</a><a href="reader-manual.html">Reader manual</a><a href="demo.html">Demo</a></div></div></nav>
+<header class="hero"><div class="wrap"><span class="pill">Manual · capabilities &amp; limitations</span>
+<h1>Edu EPUB Creator — reference manual</h1>
+<p>What the authoring tool can do, how it exports, and its current limitations — stated honestly.</p>
+<div class="cta"><a class="btn btn-primary" href="creator/index.html">▶ Open the Creator</a></div></div></header>
+<section><div class="wrap">
+<h2 class="section-title reveal">Capabilities</h2>
+<details class="acc reveal" open><summary>Editing</summary><div class="body"><ul class="flist ok">
+<li>Visual editor, XHTML source view and live preview.</li>
+<li>Headings, bold/italic, lists, links, text alignment and two‑column layouts.</li>
+<li>Editable image alternative text for accessibility.</li>
+</ul></div></details>
+<details class="acc reveal"><summary>Reusable block library</summary><div class="body"><ul class="flist ok">
+<li>About 40 ready blocks: callouts (note/tip/warning/important), definitions, key terms, worked examples, quizzes (multiple choice / true‑false / fill‑in), checklists, flashcards, tables, image and gallery blocks, buttons, call‑to‑action, steps, timeline, section layouts and more.</li>
+</ul></div></details>
+<details class="acc reveal"><summary>Import</summary><div class="body"><ul class="flist ok">
+<li>Word (.docx) → chapter, keeping structure and embedding images.</li>
+<li>Markdown and plain text → chapter.</li>
+<li>Existing EPUB → its chapters and images, with references rewritten to assets.</li>
+<li>HTML page or full HTML package (with rewritten local paths) → interactive chapter.</li>
+</ul></div></details>
+<details class="acc reveal"><summary>Media &amp; interactivity</summary><div class="body"><ul class="flist ok">
+<li>Import images, audio and video as organised assets.</li>
+<li>Embed interactive HTML and 3D/WebGL content as chapters.</li>
+</ul></div></details>
+<details class="acc reveal"><summary>Standards‑based export</summary><div class="body"><ul class="flist ok">
+<li>Valid EPUB 3 package (mimetype, container, package document).</li>
+<li>Navigation document and EPUB 2 NCX for backward compatibility.</li>
+<li>Dublin Core and schema.org accessibility metadata; organised asset folders and styles.</li>
+<li>Optional cover image.</li>
+</ul></div></details>
+<details class="acc reveal"><summary>Workflow &amp; interface</summary><div class="body"><ul class="flist ok">
+<li>Local‑first and private: nothing is uploaded; autosave plus save/open of a project file.</li>
+<li>About 50 book languages for metadata; bilingual interface (English / Greek).</li>
+</ul></div></details>
+
+<h2 class="section-title reveal" style="margin-top:34px">Limitations</h2>
+<div class="panel reveal"><ul class="flist lim">
+<li>Import preserves <strong>semantic</strong> formatting (headings, bold/italic, lists, tables, images), not pixel‑perfect visual layout — which is the appropriate, reflowable behaviour for EPUB.</li>
+<li>Markdown images that use a local file path need the image added separately as an asset; images from Word and EPUB are embedded automatically.</li>
+<li>No PDF import: converting PDF to clean, reflowable EPUB is lossy, so it is intentionally omitted.</li>
+<li>Interactive/scripted chapters may not run in all third‑party readers (they do run in the bundled Edu Ebook Reader).</li>
+<li>For strict conformance, validate the exported file with EPUBCheck separately.</li>
+</ul></div>
+<div class="note reveal" style="margin-top:18px"><strong>Why this matters:</strong> the tool is designed so that teachers who are not familiar with EPUB internals can still produce standards‑based, accessible, interactive EPUB 3.</div>
+</div></section>
+<footer><div class="wrap">&copy; 2026 Georgios Korakakis &middot; University of West Attica. <a href="index.html">← Back to home</a></div></footer>
+</body></html>

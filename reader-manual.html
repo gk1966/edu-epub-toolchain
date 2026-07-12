@@ -1,0 +1,47 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Edu Ebook Reader — manual</title><link rel="stylesheet" href="guide.css"><script defer src="guide.js"></script></head><body>
+<nav class="nav"><div class="wrap"><div class="logo"><span class="dot">E</span><span>EPUB 3 Toolchain — Review Preview</span></div><div class="links"><a href="index.html">Home</a><a href="creator-guide.html">Creator guide</a><a href="reader-guide.html">Reader guide</a><a href="creator-manual.html">Creator manual</a><a href="reader-manual.html">Reader manual</a><a href="demo.html">Demo</a></div></div></nav>
+<header class="hero"><div class="wrap"><span class="pill">Manual · capabilities &amp; limitations</span>
+<h1>Edu Ebook Reader — reference manual</h1>
+<p>What the reader can do, how it is built, and its current limitations — stated honestly.</p>
+<div class="cta"><a class="btn btn-primary" href="reader/index.html">▶ Open the Reader</a></div></div></header>
+
+<section><div class="wrap">
+<h2 class="section-title reveal">Capabilities</h2>
+<details class="acc reveal" open><summary>Formats it opens</summary><div class="body"><ul class="flist ok">
+<li>EPUB and EPUB 3 (XHTML chapters, media, navigation).</li>
+<li>PDF (rendered in a canvas; no PDF JavaScript executed).</li>
+<li>Plain text, Markdown, HTML/XHTML.</li>
+<li>DOCX and ODT (text extraction), FB2 (text), CBZ (image pages).</li>
+</ul></div></details>
+<details class="acc reveal"><summary>Interactive &amp; 3D content</summary><div class="body"><ul class="flist ok">
+<li>Runs scripted EPUB 3 content and embedded HTML.</li>
+<li>Renders WebGL / 3D scenes (e.g. molecular models) with rotate, zoom and fullscreen inspection.</li>
+<li>Plays embedded audio and video.</li>
+</ul></div></details>
+<details class="acc reveal"><summary>Privacy &amp; security</summary><div class="body"><ul class="flist ok">
+<li>Files are opened locally through browser APIs and are never uploaded.</li>
+<li>No accounts, no analytics, no server‑side data collection.</li>
+<li>EPUB content runs in a sandbox that blocks external network access and disallows iframe, object, embed and form submission.</li>
+<li>Detects DRM / encryption markers (rights.xml, encryption.xml, Readium LCP) and refuses such files; contains no decryption.</li>
+</ul></div></details>
+<details class="acc reveal"><summary>Reading experience &amp; accessibility</summary><div class="body"><ul class="flist ok">
+<li>Adjustable font, size, theme, line spacing, text width, letter spacing and reduced motion.</li>
+<li>Basic read‑aloud via the browser speech API where available.</li>
+<li>Remembers the last reading position per file; bilingual interface (English / Greek).</li>
+<li>Installable, offline‑capable Progressive Web App.</li>
+</ul></div></details>
+
+<h2 class="section-title reveal" style="margin-top:34px">Limitations</h2>
+<div class="panel reveal"><ul class="flist lim">
+<li>It cannot open DRM‑protected or encrypted commercial ebooks — this is intentional and lawful behaviour, not a bug.</li>
+<li>It is not a full commercial EPUB engine; some non‑EPUB formats (DOCX, ODT, FB2, Markdown) are basic display only.</li>
+<li>3D content depends on WebGL support and device performance.</li>
+<li>It does not support Kindle formats (AZW/KFX).</li>
+<li>Accessibility follows good practice but has not yet been independently audited against WCAG 2.2 AA.</li>
+<li>Verified through a documented manual test procedure; it does not yet ship a large automated test suite.</li>
+</ul></div>
+<div class="note reveal" style="margin-top:18px"><strong>Scientific/technical note:</strong> EPUB 3 is an open, web‑based publication standard (W3C). Whether interactive objects run depends on the reading system; many general‑purpose readers restrict scripting and WebGL, which is exactly the gap this reader addresses.</div>
+</div></section>
+<footer><div class="wrap">&copy; 2026 Georgios Korakakis &middot; University of West Attica. <a href="index.html">← Back to home</a></div></footer>
+</body></html>
