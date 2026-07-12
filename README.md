@@ -1,5 +1,7 @@
 # Edu EPUB Toolchain
 
+**Creator** [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21322782.svg)](https://doi.org/10.5281/zenodo.21322782) · **Reader** [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21322912.svg)](https://doi.org/10.5281/zenodo.21322912) · **Demo** [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21322985.svg)](https://doi.org/10.5281/zenodo.21322985)
+
 A local-first, DRM-free EPUB 3 toolchain for authoring and reading interactive,
 accessible educational publications with embedded WebGL/Babylon.js 3D content.
 
