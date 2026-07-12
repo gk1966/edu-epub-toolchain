@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this learning module, please cite it as below."
+title: "sp Hybridization in Ethyne: Interactive Chemistry EPUB 3 Demonstration"
+abstract: "An interactive EPUB 3 learning module with embedded 3D (GLB/Babylon.js) molecular and orbital viewers, video and self-check quiz on sp hybridization in ethyne."
+type: dataset
+authors:
+  - family-names: Korakakis
+    given-names: Georgios
+    orcid: "https://orcid.org/0009-0005-0042-6348"
+    affiliation: "Department of Graphic Design and Visual Communication, School of Applied Arts and Culture, University of West Attica"
+version: "1.0.0"
+date-released: "2026-06-06"
+license: CC-BY-4.0
+repository-code: "https://github.com/gk1966/edu-epub-toolchain"
+keywords:
+  - EPUB 3
+  - chemistry education
+  - sp hybridization
+  - interactive 3D learning
+  - open educational resources
