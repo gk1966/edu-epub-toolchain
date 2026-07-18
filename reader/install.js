@@ -30,7 +30,7 @@
       iosButton: "iPhone / iPad instructions",
       iosStatus: "Safari: Share → Add to Home Screen. Then it opens like an app from the home screen.",
       fileButton: "Open from online link",
-      fileStatus: "Installation works when the page is opened from the application online link, not from a local file.",
+      fileStatus: "Installation requires a secure web origin: HTTPS, or localhost during development. It does not work from a local file or ordinary insecure HTTP.",
       defaultStatus: "Press the install button. If no prompt appears, use the instructions for your device.",
       promptReadyButton: "Install application",
       promptReadyStatus: "The app is ready to install on this device.",
@@ -39,7 +39,7 @@
       acceptedStatus: "Installation started.",
       dismissedStatus: "Installation cancelled.",
       iosClickStatus: "On iPhone/iPad: tap Share, then Add to Home Screen.",
-      fileClickStatus: "Open the app from the online link you were given, then press install again.",
+      fileClickStatus: "Open the app from its HTTPS link (or localhost during development), then press install again.",
       fallbackStatus: "Android/Chrome: menu → Add to Home screen. Desktop/Chrome or Edge: menu → Install app."
     },
     el: {
@@ -69,7 +69,7 @@
       iosButton: "Οδηγίες για iPhone / iPad",
       iosStatus: "Safari: Share → Add to Home Screen. Μετά ανοίγει σαν εφαρμογή από την αρχική οθόνη.",
       fileButton: "Άνοιγμα από online link",
-      fileStatus: "Η εγκατάσταση λειτουργεί όταν η σελίδα ανοίγει από το online link της εφαρμογής, όχι από τοπικό αρχείο.",
+      fileStatus: "Η εγκατάσταση απαιτεί ασφαλή προέλευση ιστού: HTTPS ή localhost κατά την ανάπτυξη. Δεν λειτουργεί από τοπικό αρχείο ή από απλό μη ασφαλές HTTP.",
       defaultStatus: "Πάτησε το κουμπί εγκατάστασης. Αν δεν εμφανιστεί παράθυρο, χρησιμοποίησε τις οδηγίες για τη συσκευή σου.",
       promptReadyButton: "Εγκατάσταση εφαρμογής",
       promptReadyStatus: "Η εφαρμογή είναι έτοιμη για εγκατάσταση σε αυτή τη συσκευή.",
@@ -78,7 +78,7 @@
       acceptedStatus: "Η εγκατάσταση ξεκίνησε.",
       dismissedStatus: "Η εγκατάσταση ακυρώθηκε.",
       iosClickStatus: "Σε iPhone/iPad: πάτησε Share και μετά Add to Home Screen.",
-      fileClickStatus: "Άνοιξε την εφαρμογή από το online link που σου έχει δοθεί και ξαναπάτησε εγκατάσταση.",
+      fileClickStatus: "Άνοιξε την εφαρμογή από τον σύνδεσμο HTTPS (ή από localhost κατά την ανάπτυξη) και ξαναπάτησε εγκατάσταση.",
       fallbackStatus: "Android/Chrome: μενού → Add to Home screen. Υπολογιστής/Chrome ή Edge: μενού → Install app."
     }
   };
@@ -92,6 +92,7 @@
 
   const isStandalone = window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone;
   const isIos = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  const isInstallContext = window.isSecureContext && location.protocol !== "file:";
 
   languageSelect.addEventListener("change", () => {
     language = languageSelect.value === "el" ? "el" : "en";
@@ -102,7 +103,7 @@
 
   applyTranslations();
 
-  if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
+  if ("serviceWorker" in navigator && isInstallContext) {
     navigator.serviceWorker.register("./service-worker.js").catch(() => {
       setStatus(t("swError"));
     });
@@ -139,7 +140,7 @@
       return;
     }
 
-    if (location.protocol === "file:") {
+    if (!isInstallContext) {
       setStatus(t("fileClickStatus"));
       return;
     }
@@ -156,7 +157,7 @@
       installButton.textContent = t("iosButton");
       installButton.disabled = false;
       setStatus(t("iosStatus"));
-    } else if (location.protocol === "file:") {
+    } else if (!isInstallContext) {
       installButton.textContent = t("fileButton");
       installButton.disabled = false;
       setStatus(t("fileStatus"));

@@ -24,3 +24,7 @@ Visual Communication, School of Applied Arts and Culture, University of West Att
 
 Content (text, models, video, quiz): CC BY 4.0 (see LICENSE).
 Bundled third-party library: Babylon.js (Apache-2.0).
+
+## Version 1.0.1
+
+Adds an NCX fallback, explicit CC BY 4.0 rights, schema.org accessibility metadata, scripted-item declarations, and corrected navigation styling. Formal EPUBCheck validation remains a separate step.

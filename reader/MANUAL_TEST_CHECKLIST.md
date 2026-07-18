@@ -1,7 +1,7 @@
 # Manual test checklist — Edu Ebook Reader
 
 This is the manual verification procedure for the reader. Serve the folder over
-HTTP(S) (for example `node server.js`) and run each step in a modern browser.
+HTTPS in deployment, or localhost during development (for example `node server.js`), and run each step in a modern browser.
 **Tick a box only after you have confirmed the expected result yourself.**
 This file is a verification procedure, not a record of guaranteed results.
 

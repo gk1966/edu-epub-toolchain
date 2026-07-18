@@ -19,7 +19,7 @@ HTTPS server.
 - No accounts, no analytics, no server-side data collection.
 
 ## Run locally
-Serve the folder over HTTP(S), e.g.:
+Serve the folder over HTTPS in deployment, or from localhost during development, e.g.:
 ```
 node server.js
 ```
@@ -29,12 +29,11 @@ HTTPS host (or `127.0.0.1`); opening via `file://` is not sufficient.
 ## Demonstration module
 An interactive **sp hybridization in ethyne** EPUB (explanatory chapters, MP4
 videos, WebGL/Babylon.js 3D viewers and original comprehension questions) is
-provided as a **separate repository**, ready to open in this reader:
-<../demo/>
+provided with the public repository package, ready to open in this reader.
 
 ## Companion authoring tool
-EPUBs like the demo can be produced with **Edu EPUB Creator**:
-<../creator/>
+EPUBs like the demo can be produced with **Edu EPUB Creator**, included in the
+public repository package. Repository identifiers and citation metadata are included in this public release.
 
 ## Testing
 Functional behaviour can be verified with the manual procedure in
@@ -50,8 +49,10 @@ DRM-protected EPUBs. See `LEGAL_NOTE.md`.
 ## Citation
 See `CITATION.cff`.
 
-## Author
+The public Reader interface also includes a discreet **About / Σχετικά** dialog
+with the developer's academic affiliation, ORCID and a link to the MIT License. This attribution is omitted
+from anonymous peer-review builds.
 
-**Georgios Korakakis** — Assistant Professor, Department of Graphic Design and Visual Communication, School of Applied Arts and Culture, University of West Attica.
+## Version 1.0.1
 
-If you use this software, please cite it using the metadata in `CITATION.cff` (or the Zenodo DOI of the release).
+Clarifies that PWA installation requires HTTPS or localhost, improves install-state handling, and bundles the corrected public demonstration EPUB.

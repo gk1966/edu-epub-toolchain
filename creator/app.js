@@ -1,4 +1,4 @@
-const APP_VERSION = "0.5.2";
+const APP_VERSION = "0.5.3";
 
 const text = {
   en: {
@@ -212,7 +212,7 @@ const state = {
   activeMode: "visual",
   meta: {
     title: "Interactive Learning Book",
-    creator: "Anonymous",
+    creator: "Georgios Korakakis",
     language: "en",
     license: "CC BY 4.0",
     description: "An educational EPUB created with Edu EPUB Creator.",
@@ -741,6 +741,8 @@ document.addEventListener("DOMContentLoaded", () => {
 function bindElements() {
   [
     "languageSelect",
+    "aboutButton",
+    "aboutDialog",
     "uiLanguageLabel",
     "appSubtitle",
     "newProjectButton",
@@ -841,6 +843,7 @@ function bindEvents() {
   els.openProjectInput.addEventListener("change", loadProjectJson);
   els.exportButton.addEventListener("click", exportEpub);
   els.checkEpubButton.addEventListener("click", runExportCheck);
+  els.aboutButton.addEventListener("click", () => els.aboutDialog.showModal());
   els.validationExportButton.addEventListener("click", () => {
     pendingValidatedExport = true;
     if (els.validationDialog.open) els.validationDialog.close();
@@ -958,7 +961,7 @@ function bindEvents() {
 function createInitialProject() {
   state.meta = {
     title: "Interactive Learning Book",
-    creator: "Anonymous",
+    creator: "Georgios Korakakis",
     language: "en",
     license: "CC BY 4.0",
     description: "An educational EPUB created with Edu EPUB Creator.",

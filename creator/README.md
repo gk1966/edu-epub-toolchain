@@ -41,21 +41,16 @@ npm test
 runs the static smoke-test suite.
 
 ## Install as an app (PWA)
-When served over HTTP(S), open `install.html` (or the **Install** button in the
+When served over HTTPS (or localhost during development), open `install.html` (or the **Install** button in the
 top bar) to install Edu EPUB Creator as an offline-capable app.
 
 ## Companion reader
-EPUBs are designed to open in **Edu Ebook Reader**:
-<../reader/>
+EPUBs are designed to open in **Edu Ebook Reader**, included in the public
+repository package. Repository identifiers and citation metadata are included in this public release.
 
 ## License
 Code: **MIT** (see `LICENSE`). Third-party: see `THIRD-PARTY-NOTICES.md`.
 
-## Citation
-See `CITATION.cff`.
-
-## Author
-
-**Georgios Korakakis** — Assistant Professor, Department of Graphic Design and Visual Communication, School of Applied Arts and Culture, University of West Attica.
-
-If you use this software, please cite it using the metadata in `CITATION.cff` (or the Zenodo DOI of the release).
+The public Creator interface includes a discreet **About / Σχετικά** dialog with
+the developer's academic affiliation, ORCID and a link to the MIT License. This attribution is omitted from
+anonymous peer-review builds.

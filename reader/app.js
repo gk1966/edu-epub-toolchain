@@ -82,7 +82,7 @@
       authorTitle: "Author",
       readerArea: "EPUB reading area",
       emptyTitle: "Educational reading on every screen",
-      emptySubtitle: "Open local EPUB 3, PDF, TXT, Markdown, HTML, DOCX, ODT, FB2 or CBZ files for teaching, studio work and self-study.",
+      emptySubtitle: "Open local EPUB 3, PDF, TXT, Markdown, HTML, DOCX, ODT, FB2 or CBZ files for teaching, studio work and independent study.",
       openFile: "Open file",
       featuresLabel: "Features",
       chipMobile: "Mobile",
@@ -194,7 +194,7 @@
       authorTitle: "Στοιχεία",
       readerArea: "Περιοχή ανάγνωσης EPUB",
       emptyTitle: "Βιβλία και σημειώσεις σε κάθε οθόνη",
-      emptySubtitle: "Άνοιγμα τοπικού EPUB 3, PDF, TXT, Markdown, HTML, DOCX, ODT, FB2 ή CBZ για μάθημα, εργαστήριο ή αυτομελέτη.",
+      emptySubtitle: "Άνοιγμα τοπικού EPUB 3, PDF, TXT, Markdown, HTML, DOCX, ODT, FB2 ή CBZ για μάθημα, εργαστήριο ή ατομική μελέτη.",
       openFile: "Άνοιγμα αρχείου",
       featuresLabel: "Χαρακτηριστικά",
       chipMobile: "Κινητό",
@@ -312,6 +312,8 @@
     empty: document.getElementById("emptyState"),
     sidebar: document.getElementById("sidebar"),
     menuButton: document.getElementById("menuButton"),
+    aboutButton: document.getElementById("aboutButton"),
+    aboutDialog: document.getElementById("aboutDialog"),
     bookTitle: document.getElementById("bookTitle"),
     tocList: document.getElementById("tocList"),
     searchInput: document.getElementById("searchInput"),
@@ -367,6 +369,7 @@
   els.exportLearningButton.addEventListener("click", exportLearning);
   els.languageSelect.addEventListener("change", () => setLanguage(els.languageSelect.value));
   els.menuButton.addEventListener("click", () => els.sidebar.classList.toggle("open"));
+  els.aboutButton.addEventListener("click", () => els.aboutDialog.showModal());
   els.searchButton.addEventListener("click", runSearch);
   els.searchInput.addEventListener("keydown", (event) => {
     if (event.key === "Enter") runSearch();
@@ -402,7 +405,7 @@
     resizeTimer = window.setTimeout(() => renderPdfPage(state.pdfPage), 160);
   });
 
-  if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
+  if ("serviceWorker" in navigator && window.isSecureContext && location.protocol !== "file:") {
     navigator.serviceWorker.register("./service-worker.js").catch(() => {
       showToast(t("serviceWorkerError"));
     });

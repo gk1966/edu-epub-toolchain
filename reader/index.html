@@ -59,6 +59,7 @@
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>
           <span data-i18n="installApp">Install</span>
         </a>
+        <button class="icon-button about-button" id="aboutButton" type="button" aria-label="About / Σχετικά" title="About / Σχετικά">ⓘ</button>
       </div>
     </header>
 
@@ -172,7 +173,7 @@
             <svg viewBox="0 0 48 48"><path d="M11 8h18a8 8 0 0 1 8 8v24H17a6 6 0 0 0-6-6V8Z"/><path d="M17 40h20"/><path d="M17 16h13M17 23h15M17 30h10"/></svg>
           </div>
           <h1 data-i18n="emptyTitle">Educational reading on every screen</h1>
-          <p data-i18n="emptySubtitle">Open local EPUB 3, PDF, TXT, Markdown, HTML, DOCX, ODT, FB2 or CBZ files for teaching, studio work and self-study.</p>
+          <p data-i18n="emptySubtitle">Open local EPUB 3, PDF, TXT, Markdown, HTML, DOCX, ODT, FB2 or CBZ files for teaching, studio work and independent study.</p>
           <label class="primary-action" for="epubInput" data-i18n="openFile">Open file</label>
           <div class="empty-chips" aria-label="Features" data-i18n-aria="featuresLabel">
             <span data-i18n="chipMobile">Mobile</span>
@@ -206,11 +207,29 @@
     </footer>
 
     <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <dialog id="aboutDialog" class="about-dialog" aria-labelledby="aboutDialogTitle">
+      <form method="dialog" class="about-dialog-card">
+        <div class="about-dialog-header">
+          <div>
+            <p class="about-eyebrow">About · Σχετικά</p>
+            <h2 id="aboutDialogTitle">Edu Ebook Reader</h2>
+          </div>
+          <button class="icon-button" value="cancel" type="submit" aria-label="Close / Κλείσιμο">×</button>
+        </div>
+        <p class="about-developed">Developed by</p>
+        <p class="about-name"><strong>Georgios Korakakis</strong></p>
+        <p>Assistant Professor, Department of Graphic Design and Visual Communication,<br>School of Applied Arts and Culture, University of West Attica</p>
+        <p><a href="https://orcid.org/0009-0005-0042-6348" target="_blank" rel="noopener noreferrer">ORCID 0009-0005-0042-6348</a></p>
+        <p class="about-note">© 2026 Georgios Korakakis · Licensed under the <a href="./LICENSE" target="_blank" rel="noopener noreferrer">MIT License</a><br>Το λογισμικό διατίθεται με άδεια MIT.</p>
+        <div class="about-dialog-actions">
+          <button value="cancel" type="submit">Close · Κλείσιμο</button>
+        </div>
+      </form>
+    </dialog>
   </div>
 
   <script src="./vendor/jszip.min.js"></script>
   <script src="./app.js" defer></script>
-
-<footer style="margin:2rem auto 1rem; text-align:center; font-size:0.75rem; opacity:0.6;">Created by Georgios Korakakis &middot; Assistant Professor, Department of Graphic Design and Visual Communication, School of Applied Arts and Culture, University of West Attica</footer>
 </body>
 </html>

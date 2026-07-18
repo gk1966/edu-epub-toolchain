@@ -34,6 +34,7 @@
       <button id="checkEpubButton" type="button">Check EPUB</button>
       <button id="exportButton" class="primary" type="button">Export EPUB</button>
       <a id="installAppLink" class="file-button" href="./install.html" title="Install application">Install</a>
+      <button id="aboutButton" class="icon-button about-button" type="button" aria-label="About / Σχετικά" title="About / Σχετικά">ⓘ</button>
     </div>
   </header>
 
@@ -251,18 +252,36 @@
     </form>
   </dialog>
 
+  <dialog id="aboutDialog" class="validation-dialog about-dialog" aria-labelledby="aboutDialogTitle">
+    <form method="dialog" class="validation-dialog-card">
+      <div class="validation-dialog-header">
+        <div>
+          <p class="eyebrow">About · Σχετικά</p>
+          <h2 id="aboutDialogTitle">Edu EPUB Creator</h2>
+        </div>
+        <button class="icon-button" value="cancel" type="submit" aria-label="Close / Κλείσιμο">×</button>
+      </div>
+      <p class="about-developed">Developed by</p>
+      <p class="about-name"><strong>Georgios Korakakis</strong></p>
+      <p>Assistant Professor, Department of Graphic Design and Visual Communication,<br>School of Applied Arts and Culture, University of West Attica</p>
+      <p><a href="https://orcid.org/0009-0005-0042-6348" target="_blank" rel="noopener noreferrer">ORCID 0009-0005-0042-6348</a></p>
+      <p class="about-note">© 2026 Georgios Korakakis · Licensed under the <a href="./LICENSE" target="_blank" rel="noopener noreferrer">MIT License</a><br>Το λογισμικό διατίθεται με άδεια MIT.</p>
+      <div class="validation-dialog-actions">
+        <button value="cancel" type="submit">Close · Κλείσιμο</button>
+      </div>
+    </form>
+  </dialog>
+
   <script src="./vendor/jszip.min.js"></script>
   <script src="./vendor/mammoth.browser.min.js"></script>
   <script src="./vendor/marked.umd.js"></script>
   <script src="./app.js?v=20260610-langs"></script>
   <script>
-    if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
+    if ("serviceWorker" in navigator && window.isSecureContext && location.protocol !== "file:") {
       window.addEventListener("load", function () {
         navigator.serviceWorker.register("./service-worker.js").catch(function () {});
       });
     }
   </script>
-
-<footer style="margin:2rem auto 1rem; text-align:center; font-size:0.75rem; opacity:0.6;">Created by Georgios Korakakis &middot; Assistant Professor, Department of Graphic Design and Visual Communication, School of Applied Arts and Culture, University of West Attica</footer>
 </body>
 </html>
