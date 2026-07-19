@@ -10,7 +10,7 @@ authors:
     affiliation: "Department of Graphic Design and Visual Communication, School of Applied Arts and Culture, University of West Attica"
 version: "1.0.2"
 date-released: "2026-07-19"
-license: CC-BY-4.0
+license: CC-BY-NC-4.0
 repository-code: "https://github.com/gk1966/edu-epub-toolchain"
 keywords:
   - EPUB 3
