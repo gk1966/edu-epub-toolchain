@@ -3,7 +3,8 @@
 A local-first, browser-based **authoring tool** for building interactive,
 accessible educational **EPUB 3** books — visually or in XHTML source — and
 exporting a structured EPUB package (mimetype, container.xml, package.opf,
-nav.xhtml, NCX, accessibility metadata, organized assets, optional cover).
+nav.xhtml, legacy NCX navigation, conservative accessibility metadata,
+organized assets, optional cover, and XHTML fallbacks for HTML spine items).
 
 ## Features
 - Visual editor + XHTML source + live preview.
@@ -25,7 +26,7 @@ nav.xhtml, NCX, accessibility metadata, organized assets, optional cover).
 - Import images / video / audio / CSS / HTML; **HTML package import** rewrites
   local references and supports embedded interactive HTML / 3D (WebGL) chapters.
 - Cover image, autosave, save/open project JSON, bilingual UI (English / Greek).
-- Exports EPUB 3 with Dublin Core + accessibility metadata and EPUB 2 NCX.
+- Exports a structured EPUB 3 package with Dublin Core, advisory accessibility metadata, legacy NCX navigation, and XHTML fallbacks for foreign HTML spine items. Separate EPUBCheck validation remains recommended.
 
 ## Run locally
 Open `index.html` directly, or run the static server:
@@ -51,6 +52,6 @@ repository package. Repository identifiers and citation metadata are included in
 ## License
 Code: **MIT** (see `LICENSE`). Third-party: see `THIRD-PARTY-NOTICES.md`.
 
-The public Creator interface includes a discreet **About / Σχετικά** dialog with
-the developer's academic affiliation, ORCID and a link to the MIT License. This attribution is omitted from
-anonymous peer-review builds.
+## Version 0.5.4
+
+Adds XHTML fallbacks for foreign HTML spine items, conservative content-dependent accessibility metadata, refreshed offline caching, and strengthened regression assertions. The bundled suites pass 57/57 static checks and 8/8 preview-security checks.

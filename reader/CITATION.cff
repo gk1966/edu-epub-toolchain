@@ -8,8 +8,8 @@ authors:
     given-names: Georgios
     orcid: "https://orcid.org/0009-0005-0042-6348"
     affiliation: "Department of Graphic Design and Visual Communication, School of Applied Arts and Culture, University of West Attica"
-version: "1.0.1"
-date-released: "2026-07-18"
+version: "1.0.2"
+date-released: "2026-07-19"
 license: MIT
 repository-code: "https://github.com/gk1966/edu-epub-toolchain"
 url: "https://github.com/gk1966/edu-epub-toolchain"

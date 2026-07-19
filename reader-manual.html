@@ -20,8 +20,8 @@
 <li>Plays embedded audio and video.</li>
 </ul></div></details>
 <details class="acc reveal"><summary>Privacy &amp; security</summary><div class="body"><ul class="flist ok">
-<li>Files are opened locally through browser APIs and are never uploaded.</li>
-<li>No accounts, no analytics, no server‑side data collection.</li>
+<li>Files are opened locally through browser APIs; the application contains no book‑upload function.</li>
+<li>No application accounts or analytics are included. A hosting provider may still process ordinary connection logs under its own policy.</li>
 <li>EPUB content runs in a sandbox that blocks external network access and disallows iframe, object, embed and form submission.</li>
 <li>Detects DRM / encryption markers (rights.xml, encryption.xml, Readium LCP) and refuses such files; contains no decryption.</li>
 </ul></div></details>
@@ -34,7 +34,7 @@
 
 <h2 class="section-title reveal" style="margin-top:34px">Limitations</h2>
 <div class="panel reveal"><ul class="flist lim">
-<li>It cannot open DRM‑protected or encrypted commercial ebooks — this is intentional and lawful behaviour, not a bug.</li>
+<li>It is not designed to open DRM‑protected publications; this is an intentional scope decision, not a bug.</li>
 <li>It is not a full commercial EPUB engine; some non‑EPUB formats (DOCX, ODT, FB2, Markdown) are basic display only.</li>
 <li>3D content depends on WebGL support and device performance.</li>
 <li>It does not support Kindle formats (AZW/KFX).</li>

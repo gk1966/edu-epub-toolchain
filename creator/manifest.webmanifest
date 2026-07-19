@@ -1,7 +1,7 @@
 {
   "name": "Edu EPUB Creator",
   "short_name": "Edu Creator",
-  "description": "A local-first, browser-based authoring tool for building accessible, interactive educational EPUB 3 books.",
+  "description": "A local-first, browser-based authoring tool for building interactive educational EPUB 3 books with accessibility-oriented support.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

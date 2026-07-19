@@ -1,15 +1,15 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
 title: "Edu EPUB Creator"
-abstract: "A local-first authoring tool for interactive, accessible educational EPUB 3 books."
+abstract: "A local-first authoring tool for interactive, accessibility-oriented educational EPUB 3 books."
 type: software
 authors:
   - family-names: Korakakis
     given-names: Georgios
     orcid: "https://orcid.org/0009-0005-0042-6348"
     affiliation: "Department of Graphic Design and Visual Communication, School of Applied Arts and Culture, University of West Attica"
-version: "0.5.3"
-date-released: "2026-07-18"
+version: "0.5.4"
+date-released: "2026-07-19"
 license: MIT
 repository-code: "https://github.com/gk1966/edu-epub-toolchain"
 url: "https://github.com/gk1966/edu-epub-toolchain"

@@ -7,11 +7,11 @@ accessible educational publications with embedded WebGL/Babylon.js 3D content.
 
 | Component | Folder | Version | License | What it is |
 |---|---|---|---|---|
-| Edu EPUB Creator | [`creator/`](creator/) | 0.5.3 | MIT | Browser-based authoring tool: visual/XHTML/preview editing, reusable learning blocks, Word/Markdown/EPUB/HTML import, and structured EPUB 3 export with navigation and accessibility metadata |
-| Edu Ebook Reader | [`reader/`](reader/) | 1.0.1 | MIT | Installable PWA reader for EPUB 3 with scripting/WebGL support, plus PDF, TXT, MD, HTML, CBZ, DOCX, ODT and FB2 display; refuses DRM-protected files |
-| Demo module | [`demo/`](demo/) | 1.0.1 | CC BY 4.0 | Interactive chemistry EPUB 3 on sp hybridization in ethyne: 3D molecular/orbital viewers, video and self-check quiz |
+| Edu EPUB Creator | [`creator/`](creator/) | 0.5.4 | MIT | Browser-based authoring tool: visual/XHTML/preview editing, reusable learning blocks, Word/Markdown/EPUB/HTML import, and structured EPUB 3 export with navigation and accessibility metadata |
+| Edu Ebook Reader | [`reader/`](reader/) | 1.0.2 | MIT | Installable PWA reader for EPUB 3 with scripting/WebGL support, plus PDF, TXT, MD, HTML, CBZ, DOCX, ODT and FB2 display; refuses DRM-protected files |
+| Demo module | [`demo/`](demo/) | 1.0.2 | CC BY 4.0 | Interactive chemistry EPUB 3 on sp hybridization in ethyne: 3D molecular/orbital viewers, video and self-check quiz |
 
-Everything runs locally in the browser: no accounts, analytics or uploads. PWA
+The applications use no app accounts, analytics, or book-upload service; local files remain in the browser. The hosting provider may retain ordinary server logs. PWA
 installation requires HTTPS, or localhost during development; opening the apps from
 `file://` does not install them. The Reader does not remove or bypass DRM and is
 intended for original, open or otherwise permitted educational materials.

@@ -76,7 +76,7 @@
       securityTitle: "Security",
       securityLocal: "Local file",
       securitySandbox: "Sandbox",
-      securityNetwork: "External network blocked",
+      securityNetwork: "External network blocked in EPUB sandbox",
       securityDrm: "Does not bypass DRM",
       drmBlocked: "This EPUB appears to use DRM or encrypted resources. This reader does not bypass DRM; open it with an authorized reader, or use an unprotected file you have the right to use.",
       authorTitle: "Author",
@@ -188,7 +188,7 @@
       securityTitle: "Ασφάλεια",
       securityLocal: "Τοπικό αρχείο",
       securitySandbox: "Sandbox",
-      securityNetwork: "Χωρίς εξωτερικό δίκτυο",
+      securityNetwork: "Χωρίς εξωτερικό δίκτυο στο sandbox του EPUB",
       securityDrm: "Δεν παρακάμπτει DRM",
       drmBlocked: "Αυτό το EPUB φαίνεται να χρησιμοποιεί DRM ή κρυπτογραφημένους πόρους. Ο reader δεν παρακάμπτει DRM· άνοιξέ το με εξουσιοδοτημένο reader ή χρησιμοποίησε μη προστατευμένο αρχείο που έχεις δικαίωμα να χρησιμοποιήσεις.",
       authorTitle: "Στοιχεία",
@@ -312,8 +312,6 @@
     empty: document.getElementById("emptyState"),
     sidebar: document.getElementById("sidebar"),
     menuButton: document.getElementById("menuButton"),
-    aboutButton: document.getElementById("aboutButton"),
-    aboutDialog: document.getElementById("aboutDialog"),
     bookTitle: document.getElementById("bookTitle"),
     tocList: document.getElementById("tocList"),
     searchInput: document.getElementById("searchInput"),
@@ -369,7 +367,6 @@
   els.exportLearningButton.addEventListener("click", exportLearning);
   els.languageSelect.addEventListener("change", () => setLanguage(els.languageSelect.value));
   els.menuButton.addEventListener("click", () => els.sidebar.classList.toggle("open"));
-  els.aboutButton.addEventListener("click", () => els.aboutDialog.showModal());
   els.searchButton.addEventListener("click", runSearch);
   els.searchInput.addEventListener("keydown", (event) => {
     if (event.key === "Enter") runSearch();

@@ -1,6 +1,6 @@
 {
   "title": "Edu Ebook Reader: A DRM-free progressive web app for interactive 3D educational EPUB content",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "upload_type": "software",
   "license": "MIT",
   "creators": [
@@ -20,5 +20,5 @@
     "accessibility",
     "DRM-free"
   ],
-  "description": "Open-source, DRM-free Progressive Web App for reading interactive, accessible educational EPUB 3 content offline and locally, including scripted and WebGL 3D material. A companion sp hybridization demonstration module is available as a separate repository."
+  "description": "A local-first educational reading application for permitted DRM-free materials. Version 1.0.2 clarifies app-level privacy and DRM scope, refreshes the offline cache, and bundles the corrected demonstration EPUB."
 }

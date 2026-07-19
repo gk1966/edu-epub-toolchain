@@ -1,4 +1,4 @@
-const APP_VERSION = "0.5.3";
+const APP_VERSION = "0.5.4";
 
 const text = {
   en: {
@@ -741,8 +741,6 @@ document.addEventListener("DOMContentLoaded", () => {
 function bindElements() {
   [
     "languageSelect",
-    "aboutButton",
-    "aboutDialog",
     "uiLanguageLabel",
     "appSubtitle",
     "newProjectButton",
@@ -843,7 +841,6 @@ function bindEvents() {
   els.openProjectInput.addEventListener("change", loadProjectJson);
   els.exportButton.addEventListener("click", exportEpub);
   els.checkEpubButton.addEventListener("click", runExportCheck);
-  els.aboutButton.addEventListener("click", () => els.aboutDialog.showModal());
   els.validationExportButton.addEventListener("click", () => {
     pendingValidatedExport = true;
     if (els.validationDialog.open) els.validationDialog.close();
@@ -2523,13 +2520,22 @@ async function performExportEpub() {
       ? chapter.content
       : xhtmlDocument(chapter.title, chapter.content);
     chaptersFolder.file(href.replace("chapters/", ""), content);
-    return {
+    const item = {
       id: `chapter-${index + 1}`,
       href,
       title: chapter.title,
       mediaType: chapter.kind === "html" ? "text/html" : "application/xhtml+xml",
-      properties: chapter.kind === "html" || /<script[\s>]/i.test(chapter.content) ? "scripted" : "",
+      properties: chapter.kind === "xhtml" && /<script[\s>]/i.test(chapter.content) ? "scripted" : "",
     };
+    if (chapter.kind === "html") {
+      item.fallbackId = `${item.id}-fallback`;
+      item.fallbackHref = `chapters/${String(index + 1).padStart(2, "0")}-${safeFileBase(chapter.title)}-fallback.xhtml`;
+      chaptersFolder.file(
+        item.fallbackHref.replace("chapters/", ""),
+        interactiveFallbackXhtml(chapter.title, chapter.content),
+      );
+    }
+    return item;
   });
 
   const bookId = "urn:uuid:" + makeUuid();
@@ -2568,7 +2574,12 @@ function packageOpf(chapterItems, bookId) {
   ).join("\n    ");
   const chapterManifest = chapterItems.map((item) => {
     const properties = item.properties ? ` properties="${xmlAttr(item.properties)}"` : "";
-    return `<item id="${xmlAttr(item.id)}" href="${xmlAttr(item.href)}" media-type="${xmlAttr(item.mediaType)}"${properties} />`;
+    const fallback = item.fallbackId ? ` fallback="${xmlAttr(item.fallbackId)}"` : "";
+    const primary = `<item id="${xmlAttr(item.id)}" href="${xmlAttr(item.href)}" media-type="${xmlAttr(item.mediaType)}"${properties}${fallback} />`;
+    const alternative = item.fallbackId
+      ? `\n    <item id="${xmlAttr(item.fallbackId)}" href="${xmlAttr(item.fallbackHref)}" media-type="application/xhtml+xml" />`
+      : "";
+    return primary + alternative;
   }).join("\n    ");
   const spine = chapterItems.map((item) => `<itemref idref="${xmlAttr(item.id)}" />`).join("\n    ");
   return `<?xml version="1.0" encoding="utf-8"?>
@@ -3321,22 +3332,62 @@ ${navPoints}
 </ncx>`;
 }
 
+function interactiveFallbackXhtml(title, sourceHtml) {
+  const parsed = new DOMParser().parseFromString(sourceHtml || "", "text/html");
+  parsed.querySelectorAll("script, style, canvas, template, noscript").forEach((node) => node.remove());
+  const extracted = (parsed.body?.textContent || "").replace(/\s+/g, " ").trim();
+  const summary = extracted
+    ? extracted.slice(0, 1800)
+    : "No equivalent text was supplied in the imported interactive chapter.";
+  return `<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="${xmlAttr(state.meta.language)}" xml:lang="${xmlAttr(state.meta.language)}">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>${escapeXml(title)} — interactive fallback</title>
+  <link rel="stylesheet" href="../styles/book.css" />
+</head>
+<body>
+  <main>
+    <h1>${escapeXml(title)}</h1>
+    <p>This chapter contains scripted interactive material. The following text is provided as a fallback for reading systems that do not support its HTML media type.</p>
+    <p>${escapeXml(summary)}</p>
+  </main>
+</body>
+</html>`;
+}
+
 function accessibilityMeta() {
-  const hasImage = Boolean(state.cover) || state.assets.some((asset) => (asset.type || "").startsWith("image/"));
-  const hasAv = state.assets.some((asset) => /^(audio|video)\//.test(asset.type || ""));
+  let imageCount = state.cover ? 1 : 0;
+  let imagesWithAlt = state.cover ? 1 : 0;
+  let hasAv = false;
+  let hasInteractiveVisual = false;
+  state.chapters.forEach((chapter) => {
+    const parsed = new DOMParser().parseFromString(chapter.content || "", "text/html");
+    parsed.querySelectorAll("img").forEach((image) => {
+      imageCount += 1;
+      if ((image.getAttribute("alt") || "").trim()) imagesWithAlt += 1;
+    });
+    if (parsed.querySelector("audio, video")) hasAv = true;
+    if (chapter.kind === "html" || parsed.querySelector("canvas, iframe, model-viewer")) {
+      hasInteractiveVisual = true;
+    }
+  });
+  const hasImage = imageCount > 0;
+  const allImagesHaveAlt = hasImage && imageCount === imagesWithAlt;
   const modes = ["textual"];
-  if (hasImage) modes.push("visual");
+  if (hasImage || hasInteractiveVisual) modes.push("visual");
   if (hasAv) modes.push("auditory");
   const features = ["structuralNavigation"];
-  if (hasImage) features.push("alternativeText");
+  if (allImagesHaveAlt) features.push("alternativeText");
   const summary = state.meta.language === "el"
-    ? "Εκπαιδευτικό EPUB με δομημένη πλοήγηση και εναλλακτικό κείμενο όπου υπάρχουν εικόνες."
-    : "Educational EPUB with structural navigation and alternative text where images are present.";
+    ? `Εκπαιδευτικό EPUB με δομημένη πλοήγηση. ${allImagesHaveAlt ? "Οι εικόνες που χρησιμοποιούνται περιλαμβάνουν εναλλακτικό κείμενο. " : "Τα μεταδεδομένα προσβασιμότητας πρέπει να ελεγχθούν πριν από τη διανομή. "}Η δήλωση αυτή δεν αποτελεί πιστοποίηση προσβασιμότητας.`
+    : `Educational EPUB with structural navigation. ${allImagesHaveAlt ? "Images in use include text alternatives. " : "Accessibility metadata should be reviewed before distribution. "}This statement is not an accessibility certification.`;
   const lines = [];
   modes.forEach((mode) => lines.push(`<meta property="schema:accessMode">${mode}</meta>`));
-  lines.push(`<meta property="schema:accessModeSufficient">textual</meta>`);
   features.forEach((feature) => lines.push(`<meta property="schema:accessibilityFeature">${feature}</meta>`));
-  lines.push(`<meta property="schema:accessibilityHazard">none</meta>`);
+  lines.push(`<meta property="schema:accessibilityHazard">unknown</meta>`);
   lines.push(`<meta property="schema:accessibilitySummary">${escapeXml(summary)}</meta>`);
   return lines.map((line) => `    ${line}`).join("\n");
 }

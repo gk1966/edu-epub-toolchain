@@ -1,6 +1,6 @@
 {
   "title": "Edu EPUB Creator: A local-first authoring tool for interactive educational EPUB 3",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "upload_type": "software",
   "license": "MIT",
   "creators": [
@@ -17,5 +17,5 @@
     "accessibility",
     "interactive learning"
   ],
-  "description": "A local-first, browser-based authoring tool for building interactive, accessible educational EPUB 3 books with a visual editor, reusable learning blocks, multimedia and 3D/HTML import, structured EPUB 3 export, a sandboxed preview and a deny-by-default content security policy for imported content. Formal conformance validation should be performed separately with EPUBCheck."
+  "description": "A local-first browser authoring tool for structured educational EPUB 3 packages. Version 0.5.4 adds XHTML fallbacks for foreign HTML spine items and conservative, content-dependent accessibility metadata. Every export still requires independent EPUBCheck and editorial/accessibility review."
 }

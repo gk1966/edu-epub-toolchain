@@ -28,7 +28,8 @@
 <details class="acc reveal"><summary>Standards‑based export</summary><div class="body"><ul class="flist ok">
 <li>Structured EPUB 3 package (mimetype, container, package document).</li>
 <li>Navigation document and EPUB 2 NCX for backward compatibility.</li>
-<li>Dublin Core and schema.org accessibility metadata; organised asset folders and styles.</li>
+<li>Dublin Core and conservative schema.org accessibility metadata; organised asset folders and styles. Metadata is advisory and requires review before distribution.</li>
+<li>Scripted HTML spine items are linked to generated XHTML fallback summaries for reading systems that do not support their media type.</li>
 <li>Optional cover image.</li>
 </ul></div></details>
 <details class="acc reveal"><summary>Workflow &amp; interface</summary><div class="body"><ul class="flist ok">
@@ -45,7 +46,7 @@
 <li>For strict conformance, validate the exported file with EPUBCheck separately.</li>
 <li>PWA installation and offline caching require HTTPS, or localhost during development. Opening the files through <code>file://</code> or ordinary insecure remote HTTP is not equivalent to installing the app.</li>
 </ul></div>
-<div class="note reveal" style="margin-top:18px"><strong>Why this matters:</strong> the tool is designed so that teachers who are not familiar with EPUB internals can still produce standards‑based, accessible, interactive EPUB 3.</div>
+<div class="note reveal" style="margin-top:18px"><strong>Why this matters:</strong> the tool is designed so that teachers who are not familiar with EPUB internals can still produce structured, interactive EPUB 3 packages with accessibility‑oriented authoring support. Formal validation and accessibility review remain separate steps.</div>
 </div></section>
 <footer><div class="wrap"><strong>Georgios Korakakis</strong> &middot; Assistant Professor, Department of Graphic Design and Visual Communication, School of Applied Arts and Culture, University of West Attica &middot; <a href="https://orcid.org/0009-0005-0042-6348">ORCID 0009-0005-0042-6348</a></div></footer>
 </body></html>

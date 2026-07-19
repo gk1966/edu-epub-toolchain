@@ -28,3 +28,7 @@ Bundled third-party library: Babylon.js (Apache-2.0).
 ## Version 1.0.1
 
 Adds an NCX fallback, explicit CC BY 4.0 rights, schema.org accessibility metadata, scripted-item declarations, and corrected navigation styling. Formal EPUBCheck validation remains a separate step.
+
+## Version 1.0.2
+
+Adds XHTML fallback resources for foreign HTML spine items, conservative accessibility metadata, and Babylon.js Apache 2.0 license/notice files. The packaged demo passes official EPUBCheck 5.3.0 with zero errors and zero warnings.

@@ -16,7 +16,7 @@ HTTPS server.
 - Bilingual UI (English / Greek); remembers last reading position per file.
 - Local learning tools: bookmarks, private page notes and an exportable notes JSON file. No account or cloud sync is used.
 - **Does not bypass DRM**: encrypted / rights-protected EPUBs are refused.
-- No accounts, no analytics, no server-side data collection.
+- No application accounts or analytics. The app contains no book-upload function; a hosting provider may still process ordinary connection logs under its own policy.
 
 ## Run locally
 Serve the folder over HTTPS in deployment, or from localhost during development, e.g.:
@@ -49,10 +49,6 @@ DRM-protected EPUBs. See `LEGAL_NOTE.md`.
 ## Citation
 See `CITATION.cff`.
 
-The public Reader interface also includes a discreet **About / Σχετικά** dialog
-with the developer's academic affiliation, ORCID and a link to the MIT License. This attribution is omitted
-from anonymous peer-review builds.
+## Version 1.0.2
 
-## Version 1.0.1
-
-Clarifies that PWA installation requires HTTPS or localhost, improves install-state handling, and bundles the corrected public demonstration EPUB.
+Clarifies app-level privacy and DRM scope, refreshes the offline cache, and bundles the corrected v1.0.2 demonstration EPUB. Hosting-provider logs remain outside the application's control.
