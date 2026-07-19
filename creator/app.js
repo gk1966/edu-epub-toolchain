@@ -819,6 +819,8 @@ function bindElements() {
     "validationSummary",
     "validationList",
     "validationExportButton",
+    "aboutButton",
+    "aboutDialog",
   ].forEach((id) => {
     els[id] = document.getElementById(id);
   });
@@ -846,6 +848,16 @@ function bindEvents() {
     if (els.validationDialog.open) els.validationDialog.close();
     exportEpub();
   });
+  if (els.aboutButton && els.aboutDialog) {
+    els.aboutButton.addEventListener("click", () => {
+      if (els.aboutDialog.open) return;
+      if (typeof els.aboutDialog.showModal === "function") {
+        els.aboutDialog.showModal();
+      } else {
+        els.aboutDialog.setAttribute("open", "");
+      }
+    });
+  }
 
   els.addChapterButton.addEventListener("click", () => addChapter());
   els.importHtmlButton.addEventListener("click", () => els.importHtmlInput.click());

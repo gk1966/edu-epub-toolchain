@@ -26,7 +26,7 @@ const checks = {
   columnAssetInsertion: app.includes("nearestEditorColumn") && app.includes("insertBlockInsideColumn") && app.includes("findColumnBlockAnchor"),
   sourcePreviewSyncGuard: app.includes('state.activeMode === "visual" && chapter.kind === "xhtml"'),
   noPreviewVisualOverwrite: !app.includes('} else if (chapter.kind === "xhtml") {'),
-  cacheVersion: html.includes("20260719-final"),
+  cacheVersion: html.includes("20260719-about") && app.includes("aboutButton") && app.includes("aboutDialog") && app.includes("showModal"),
   bookLanguagesMany: (html.match(/<option value="[a-z]{2}">/g) || []).length >= 40,
   importMenuHtml: html.includes('class="import-menu"') && html.includes('id="importMenuSummary"'),
   mdTxtEpubHtml: html.includes('id="importDocInput"') && html.includes('id="importEpubInput"') && html.includes("marked.umd.js"),

@@ -348,6 +348,8 @@
     noteInput: document.getElementById("noteInput"),
     saveNoteButton: document.getElementById("saveNoteButton"),
     noteList: document.getElementById("noteList"),
+    aboutButton: document.getElementById("aboutButton"),
+    aboutDialog: document.getElementById("aboutDialog"),
     toast: document.getElementById("toast")
   };
 
@@ -394,6 +396,16 @@
   });
   els.readAloudButton.addEventListener("click", readCurrentTextAloud);
   els.stopSpeechButton.addEventListener("click", stopSpeech);
+  if (els.aboutButton && els.aboutDialog) {
+    els.aboutButton.addEventListener("click", () => {
+      if (els.aboutDialog.open) return;
+      if (typeof els.aboutDialog.showModal === "function") {
+        els.aboutDialog.showModal();
+      } else {
+        els.aboutDialog.setAttribute("open", "");
+      }
+    });
+  }
 
   window.addEventListener("message", handleFrameMessage);
   window.addEventListener("resize", () => {
