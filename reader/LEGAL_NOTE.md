@@ -21,7 +21,7 @@ been independently certified for WCAG or European Accessibility Act conformance.
 
 ## Content and licensing
 - Software: **MIT License** (see `LICENSE`).
-- Original educational content and media (e.g. the demonstration module): **CC BY 4.0**.
+- Original educational content and media (e.g. the demonstration module): **CC BY-NC 4.0**.
 - Third-party libraries: see `THIRD-PARTY-NOTICES.md` and `licenses/`.
 - The project is intended for original, openly licensed, public-domain, or otherwise
   permitted DRM-free material. Users remain responsible for the rights in content
