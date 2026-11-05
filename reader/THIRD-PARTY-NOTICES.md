@@ -18,3 +18,12 @@ or uses the following third-party components, each under its own license.
 ## Browser platform APIs
 File API, localStorage, Service Workers, Web App Manifest and the Web Speech
 `speechSynthesis` API are provided by the host browser and are not redistributed.
+
+## pako (bundled inside JSZip)
+
+- Purpose: DEFLATE/INFLATE compression used by JSZip to read ZIP-based formats.
+  pako is not shipped as a separate file; it is compiled *inside*
+  `vendor/jszip.min.js`.
+- Repository: https://github.com/nodeca/pako
+- License: MIT AND Zlib (© 2014-2017 Vitaly Puzrin and Andrei Tuputcyn; zlib © 1995-2013 Jean-loup Gailly and Mark Adler).
+- Full text in `licenses/MIT-pako.txt`.
