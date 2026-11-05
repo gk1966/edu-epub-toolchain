@@ -28,8 +28,8 @@ HTTPS host (or `127.0.0.1`); opening via `file://` is not sufficient.
 
 ## Demonstration module
 An interactive **sp hybridization in ethyne** EPUB (explanatory chapters, MP4
-videos, WebGL/Babylon.js 3D viewers and original comprehension questions) is
-provided with the public repository package, ready to open in this reader.
+videos, accessible WebGL 3D viewers and original comprehension questions) is
+included as `demo-sp-hybridization-v3.0.epub`, ready to open in this reader.
 
 ## Companion authoring tool
 EPUBs like the demo can be produced with **Edu EPUB Creator**, included in the
@@ -48,6 +48,16 @@ DRM-protected EPUBs. See `LEGAL_NOTE.md`.
 
 ## Citation
 See `CITATION.cff`.
+
+## Version 1.1.1 (2026-11-05)
+
+Respects PDF permission flags: page text is shown, searched or read aloud only when the PDF allows copying or extraction for accessibility. See `CHANGELOG.md`.
+
+## Version 1.1.0 (2026-11-01)
+
+Accessibility of the interface: skip link, live announcements of the current section or page, focus moved to the start of a new section, contents as a navigation landmark with `aria-current`, global visible focus outline and contrast fixes, and an "Accessibility of this book" panel built from the publication's schema.org accessibility metadata. EPUB 3 rendering: chapter language and direction kept, reader theme and reduced-motion preference passed to the content, full-width layout for 3D pages, a "Text version" button for manifest fallbacks, in-page fragment links without reloading. DRM scope, sandbox and third-party code are unchanged. Details: `CHANGELOG.md`.
+
+The bundled demonstration EPUB in this archive is `demo-sp-hybridization-v3.0.epub` (English, CC BY-NC 4.0). It includes a correction of 5 November 2026 to its 3D viewer: arrow keys used to rotate a model are no longer passed on to the reading system.
 
 ## Version 1.0.2
 

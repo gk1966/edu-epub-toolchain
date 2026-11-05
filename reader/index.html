@@ -10,9 +10,10 @@
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
+  <a class="skip-link" href="#readerPane" id="skipLink" data-i18n="skipToContent">Skip to reading area</a>
   <div class="app">
     <header class="topbar">
-      <button class="icon-button menu-button" id="menuButton" type="button" aria-label="Book panel" title="Book panel" data-i18n-aria="bookPanel" data-i18n-title="bookPanel">
+      <button class="icon-button menu-button" id="menuButton" type="button" aria-controls="sidebar" aria-expanded="false" aria-label="Book panel" title="Book panel" data-i18n-aria="bookPanel" data-i18n-title="bookPanel">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
       </button>
 
@@ -43,6 +44,9 @@
         <button class="icon-button" id="bookmarkButton" type="button" aria-label="Add bookmark" title="Add bookmark" data-i18n-aria="addBookmark" data-i18n-title="addBookmark" disabled>
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4.5A1.5 1.5 0 0 1 7.5 3h9A1.5 1.5 0 0 1 18 4.5V21l-6-3.5L6 21V4.5Z"/></svg>
         </button>
+        <button class="icon-button" id="altButton" type="button" aria-pressed="false" aria-label="Text version" title="Text version" data-i18n-aria="textVersion" data-i18n-title="textVersion" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l3 3v15H6zM9 10h6M9 14h6M9 18h4"/></svg>
+        </button>
         <label class="language-control" for="languageSelect">
           <span data-i18n="languageLabel">Language</span>
           <select id="languageSelect" aria-label="Language" data-i18n-aria="languageLabel">
@@ -69,9 +73,14 @@
 
     <main class="shell">
       <aside class="sidebar" id="sidebar" aria-label="Book panel" data-i18n-aria="bookPanel">
-        <section class="panel">
-          <h2 data-i18n="contentsTitle">Contents</h2>
+        <nav class="panel" aria-labelledby="tocHeading">
+          <h2 id="tocHeading" data-i18n="contentsTitle">Contents</h2>
           <ol id="tocList" class="toc-list"></ol>
+        </nav>
+
+        <section class="panel book-a11y-panel" id="bookA11yPanel" aria-labelledby="bookA11yHeading" hidden>
+          <h2 id="bookA11yHeading" data-i18n="bookA11yTitle">Accessibility of this book</h2>
+          <div id="bookA11y" class="book-a11y"></div>
         </section>
 
         <section class="panel search-panel">
@@ -150,7 +159,7 @@
           </div>
           <div class="learning-section">
             <label for="noteInput" data-i18n="noteLabel">Note for this page</label>
-            <textarea id="noteInput" rows="3" data-i18n-placeholder="notePlaceholder" placeholder="Write a private note..." disabled></textarea>
+            <textarea id="noteInput" rows="3" data-i18n-placeholder="notePlaceholder" placeholder="Write a local note..." disabled></textarea>
             <button id="saveNoteButton" class="compact-button" type="button" data-i18n="saveNote" disabled>Save note</button>
             <ul id="noteList" class="learning-list"></ul>
           </div>
@@ -167,7 +176,9 @@
         </section>
       </aside>
 
-      <section class="reader-pane" aria-label="EPUB reading area" data-i18n-aria="readerArea">
+      <section class="reader-pane" id="readerPane" tabindex="-1" aria-label="EPUB reading area" data-i18n-aria="readerArea">
+        <h1 id="bookHeading" class="sr-only" hidden></h1>
+        <p id="announcer" class="sr-only" aria-live="polite" aria-atomic="true"></p>
         <div class="empty-state" id="emptyState">
           <div class="empty-symbol" aria-hidden="true">
             <svg viewBox="0 0 48 48"><path d="M11 8h18a8 8 0 0 1 8 8v24H17a6 6 0 0 0-6-6V8Z"/><path d="M17 40h20"/><path d="M17 16h13M17 23h15M17 30h10"/></svg>
@@ -186,9 +197,13 @@
           </div>
         </div>
 
-        <iframe id="readerFrame" title="EPUB content" data-i18n-title="epubContent" sandbox="allow-scripts allow-forms" allow="fullscreen" allowfullscreen hidden></iframe>
+        <iframe id="readerFrame" title="EPUB content" data-i18n-title="epubContent" sandbox="allow-scripts allow-forms" allow="fullscreen" hidden></iframe>
         <div id="pdfViewer" class="pdf-viewer" hidden>
-          <canvas id="pdfCanvas" aria-label="PDF page" data-i18n-aria="pdfPage"></canvas>
+          <canvas id="pdfCanvas" role="img" aria-label="PDF page" data-i18n-aria="pdfPage"></canvas>
+          <details id="pdfTextBox" class="pdf-text">
+            <summary data-i18n="pdfTextSummary">Text of this page</summary>
+            <div id="pdfText"></div>
+          </details>
         </div>
         <article id="textViewer" class="text-viewer" hidden></article>
         <button id="prevEdge" class="edge-nav edge-prev" type="button" aria-label="Previous" title="Previous" data-i18n-aria="previous" data-i18n-title="previous" hidden>
@@ -221,6 +236,7 @@
         <p class="about-name"><strong>Georgios Korakakis</strong></p>
         <p>Assistant Professor, Department of Graphic Design and Visual Communication,<br>School of Applied Arts and Culture, University of West Attica</p>
         <p><a href="https://orcid.org/0009-0005-0042-6348" target="_blank" rel="noopener noreferrer">ORCID 0009-0005-0042-6348</a></p>
+        <p>Version 1.1.1 · Έκδοση 1.1.1</p>
         <p class="about-note">© 2026 Georgios Korakakis · Licensed under the <a href="./LICENSE" target="_blank" rel="noopener noreferrer">MIT License</a><br>Το λογισμικό διατίθεται με άδεια MIT.</p>
         <div class="about-dialog-actions">
           <button value="cancel" type="submit">Close · Κλείσιμο</button>
@@ -230,6 +246,6 @@
   </div>
 
   <script src="./vendor/jszip.min.js"></script>
-  <script src="./app.js?v=20260719-about" defer></script>
+  <script src="./app.js?v=1.1.1" defer></script>
 </body>
 </html>

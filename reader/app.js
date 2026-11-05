@@ -127,7 +127,7 @@
       linkNoChapter: "This link does not match an EPUB chapter.",
       speechUnsupported: "This browser does not support read aloud.",
       speechNoText: "No readable text was found on this page.",
-      invalidXml: "The EPUB has invalid XML.",
+      invalidXml: "The file contains invalid XML.",
       markdownLinkBlocked: "Links are blocked in local Markdown",
       learningTitle: "My learning",
       learningEmpty: "Open a book to keep local progress.",
@@ -138,7 +138,7 @@
       bookmarksTitle: "Bookmarks",
       bookmarksEmpty: "No bookmarks yet.",
       noteLabel: "Note for this page",
-      notePlaceholder: "Write a private note...",
+      notePlaceholder: "Write a local note...",
       saveNote: "Save note",
       noteAdded: "Note saved locally.",
       noteEmpty: "Write a note first.",
@@ -239,7 +239,7 @@
       linkNoChapter: "Ο σύνδεσμος δεν αντιστοιχεί σε κεφάλαιο του EPUB.",
       speechUnsupported: "Ο browser δεν υποστηρίζει ανάγνωση φωναχτά.",
       speechNoText: "Δεν βρέθηκε αναγνώσιμο κείμενο σε αυτή τη σελίδα.",
-      invalidXml: "Το EPUB έχει μη έγκυρο XML.",
+      invalidXml: "Το αρχείο περιέχει μη έγκυρο XML.",
       markdownLinkBlocked: "Ο σύνδεσμος δεν ανοίγει από τοπικό Markdown",
       fallbackBookTitle: "Βιβλίο"
     }
@@ -255,7 +255,7 @@
     bookmarksTitle: "\u03a3\u03b5\u03bb\u03b9\u03b4\u03bf\u03b4\u03b5\u03af\u03ba\u03c4\u03b5\u03c2",
     bookmarksEmpty: "\u0394\u03b5\u03bd \u03c5\u03c0\u03ac\u03c1\u03c7\u03bf\u03c5\u03bd \u03b1\u03ba\u03cc\u03bc\u03b7 \u03c3\u03b5\u03bb\u03b9\u03b4\u03bf\u03b4\u03b5\u03af\u03ba\u03c4\u03b5\u03c2.",
     noteLabel: "\u03a3\u03b7\u03bc\u03b5\u03af\u03c9\u03c3\u03b7 \u03b3\u03b9\u03b1 \u03b1\u03c5\u03c4\u03ae \u03c4\u03b7 \u03c3\u03b5\u03bb\u03af\u03b4\u03b1",
-    notePlaceholder: "\u0393\u03c1\u03ac\u03c8\u03b5 \u03bc\u03b9\u03b1 \u03b9\u03b4\u03b9\u03c9\u03c4\u03b9\u03ba\u03ae \u03c3\u03b7\u03bc\u03b5\u03af\u03c9\u03c3\u03b7...",
+    notePlaceholder: "\u0393\u03c1\u03ac\u03c8\u03b5 \u03bc\u03b9\u03b1 \u03c4\u03bf\u03c0\u03b9\u03ba\u03ae \u03c3\u03b7\u03bc\u03b5\u03af\u03c9\u03c3\u03b7...",
     saveNote: "\u0391\u03c0\u03bf\u03b8\u03ae\u03ba\u03b5\u03c5\u03c3\u03b7 \u03c3\u03b7\u03bc\u03b5\u03af\u03c9\u03c3\u03b7\u03c2",
     noteAdded: "\u0397 \u03c3\u03b7\u03bc\u03b5\u03af\u03c9\u03c3\u03b7 \u03b1\u03c0\u03bf\u03b8\u03b7\u03ba\u03b5\u03cd\u03c4\u03b7\u03ba\u03b5 \u03c4\u03bf\u03c0\u03b9\u03ba\u03ac.",
     noteEmpty: "\u0393\u03c1\u03ac\u03c8\u03b5 \u03c0\u03c1\u03ce\u03c4\u03b1 \u03bc\u03b9\u03b1 \u03c3\u03b7\u03bc\u03b5\u03af\u03c9\u03c3\u03b7.",
@@ -266,6 +266,85 @@
     chapterLocation: "\u039a\u03b5\u03c6\u03ac\u03bb\u03b1\u03b9\u03bf {number}",
     pageLocation: "\u03a3\u03b5\u03bb\u03af\u03b4\u03b1 {number}",
     documentLocation: "\u0388\u03b3\u03b3\u03c1\u03b1\u03c6\u03bf"
+  });
+
+  Object.assign(TRANSLATIONS.en, {
+    skipToContent: "Skip to reading area",
+    chapterAnnounce: "Section {current} of {total}: {title}",
+    textVersion: "Text version (no 3D)",
+    textVersionOn: "Text version: {title}",
+    textVersionOff: "Interactive version: {title}",
+    textVersionSuffix: "text version",
+    bookA11yTitle: "Accessibility of this book",
+    a11yNoMeta: "The book gives no accessibility information.",
+    a11yWaysOfReading: "Ways of reading",
+    a11yAdjust: "Text and layout can be adjusted (size, spacing, theme).",
+    a11yNoAdjust: "Appearance may not adapt to reading settings.",
+    a11yNonvisual: "All content can be read as text, with a screen reader or read aloud.",
+    a11yNonvisualPartial: "Some content may not be available as text.",
+    a11yAltText: "Images have text descriptions.",
+    a11yLongDesc: "Complex images and 3D models have long descriptions.",
+    a11yNavigation: "Navigation",
+    a11yToc: "Table of contents",
+    a11yStructure: "Headings and landmarks for structural navigation",
+    a11yReadingOrder: "Reading order follows the content",
+    a11yConformance: "Conformance",
+    a11yConformsTo: "Claims: {standard}",
+    a11yCertifiedBy: "Assessed by: {who}",
+    a11yNoConformance: "No conformance claim.",
+    a11yHazards: "Hazards",
+    a11yNoHazards: "No flashing, sound or motion-simulation hazards.",
+    a11yHazardList: "Declared hazards: {list}",
+    a11yHazardUnknown: "Hazards not declared.",
+    a11yRichContent: "Rich content",
+    a11yAria: "Interactive parts use ARIA roles and labels.",
+    a11ySummary: "Accessibility summary",
+    a11yAllMeta: "All accessibility metadata",
+    auxDocument: "Linked document",
+    pdfTextSummary: "Text of this page",
+    pdfTextEmpty: "This page has no text layer (it may be a scanned image).",
+    pdfTextRestricted: "This PDF does not permit text extraction, so its text is not shown, searched or read aloud.",
+    pageAnnounce: "Page {current} of {total}",
+    keyboardHelp: "Keys: ← → previous or next section (outside text fields), Esc closes the book panel."
+  });
+  Object.assign(TRANSLATIONS.el, {
+    skipToContent: "Μετάβαση στην περιοχή ανάγνωσης",
+    chapterAnnounce: "Ενότητα {current} από {total}: {title}",
+    textVersion: "Εκδοχή κειμένου (χωρίς 3D)",
+    textVersionOn: "Εκδοχή κειμένου: {title}",
+    textVersionOff: "Διαδραστική εκδοχή: {title}",
+    textVersionSuffix: "εκδοχή κειμένου",
+    bookA11yTitle: "Προσβασιμότητα του βιβλίου",
+    a11yNoMeta: "Το βιβλίο δεν δίνει πληροφορίες προσβασιμότητας.",
+    a11yWaysOfReading: "Τρόποι ανάγνωσης",
+    a11yAdjust: "Το κείμενο και η διάταξη προσαρμόζονται (μέγεθος, αποστάσεις, θέμα).",
+    a11yNoAdjust: "Η εμφάνιση ίσως δεν ακολουθεί τις ρυθμίσεις ανάγνωσης.",
+    a11yNonvisual: "Όλο το περιεχόμενο διαβάζεται ως κείμενο, με αναγνώστη οθόνης ή ανάγνωση φωναχτά.",
+    a11yNonvisualPartial: "Μέρος του περιεχομένου ίσως δεν υπάρχει ως κείμενο.",
+    a11yAltText: "Οι εικόνες έχουν περιγραφή με κείμενο.",
+    a11yLongDesc: "Τα σύνθετα σχήματα και τα 3D μοντέλα έχουν εκτενή περιγραφή.",
+    a11yNavigation: "Πλοήγηση",
+    a11yToc: "Πίνακας περιεχομένων",
+    a11yStructure: "Επικεφαλίδες και ορόσημα για δομημένη πλοήγηση",
+    a11yReadingOrder: "Η σειρά ανάγνωσης ακολουθεί το περιεχόμενο",
+    a11yConformance: "Συμμόρφωση",
+    a11yConformsTo: "Δηλώνει: {standard}",
+    a11yCertifiedBy: "Αξιολόγηση: {who}",
+    a11yNoConformance: "Δεν δηλώνεται συμμόρφωση.",
+    a11yHazards: "Κίνδυνοι",
+    a11yNoHazards: "Χωρίς αναβοσβήσματα, ήχο ή προσομοίωση κίνησης.",
+    a11yHazardList: "Δηλωμένοι κίνδυνοι: {list}",
+    a11yHazardUnknown: "Δεν δηλώνονται κίνδυνοι.",
+    a11yRichContent: "Πλούσιο περιεχόμενο",
+    a11yAria: "Τα διαδραστικά μέρη έχουν ρόλους και ετικέτες ARIA.",
+    a11ySummary: "Σύνοψη προσβασιμότητας",
+    a11yAllMeta: "Όλα τα μεταδεδομένα προσβασιμότητας",
+    auxDocument: "Συνδεδεμένο έγγραφο",
+    pdfTextSummary: "Κείμενο της σελίδας",
+    pdfTextEmpty: "Η σελίδα δεν έχει κείμενο (ίσως είναι σαρωμένη εικόνα).",
+    pdfTextRestricted: "Αυτό το PDF δεν επιτρέπει την εξαγωγή του κειμένου του· γι' αυτό το κείμενο δεν εμφανίζεται, δεν αναζητείται και δεν διαβάζεται φωναχτά.",
+    pageAnnounce: "Σελίδα {current} από {total}",
+    keyboardHelp: "Πλήκτρα: ← → προηγούμενη ή επόμενη ενότητα (έξω από πεδία κειμένου), Esc κλείνει τον πίνακα του βιβλίου."
   });
 
   let pdfjsPromise = null;
@@ -287,6 +366,7 @@
     resourceUrls: new Map(),
     currentIndex: 0,
     pdfDoc: null,
+    pdfTextAllowed: true,
     pdfPage: 1,
     pdfPageCount: 0,
     pdfRenderToken: 0,
@@ -300,7 +380,14 @@
     language: initialLanguage,
     searchIndex: [],
     learning: null,
-    toastTimer: null
+    toastTimer: null,
+    bookLanguage: "",
+    chapterLanguage: "",
+    a11yMeta: [],
+    altView: false,
+    currentDocPath: "",
+    focusContentOnReady: false,
+    preferText: false
   };
 
   const els = {
@@ -350,7 +437,15 @@
     noteList: document.getElementById("noteList"),
     aboutButton: document.getElementById("aboutButton"),
     aboutDialog: document.getElementById("aboutDialog"),
-    toast: document.getElementById("toast")
+    toast: document.getElementById("toast"),
+    altButton: document.getElementById("altButton"),
+    announcer: document.getElementById("announcer"),
+    bookHeading: document.getElementById("bookHeading"),
+    bookA11y: document.getElementById("bookA11y"),
+    bookA11yPanel: document.getElementById("bookA11yPanel"),
+    skipLink: document.getElementById("skipLink"),
+    readerPane: document.getElementById("readerPane"),
+    pdfText: document.getElementById("pdfText")
   };
 
   els.input.addEventListener("change", handleFileInput);
@@ -368,7 +463,33 @@
   els.saveNoteButton.addEventListener("click", saveNote);
   els.exportLearningButton.addEventListener("click", exportLearning);
   els.languageSelect.addEventListener("change", () => setLanguage(els.languageSelect.value));
-  els.menuButton.addEventListener("click", () => els.sidebar.classList.toggle("open"));
+  els.menuButton.addEventListener("click", () => setSidebarOpen(!els.sidebar.classList.contains("open")));
+  els.altButton.addEventListener("click", () => {
+    if (state.format !== "epub") return;
+    state.preferText = !state.altView;
+    goToChapter(state.currentIndex, "", { alt: state.preferText, focus: true });
+  });
+  els.skipLink.addEventListener("click", (event) => {
+    event.preventDefault();
+    focusReadingArea();
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && els.sidebar.classList.contains("open")) {
+      setSidebarOpen(false);
+      els.menuButton.focus();
+      return;
+    }
+    if (event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+    if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+    const target = event.target;
+    if (!target || (els.aboutDialog && els.aboutDialog.open)) return;
+    const tag = (target.tagName || "").toLowerCase();
+    if (["input", "textarea", "select", "iframe"].includes(tag) || target.isContentEditable) return;
+    if (target.closest && target.closest(".sidebar")) return;
+    if (!state.format) return;
+    event.preventDefault();
+    goRelative(event.key === "ArrowLeft" ? -1 : 1);
+  });
   els.searchButton.addEventListener("click", runSearch);
   els.searchInput.addEventListener("keydown", (event) => {
     if (event.key === "Enter") runSearch();
@@ -428,10 +549,12 @@
   function loadLanguage() {
     try {
       const saved = localStorage.getItem(LANGUAGE_KEY);
-      return SUPPORTED_LANGUAGES.includes(saved) ? saved : "en";
+      if (SUPPORTED_LANGUAGES.includes(saved)) return saved;
     } catch (_) {
-      return "en";
+      // storage blocked: fall through to the browser language
     }
+    const browser = ((navigator.languages && navigator.languages[0]) || navigator.language || "en").toLowerCase();
+    return "en"; // English review derivative; an explicitly saved preference still takes precedence.
   }
 
   function t(key, vars = {}) {
@@ -452,6 +575,7 @@
     syncLanguageControl();
     applyTranslations();
     refreshLocalizedNavigation();
+    renderBookAccessibility();
     updateReaderState();
   }
 
@@ -693,6 +817,7 @@
     await buildResourceUrls();
     await buildTableOfContents();
     renderTableOfContents();
+    renderBookAccessibility();
 
     state.searchIndex = await buildEpubSearchIndex();
 
@@ -713,6 +838,7 @@
     });
 
     state.pdfDoc = await loadingTask.promise;
+    state.pdfTextAllowed = await pdfTextExtractionAllowed(state.pdfDoc, pdfjsLib);
     state.pdfPageCount = state.pdfDoc.numPages;
     if (!state.pdfPageCount) throw new Error(t("pdfNoPages"));
 
@@ -868,6 +994,9 @@
     const opfDoc = parseXml(opfXml);
     const titleNode = firstByLocalName(opfDoc, "title");
     state.bookTitle = cleanText(titleNode ? titleNode.textContent : "") || state.bookTitle || t("epubBook");
+    const languageNode = firstByLocalName(opfDoc, "language");
+    state.bookLanguage = cleanText(languageNode ? languageNode.textContent : "");
+    state.a11yMeta = readAccessibilityMetadata(opfDoc);
 
     state.manifest = new Map();
     for (const item of allByLocalName(opfDoc, "item")) {
@@ -885,6 +1014,7 @@
         href,
         mediaType,
         properties,
+        fallback: item.getAttribute("fallback") || "",
         path: resolved.path
       });
     }
@@ -1010,8 +1140,9 @@
       button.textContent = entry.label;
       button.disabled = Boolean(entry.disabled);
       button.addEventListener("click", () => {
+        state.focusContentOnReady = true;
         navigateToEntry(entry);
-        els.sidebar.classList.remove("open");
+        setSidebarOpen(false);
       });
       li.appendChild(button);
       fragment.appendChild(li);
@@ -1056,6 +1187,7 @@
 
   async function buildPdfSearchIndex() {
     const entries = [];
+    if (!state.pdfTextAllowed) return entries;
 
     for (let pageNumber = 1; pageNumber <= state.pdfPageCount; pageNumber += 1) {
       const page = await state.pdfDoc.getPage(pageNumber);
@@ -1137,23 +1269,160 @@
     }
   }
 
-  async function goToChapter(index, fragment) {
+  async function goToChapter(index, fragment, options = {}) {
     if (state.format !== "epub" || !state.zip || !state.spine.length) return;
     if (index < 0 || index >= state.spine.length) return;
 
     const item = state.spine[index];
-    const file = getZipFile(item.path);
+    const fallbackItem = textFallbackFor(item);
+    const wantAlt = options.alt !== undefined ? options.alt : state.preferText;
+    const useAlt = Boolean(wantAlt && fallbackItem);
+    const docItem = options.docItem || (useAlt ? fallbackItem : item);
+    const file = getZipFile(docItem.path);
     if (!file) {
       showToast(t("chapterMissing"));
       return;
     }
 
+    const changed = index !== state.currentIndex || useAlt !== state.altView || docItem.path !== state.currentDocPath;
     state.currentIndex = index;
+    state.altView = useAlt;
+    state.currentDocPath = docItem.path;
+    if (options.focus) state.focusContentOnReady = true;
     const html = await file.async("text");
-    els.frame.srcdoc = prepareChapterDocument(html, item.path, fragment || "");
+    els.frame.srcdoc = prepareChapterDocument(html, docItem.path, fragment || "");
+    const title = sectionTitle(index) + (useAlt ? ` (${t("textVersionSuffix")})` : (options.docItem ? ` (${t("auxDocument")})` : ""));
+    els.frame.title = title;
     showPanel("epub");
     updateReaderState();
+    if (changed) announce(t("chapterAnnounce", { current: index + 1, total: state.spine.length, title }));
     savePosition({ index: state.currentIndex, fragment: fragment || "" });
+  }
+
+  function textFallbackFor(item) {
+    // EPUB manifest fallback chain: a scripted/foreign spine item may name an XHTML text version.
+    let next = item && item.fallback ? state.manifest.get(item.fallback) : null;
+    const seen = new Set();
+    while (next && !seen.has(next.id)) {
+      seen.add(next.id);
+      if (isDocumentItem(next)) return next;
+      next = next.fallback ? state.manifest.get(next.fallback) : null;
+    }
+    return null;
+  }
+
+  function sectionTitle(index) {
+    const exact = state.toc.find((entry) => entry.type === "epub" && entry.index === index && !entry.fragment);
+    const any = exact || state.toc.find((entry) => entry.type === "epub" && entry.index === index);
+    return any ? any.label : t("chapterLabel", { number: index + 1 });
+  }
+
+  function announce(message) {
+    if (!els.announcer) return;
+    els.announcer.textContent = "";
+    window.setTimeout(() => { els.announcer.textContent = message; }, 80);
+  }
+
+  function setSidebarOpen(open) {
+    els.sidebar.classList.toggle("open", open);
+    els.menuButton.setAttribute("aria-expanded", String(open));
+    if (open && window.matchMedia("(max-width: 860px)").matches) {
+      const first = els.sidebar.querySelector("button.active, button:not(:disabled), input, select");
+      if (first) first.focus();
+    }
+  }
+
+  function focusReadingArea() {
+    if (!els.frame.hidden) {
+      state.focusContentOnReady = false;
+      els.frame.focus();
+      postToFrame({ type: "focus-content" });
+    } else {
+      els.readerPane.focus();
+    }
+  }
+
+  function postToFrame(payload) {
+    if (els.frame.contentWindow) els.frame.contentWindow.postMessage(Object.assign({ source: EPUB_SOURCE }, payload), "*");
+  }
+
+  function readAccessibilityMetadata(opfDoc) {
+    const out = [];
+    for (const meta of allByLocalName(opfDoc, "meta")) {
+      const property = meta.getAttribute("property") || meta.getAttribute("name") || "";
+      if (!/^(schema:access|dcterms:conformsTo|a11y:)/i.test(property)) continue;
+      const value = cleanText(meta.getAttribute("content") || meta.textContent || "");
+      if (value) out.push({ property: property.replace(/^schema:/i, "schema:"), value });
+    }
+    for (const link of allByLocalName(opfDoc, "link")) {
+      const rel = link.getAttribute("rel") || "";
+      if (/dcterms:conformsTo/i.test(rel)) out.push({ property: "dcterms:conformsTo", value: link.getAttribute("href") || "" });
+    }
+    return out;
+  }
+
+  function renderBookAccessibility() {
+    const meta = state.a11yMeta || [];
+    const show = state.format === "epub";
+    els.bookA11yPanel.hidden = !show;
+    if (!show) return;
+    els.bookA11y.replaceChildren();
+    const values = (name) => meta.filter((m) => m.property.toLowerCase() === name.toLowerCase())
+      .flatMap((m) => m.value.split(/\s*,\s*/).length > 1 && name !== "schema:accessModeSufficient" ? m.value.split(/\s*,\s*/) : [m.value]);
+    const has = (name, value) => values(name).some((v) => v.toLowerCase() === value.toLowerCase());
+    if (!meta.length) {
+      const p = document.createElement("p");
+      p.textContent = t("a11yNoMeta");
+      els.bookA11y.appendChild(p);
+      return;
+    }
+    const group = (heading, items) => {
+      if (!items.length) return;
+      const h = document.createElement("h3");
+      h.textContent = heading;
+      const ul = document.createElement("ul");
+      items.forEach((text) => { const li = document.createElement("li"); li.textContent = text; ul.appendChild(li); });
+      els.bookA11y.append(h, ul);
+    };
+    const sufficient = values("schema:accessModeSufficient").map((v) => v.replace(/\s+/g, "").toLowerCase());
+    const ways = [];
+    ways.push(has("schema:accessibilityFeature", "displayTransformability") ? t("a11yAdjust") : t("a11yNoAdjust"));
+    ways.push(sufficient.includes("textual") ? t("a11yNonvisual") : t("a11yNonvisualPartial"));
+    if (has("schema:accessibilityFeature", "alternativeText")) ways.push(t("a11yAltText"));
+    if (has("schema:accessibilityFeature", "longDescription")) ways.push(t("a11yLongDesc"));
+    group(t("a11yWaysOfReading"), ways);
+    const nav = [];
+    if (has("schema:accessibilityFeature", "tableOfContents")) nav.push(t("a11yToc"));
+    if (has("schema:accessibilityFeature", "structuralNavigation")) nav.push(t("a11yStructure"));
+    if (has("schema:accessibilityFeature", "readingOrder")) nav.push(t("a11yReadingOrder"));
+    group(t("a11yNavigation"), nav);
+    const rich = [];
+    if (has("schema:accessibilityFeature", "ARIA")) rich.push(t("a11yAria"));
+    group(t("a11yRichContent"), rich);
+    const conf = values("dcterms:conformsTo").map((v) => t("a11yConformsTo", { standard: v }))
+      .concat(values("a11y:certifiedBy").map((v) => t("a11yCertifiedBy", { who: v })));
+    group(t("a11yConformance"), conf.length ? conf : [t("a11yNoConformance")]);
+    const hazards = values("schema:accessibilityHazard").map((v) => v.trim());
+    let hazardText = t("a11yHazardUnknown");
+    if (hazards.some((h) => h.toLowerCase() === "none") || ["noFlashingHazard", "noSoundHazard", "noMotionSimulationHazard"].every((h) => hazards.includes(h))) hazardText = t("a11yNoHazards");
+    else if (hazards.length) hazardText = t("a11yHazardList", { list: hazards.join(", ") });
+    group(t("a11yHazards"), [hazardText]);
+    const summary = values("schema:accessibilitySummary").join(" ");
+    if (summary) {
+      const h = document.createElement("h3");
+      h.textContent = t("a11ySummary");
+      const p = document.createElement("p");
+      p.textContent = summary;
+      if (state.bookLanguage) p.lang = state.bookLanguage;
+      els.bookA11y.append(h, p);
+    }
+    const details = document.createElement("details");
+    const sum = document.createElement("summary");
+    sum.textContent = t("a11yAllMeta");
+    const ul = document.createElement("ul");
+    meta.forEach((m) => { const li = document.createElement("li"); li.textContent = `${m.property}: ${m.value}`; ul.appendChild(li); });
+    details.append(sum, ul);
+    els.bookA11y.appendChild(details);
   }
 
   async function renderPdfPage(pageNumber) {
@@ -1161,7 +1430,9 @@
     const nextPage = clamp(pageNumber, 1, state.pdfPageCount);
     const token = state.pdfRenderToken + 1;
     state.pdfRenderToken = token;
+    const pageChanged = state.pdfPage !== nextPage || !els.pdfCanvas.dataset.renderedPage;
     state.pdfPage = nextPage;
+    if (pageChanged) announce(t("pageAnnounce", { current: nextPage, total: state.pdfPageCount }));
 
     showPanel("pdf");
     updateReaderState();
@@ -1188,7 +1459,21 @@
 
     await page.render({ canvasContext: context, viewport }).promise;
     canvas.dataset.renderedPage = String(nextPage);
+    canvas.setAttribute("aria-label", t("pageAnnounce", { current: nextPage, total: state.pdfPageCount }));
     savePosition({ page: state.pdfPage });
+    // Text alternative for the canvas: the page's own text layer, in reading order as PDF.js returns it.
+    if (!state.pdfTextAllowed) {
+      els.pdfText.textContent = t("pdfTextRestricted");
+      return;
+    }
+    try {
+      const content = await page.getTextContent();
+      if (token !== state.pdfRenderToken) return;
+      const text = content.items.map((item) => (item.str || "") + (item.hasEOL ? "\n" : " ")).join("").replace(/[ \t]+\n/g, "\n").trim();
+      els.pdfText.textContent = text || t("pdfTextEmpty");
+    } catch (_) {
+      els.pdfText.textContent = t("pdfTextEmpty");
+    }
   }
 
   function renderTextDocument() {
@@ -1208,7 +1493,9 @@
 
   function renderCbzPage(index) {
     if (state.format !== "cbz" || !state.imagePages.length) return;
-    state.currentImagePage = clamp(index, 0, state.imagePages.length - 1);
+    const nextImage = clamp(index, 0, state.imagePages.length - 1);
+    if (nextImage !== state.currentImagePage) announce(t("pageAnnounce", { current: nextImage + 1, total: state.imagePages.length }));
+    state.currentImagePage = nextImage;
     const page = state.imagePages[state.currentImagePage];
     els.textViewer.style.setProperty("--doc-font-scale", "1");
     els.textViewer.innerHTML = `
@@ -1241,6 +1528,18 @@
     rewriteInlineStyles(doc, baseDir);
 
     const title = escapeHtml(state.bookTitle);
+    const root = doc.documentElement;
+    const lang = root.getAttribute("lang") || root.getAttribute("xml:lang") || state.bookLanguage || "";
+    const dir = root.getAttribute("dir") || "";
+    const dark = state.accessibility.theme === "night" || state.accessibility.theme === "highContrast";
+    const htmlAttrs = [
+      lang ? `lang="${escapeHtml(lang)}"` : "",
+      dir ? `dir="${escapeHtml(dir)}"` : "",
+      root.getAttribute("class") ? `class="${escapeHtml(root.getAttribute("class"))}"` : "",
+      `data-theme="${dark ? "dark" : "light"}"`,
+      `data-reader-theme="${escapeHtml(state.accessibility.theme)}"`,
+      state.accessibility.reduceMotion ? 'data-reduced-motion="true"' : ""
+    ].filter(Boolean).join(" ");
     const head = doc.head ? doc.head.innerHTML : "";
     const body = doc.body ? doc.body.innerHTML : doc.documentElement.innerHTML;
     const readerCss = readerShellCss();
@@ -1260,9 +1559,10 @@
     ].join("; ");
 
     return `<!doctype html>
-<html>
+<html ${htmlAttrs}>
 <head>
   <meta charset="utf-8">
+  <meta name="color-scheme" content="${dark ? "dark" : "light"}">
   <meta http-equiv="Content-Security-Policy" content="${csp}">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${title}</title>
@@ -1383,7 +1683,12 @@
       html {
         background: ${palette.bg};
         color: ${palette.ink};
+        color-scheme: ${settings.theme === "night" || settings.theme === "highContrast" ? "dark" : "light"};
         font-size: calc(18px * ${scale});
+      }
+      body:has(canvas, [role="application"], .stage) {
+        max-width: none !important;
+        padding: 12px clamp(8px, 2vw, 24px) 48px !important;
       }
       body {
         max-width: ${maxWidth};
@@ -1456,11 +1761,35 @@
   const fragment = ${JSON.stringify(fragment || "")};
   const send = (payload) => parent.postMessage(Object.assign({ source }, payload), "*");
 
+  const focusTarget = (target, atTop) => {
+    if (!target) return;
+    if (!target.hasAttribute("tabindex") && !/^(a|button|input|select|textarea)$/i.test(target.tagName)) target.setAttribute("tabindex", "-1");
+    target.focus({ preventScroll: true });
+    if (atTop) window.scrollTo(0, 0);
+    else if (target.scrollIntoView) target.scrollIntoView({ block: "start" });
+  };
   document.addEventListener("click", (event) => {
     const anchor = event.target.closest && event.target.closest("a[data-epub-href]");
     if (!anchor) return;
     event.preventDefault();
-    send({ type: "navigate", href: anchor.getAttribute("data-epub-href") || "" });
+    const href = anchor.getAttribute("data-epub-href") || "";
+    if (href.startsWith("#") && href.length > 1) {
+      let id = href.slice(1);
+      try { id = decodeURIComponent(id); } catch (_) {}
+      const target = document.getElementById(id) || document.getElementsByName(id)[0];
+      if (target) { focusTarget(target); return; }
+    }
+    send({ type: "navigate", href });
+  });
+  window.addEventListener("message", (event) => {
+    if (event.source !== parent) return;
+    const data = event.data || {};
+    if (data.source !== source) return;
+    if (data.type === "focus-content") {
+      const target = (fragment && (document.getElementById(fragment) || document.getElementsByName(fragment)[0]))
+        || ["main h1", "h1", "[role=main]", "main"].map((s) => document.querySelector(s)).find(Boolean) || document.body;
+      focusTarget(target, !fragment);
+    }
   });
 
   window.addEventListener("error", (event) => {
@@ -1478,7 +1807,7 @@
   } else {
     jumpToFragment();
   }
-  send({ type: "ready" });
+  send({ type: "ready", lang: document.documentElement.lang || "", title: document.title || "" });
 })();
 </script>`;
   }
@@ -1612,6 +1941,16 @@
 
     if (data.type === "runtime-error") {
       showToast(t("sandboxRuntimeError"));
+      return;
+    }
+
+    if (data.type === "ready") {
+      state.chapterLanguage = typeof data.lang === "string" ? data.lang : "";
+      if (state.focusContentOnReady) {
+        state.focusContentOnReady = false;
+        els.frame.focus();
+        postToFrame({ type: "focus-content" });
+      }
     }
   }
 
@@ -1619,20 +1958,36 @@
     const current = state.spine[state.currentIndex];
     if (!current) return;
 
-    const resolved = resolveHref(dirname(current.path), href);
+    const basePath = state.currentDocPath || current.path;
+    const resolved = resolveHref(dirname(basePath), href);
     if (resolved.external) {
       showToast(t("externalBlocked"));
       return;
     }
 
-    const targetPath = resolved.path || current.path;
+    const targetPath = resolved.path || basePath;
     const targetIndex = findSpineIndex(targetPath);
-    if (targetIndex < 0) {
+    if (targetIndex >= 0) {
+      // Following a link to an interactive page means the reader wants that page, not its text version.
+      if (textFallbackFor(state.spine[targetIndex])) state.preferText = false;
+      goToChapter(targetIndex, resolved.fragment || "", { alt: false, focus: true });
+      return;
+    }
+    // Not in the spine: a manifest fallback (text version) or another document of the book.
+    const targetItem = [...state.manifest.values()].find((item) => item.path === targetPath && isDocumentItem(item));
+    if (!targetItem) {
       showToast(t("linkNoChapter"));
       return;
     }
-
-    goToChapter(targetIndex, resolved.fragment || "");
+    const owner = state.spine.findIndex((item) => {
+      const fb = textFallbackFor(item);
+      return fb && fb.path === targetPath;
+    });
+    if (owner >= 0) {
+      goToChapter(owner, resolved.fragment || "", { alt: true, focus: true });
+    } else {
+      goToChapter(state.currentIndex, resolved.fragment || "", { docItem: targetItem, focus: true });
+    }
   }
 
   async function readCurrentTextAloud() {
@@ -1649,7 +2004,8 @@
 
     window.speechSynthesis.cancel();
     speechUtterance = new SpeechSynthesisUtterance(text.slice(0, 12000));
-    speechUtterance.lang = state.language === "el" ? "el-GR" : "en-US";
+    const contentLanguage = state.format === "epub" ? (state.chapterLanguage || state.bookLanguage) : "";
+    speechUtterance.lang = contentLanguage || (state.language === "el" ? "el-GR" : "en-US");
     speechUtterance.rate = 0.95;
     speechUtterance.onend = () => {
       speechUtterance = null;
@@ -1674,10 +2030,11 @@
   async function currentReadableText() {
     if (state.format === "epub") {
       const item = state.spine[state.currentIndex];
-      const file = item && getZipFile(item.path);
+      const file = item && getZipFile(state.currentDocPath || item.path);
       return file ? htmlToPlainText(await file.async("text")) : "";
     }
     if (state.format === "pdf" && state.pdfDoc) {
+      if (!state.pdfTextAllowed) return "";
       const page = await state.pdfDoc.getPage(state.pdfPage);
       const content = await page.getTextContent();
       return content.items.map((item) => item.str || "").join(" ");
@@ -1730,6 +2087,12 @@
     els.nextEdge.hidden = !canMove;
     els.prevEdge.disabled = !canMove || atStart;
     els.nextEdge.disabled = !canMove || atEnd;
+    els.readerPane.classList.toggle("with-edges", canMove);
+    els.bookHeading.hidden = !state.format;
+    els.bookHeading.textContent = state.format ? title : "";
+    const fallbackAvailable = state.format === "epub" && Boolean(textFallbackFor(state.spine[state.currentIndex]));
+    els.altButton.hidden = !fallbackAvailable;
+    els.altButton.setAttribute("aria-pressed", String(fallbackAvailable && state.altView));
     els.fontDownButton.disabled = !state.format;
     els.fontUpButton.disabled = !state.format;
     els.themeButton.disabled = !state.format;
@@ -1772,6 +2135,8 @@
       if (entry && entry.type === "html") active = state.format === "html";
       if (entry && entry.type === "text") active = ["text", "markdown", "docx", "odt", "fb2"].includes(state.format);
       button.classList.toggle("active", active);
+      if (active) button.setAttribute("aria-current", "page");
+      else button.removeAttribute("aria-current");
     });
   }
 
@@ -1829,6 +2194,7 @@
     state.toc = [];
     state.currentIndex = 0;
     state.pdfDoc = null;
+    state.pdfTextAllowed = true;
     state.pdfPage = 1;
     state.pdfPageCount = 0;
     state.pdfRenderToken += 1;
@@ -1838,6 +2204,14 @@
     state.currentImagePage = 0;
     state.searchIndex = [];
     state.learning = null;
+    state.bookLanguage = "";
+    state.chapterLanguage = "";
+    state.a11yMeta = [];
+    state.altView = false;
+    state.currentDocPath = "";
+    state.focusContentOnReady = false;
+    els.bookA11yPanel.hidden = true;
+    els.bookA11y.replaceChildren();
     els.frame.removeAttribute("srcdoc");
     els.textViewer.replaceChildren();
     const context = els.pdfCanvas.getContext("2d");
@@ -2070,9 +2444,23 @@
   }
 
   function parseXml(text) {
-    const doc = new DOMParser().parseFromString(text, "application/xml");
+    // A UTF-8 byte-order mark before the XML declaration makes DOMParser fail; it is not content.
+    const doc = new DOMParser().parseFromString(String(text || "").replace(/^\uFEFF/, ""), "application/xml");
     if (doc.querySelector("parsererror")) throw new Error(t("invalidXml"));
     return doc;
+  }
+
+  // Respect the PDF's permission flags: text is extracted (shown, searched, read aloud) only when
+  // the document allows copying, or allows extraction for accessibility. No restriction is removed.
+  async function pdfTextExtractionAllowed(doc, lib) {
+    try {
+      const perms = await doc.getPermissions();
+      if (!perms) return true;
+      const flags = (lib && lib.PermissionFlag) || { COPY: 16, COPY_FOR_ACCESSIBILITY: 512 };
+      return perms.includes(flags.COPY) || perms.includes(flags.COPY_FOR_ACCESSIBILITY);
+    } catch (_) {
+      return false;
+    }
   }
 
   async function epubHasDrm() {

@@ -29,8 +29,26 @@ Tested environment — browser: __________  OS: __________  date: __________
 - [ ] Switch the interface **English ↔ Greek**.
 - [ ] (Where the browser supports it) start **read-aloud** → speech plays.
 
-- [ ] Add a **bookmark** and a **private note**, reopen the same local file and confirm both remain on the device.
+- [ ] Add a **bookmark** and a **local note**, reopen the same local file and confirm both remain on the device.
 - [ ] Export notes → a local JSON file contains the bookmarks and notes; no network request is made.
+
+## PDF permissions (version 1.1.1)
+- [ ] Open a PDF whose permissions forbid copying and extraction for accessibility → "Text of this page" shows the restriction message; search finds nothing; read-aloud reads nothing.
+- [ ] Open an unrestricted PDF → the page text is shown and searchable.
+
+## Accessibility (version 1.1.0)
+- [ ] Press Tab on page load → "Skip to reading area" appears first; Enter moves focus into the book.
+- [ ] With a screen reader (NVDA, JAWS, VoiceOver or TalkBack): open the Greek v3.0 demo → the text is read with a Greek voice (chapter `lang` kept).
+- [ ] Choose a section from the contents → the screen reader announces "Section n of N: …" and focus is on the section heading.
+- [ ] The current contents entry is announced as current (`aria-current`).
+- [ ] On a phone-width window: open the book panel → focus moves into it; Esc closes it and focus returns to the button.
+- [ ] With focus on the toolbar, ← and → change section.
+- [ ] Night and high-contrast themes → the v3.0 demo (text and 3D pages) switches to its dark colours; all text stays readable.
+- [ ] On a 3D page of the v3.0 demo → the model uses the full width; the side arrows do not cover it.
+- [ ] Press "Text version" on a 3D page → the XHTML fallback appears; the button stays pressed on the next 3D page; the "interactive version" link returns to the 3D page.
+- [ ] Open "Accessibility of this book" → ways of reading, navigation, conformance claim, hazards and summary are listed.
+- [ ] Open a PDF → "Page n of N" is announced; "Text of this page" shows the page text.
+- [ ] Zoom the browser to 200% and 400% → no content or control is lost.
 
 ## PWA installation (where supported)
 - [ ] Over HTTPS (or 127.0.0.1), **install** via the browser prompt (Android / desktop Chromium / Edge).
