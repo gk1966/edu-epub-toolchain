@@ -17,6 +17,10 @@ installation requires HTTPS, or localhost during development; opening the apps f
 `file://` does not install them. The Reader does not remove or bypass DRM and is
 intended for original, open or otherwise permitted educational materials.
 
+## Supplementary material of the accessibility article
+
+[`online-resource-1/`](online-resource-1/) holds Online Resource 1 of the manuscript *Accessibility auditing and remediation for interactive 3D publications* (G. Korakakis, K. Dalacosta, M. Vlassi): the interactive 3D pages, the English EPUB, models, tools, AI outputs and verification records, with a page for downloading everything, one section or single files: https://gk1966.github.io/edu-epub-toolchain/online-resource-1/. The archived copy, which should be cited, is at https://doi.org/10.5281/zenodo.24003166.
+
 ## Verification and conformance
 
 The Creator includes 57 static smoke checks and eight focused preview-security
