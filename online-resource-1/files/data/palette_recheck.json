@@ -1,0 +1,386 @@
+[
+  {
+    "page": "02-ethyne-structure-3d",
+    "model": "m",
+    "mode": "dark",
+    "minimum_all_pairs": {
+      "value": 10.868594610887024,
+      "type": "tritan",
+      "pair": [
+        "CC",
+        "CH"
+      ]
+    },
+    "minimum_excluding_pattern_pairs": {
+      "value": 10.868594610887024,
+      "type": "tritan",
+      "pair": [
+        "CC",
+        "CH"
+      ]
+    },
+    "fill_contrast_below3": []
+  },
+  {
+    "page": "02-ethyne-structure-3d",
+    "model": "m",
+    "mode": "light",
+    "minimum_all_pairs": {
+      "value": 8.376112194335679,
+      "type": "tritan",
+      "pair": [
+        "CC",
+        "CH"
+      ]
+    },
+    "minimum_excluding_pattern_pairs": {
+      "value": 8.376112194335679,
+      "type": "tritan",
+      "pair": [
+        "CC",
+        "CH"
+      ]
+    },
+    "fill_contrast_below3": []
+  },
+  {
+    "page": "04-sp-orbital-viewer",
+    "model": "m",
+    "mode": "dark",
+    "minimum_all_pairs": {
+      "value": 6.889207677736503,
+      "type": "deutan",
+      "pair": [
+        "plane1",
+        "H"
+      ]
+    },
+    "minimum_excluding_pattern_pairs": {
+      "value": 6.889207677736503,
+      "type": "deutan",
+      "pair": [
+        "plane1",
+        "H"
+      ]
+    },
+    "fill_contrast_below3": [
+      {
+        "id": "plane1",
+        "ratio": 2.1678898906164625,
+        "outline": true
+      },
+      {
+        "id": "plane2",
+        "ratio": 2.0387116236639855,
+        "outline": true
+      }
+    ]
+  },
+  {
+    "page": "04-sp-orbital-viewer",
+    "model": "m",
+    "mode": "light",
+    "minimum_all_pairs": {
+      "value": 8.059915492082409,
+      "type": "tritan",
+      "pair": [
+        "pi1",
+        "plane2"
+      ]
+    },
+    "minimum_excluding_pattern_pairs": {
+      "value": 8.746654428130038,
+      "type": "protan",
+      "pair": [
+        "pi2",
+        "plane1"
+      ]
+    },
+    "fill_contrast_below3": [
+      {
+        "id": "plane1",
+        "ratio": 1.990110264309208,
+        "outline": true
+      },
+      {
+        "id": "plane2",
+        "ratio": 1.9525814129756518,
+        "outline": true
+      }
+    ]
+  },
+  {
+    "page": "06-axes-pi-symmetry",
+    "model": "m",
+    "mode": "dark",
+    "minimum_all_pairs": {
+      "value": 13.856177483961066,
+      "type": "tritan",
+      "pair": [
+        "sh",
+        "sv2"
+      ]
+    },
+    "minimum_excluding_pattern_pairs": {
+      "value": 16.68600307517869,
+      "type": "tritan",
+      "pair": [
+        "sp",
+        "axisM"
+      ]
+    },
+    "fill_contrast_below3": [
+      {
+        "id": "sh",
+        "ratio": 1.9554401379081627,
+        "outline": true
+      },
+      {
+        "id": "sv1",
+        "ratio": 1.8506526378208616,
+        "outline": true
+      },
+      {
+        "id": "sv2",
+        "ratio": 1.7080749688696522,
+        "outline": true
+      }
+    ]
+  },
+  {
+    "page": "06-axes-pi-symmetry",
+    "model": "m",
+    "mode": "light",
+    "minimum_all_pairs": {
+      "value": 8.4762123050695,
+      "type": "tritan",
+      "pair": [
+        "sh",
+        "sv2"
+      ]
+    },
+    "minimum_excluding_pattern_pairs": {
+      "value": 13.017129562809401,
+      "type": "deutan",
+      "pair": [
+        "sp",
+        "sh"
+      ]
+    },
+    "fill_contrast_below3": [
+      {
+        "id": "sh",
+        "ratio": 1.8329210099466364,
+        "outline": true
+      },
+      {
+        "id": "sv1",
+        "ratio": 1.8067624172199563,
+        "outline": true
+      },
+      {
+        "id": "sv2",
+        "ratio": 1.824377979322092,
+        "outline": true
+      }
+    ]
+  },
+  {
+    "page": "07-complete-sigma-pi-explorer",
+    "model": "m",
+    "mode": "dark",
+    "minimum_all_pairs": {
+      "value": 6.889207677736503,
+      "type": "deutan",
+      "pair": [
+        "plane1",
+        "H"
+      ]
+    },
+    "minimum_excluding_pattern_pairs": {
+      "value": 6.889207677736503,
+      "type": "deutan",
+      "pair": [
+        "plane1",
+        "H"
+      ]
+    },
+    "fill_contrast_below3": [
+      {
+        "id": "plane1",
+        "ratio": 2.1678898906164625,
+        "outline": true
+      },
+      {
+        "id": "plane2",
+        "ratio": 2.0387116236639855,
+        "outline": true
+      }
+    ]
+  },
+  {
+    "page": "07-complete-sigma-pi-explorer",
+    "model": "m",
+    "mode": "light",
+    "minimum_all_pairs": {
+      "value": 8.059915492082409,
+      "type": "tritan",
+      "pair": [
+        "pi",
+        "plane2"
+      ]
+    },
+    "minimum_excluding_pattern_pairs": {
+      "value": 8.376112194335679,
+      "type": "tritan",
+      "pair": [
+        "sigma",
+        "plane1"
+      ]
+    },
+    "fill_contrast_below3": [
+      {
+        "id": "plane1",
+        "ratio": 1.990110264309208,
+        "outline": true
+      },
+      {
+        "id": "plane2",
+        "ratio": 1.9525814129756518,
+        "outline": true
+      }
+    ]
+  },
+  {
+    "page": "12-compare-3d",
+    "model": "c2h6",
+    "mode": "dark",
+    "minimum_all_pairs": {
+      "value": 11.605111378610562,
+      "type": "deutan",
+      "pair": [
+        "sigCC",
+        "hyb"
+      ]
+    },
+    "minimum_excluding_pattern_pairs": {
+      "value": 11.605111378610562,
+      "type": "deutan",
+      "pair": [
+        "sigCC",
+        "hyb"
+      ]
+    },
+    "fill_contrast_below3": []
+  },
+  {
+    "page": "12-compare-3d",
+    "model": "c2h6",
+    "mode": "light",
+    "minimum_all_pairs": {
+      "value": 25.39766449584397,
+      "type": "protan",
+      "pair": [
+        "sigCC",
+        "hyb"
+      ]
+    },
+    "minimum_excluding_pattern_pairs": {
+      "value": 25.39766449584397,
+      "type": "protan",
+      "pair": [
+        "sigCC",
+        "hyb"
+      ]
+    },
+    "fill_contrast_below3": []
+  },
+  {
+    "page": "12-compare-3d",
+    "model": "c2h4",
+    "mode": "dark",
+    "minimum_all_pairs": {
+      "value": 11.605111378610562,
+      "type": "deutan",
+      "pair": [
+        "sigCC",
+        "hyb"
+      ]
+    },
+    "minimum_excluding_pattern_pairs": {
+      "value": 11.605111378610562,
+      "type": "deutan",
+      "pair": [
+        "sigCC",
+        "hyb"
+      ]
+    },
+    "fill_contrast_below3": []
+  },
+  {
+    "page": "12-compare-3d",
+    "model": "c2h4",
+    "mode": "light",
+    "minimum_all_pairs": {
+      "value": 17.681024750139493,
+      "type": "tritan",
+      "pair": [
+        "pi",
+        "H"
+      ]
+    },
+    "minimum_excluding_pattern_pairs": {
+      "value": 17.681024750139493,
+      "type": "tritan",
+      "pair": [
+        "pi",
+        "H"
+      ]
+    },
+    "fill_contrast_below3": []
+  },
+  {
+    "page": "12-compare-3d",
+    "model": "c2h2",
+    "mode": "dark",
+    "minimum_all_pairs": {
+      "value": 10.588493301828356,
+      "type": "deutan",
+      "pair": [
+        "piB",
+        "H"
+      ]
+    },
+    "minimum_excluding_pattern_pairs": {
+      "value": 11.605111378610562,
+      "type": "deutan",
+      "pair": [
+        "sigCC",
+        "hyb"
+      ]
+    },
+    "fill_contrast_below3": []
+  },
+  {
+    "page": "12-compare-3d",
+    "model": "c2h2",
+    "mode": "light",
+    "minimum_all_pairs": {
+      "value": 8.059915492082409,
+      "type": "tritan",
+      "pair": [
+        "piA",
+        "piB"
+      ]
+    },
+    "minimum_excluding_pattern_pairs": {
+      "value": 17.681024750139493,
+      "type": "tritan",
+      "pair": [
+        "piA",
+        "H"
+      ]
+    },
+    "fill_contrast_below3": []
+  }
+]

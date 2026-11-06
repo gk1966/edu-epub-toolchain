@@ -1,0 +1,14 @@
+[English reference translation. The actual experiment used the original Greek prompt, retained in original_ai_outputs/. The separately labelled English output copies in ai_reference_en/ are reading aids; historical results apply to the Greek originals.]
+
+Create an interactive HTML page for EPUB 3 that displays this 3D GLB model of ethyne (attached),
+for students in the final year of the Greek Lyceum, in Greek. Requirements:
+1. Semantic map: every part of the model (σ bonds, sp lobes, π bonds, plane 1, plane 2, hydrogen atoms, axes)
+   has a name and a description of one or two sentences; write the map as JSON and use it in the page.
+2. A list of parts in HTML, with a visibility checkbox and a highlight button for each one.
+3. Keyboard: arrow keys to rotate, + and − to zoom, preset views (side, along the axis, from above).
+4. An aria-live region that states what is visible in each view and what has changed.
+5. WCAG 2.2 AA: 1.4.1 (not colour alone: a pattern or outline on the planes), 1.4.11 (3:1 contrast of each role against the background,
+   also after transparency), 2.1.1, 2.4.7, 4.1.2. Report the contrast ratios that you calculated.
+6. A palette that remains distinguishable under protanopia, deuteranopia and tritanopia, in dark and light themes.
+7. Without JavaScript, the page shows the list, the description and static images.
+8. No external library from a CDN: everything inside the EPUB.

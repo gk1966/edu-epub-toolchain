@@ -1,0 +1,36 @@
+{
+  "command": "python 02_tools/a11y3d/gen.py web generated-pages --images 02_tools/a11y3d/views",
+  "scope": "Generated CFG parity; not byte-identical page HTML or runtime validation.",
+  "pages": [
+    {
+      "generated": "02-ethyne-structure-3d.html",
+      "matching_final_pages": [
+        "p1-ethyne-structure.html"
+      ]
+    },
+    {
+      "generated": "04-sp-orbital-viewer.html",
+      "matching_final_pages": [
+        "p2-sp-orbitals.html"
+      ]
+    },
+    {
+      "generated": "06-axes-pi-symmetry.html",
+      "matching_final_pages": [
+        "p3-axes-planes.html"
+      ]
+    },
+    {
+      "generated": "07-complete-sigma-pi-explorer.html",
+      "matching_final_pages": [
+        "p4-sigma-pi-explorer.html"
+      ]
+    },
+    {
+      "generated": "12-compare-3d.html",
+      "matching_final_pages": [
+        "p5-ethane-ethene-ethyne.html"
+      ]
+    }
+  ]
+}

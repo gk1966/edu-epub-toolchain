@@ -1,0 +1,7 @@
+file,partsWithGeometry,meaningfulNames,softwareNames,textAsGeometry,withA11yExtras,materials,softwareMaterialNames,distinctColours,materialsPerColour,texture,uvOnAll,minDE00_normal,minDE00_protan,minDE00_deutan,minDE00_tritan,coloursBelow3to1_vsViewerBg,colours
+"epub-v2.1__02-ethyne-structure-3d.glb",14,0,14,0,0,14,14,2,7,false,true,13.8,13.8,13.8,13.8,0,"#AAAAAA #E1E1E1"
+"epub-v2.1__04-sp-orbital-viewer.glb",39,0,39,4,0,37,37,12,3.1,false,false,0.1,0.1,0.1,0.1,1,"#5F5FDD #009FFE #F5F9F6 #CACACA #CACAC8 #5C5FDD #5F5FDC #EAEAEA #3232C1 #FFFFFF #CBCBCB #C1BDDF"
+"epub-v2.1__06-axes-pi-symmetry.glb",11,0,11,0,0,11,11,3,3.7,false,false,4,4,3.9,3.9,0,"#DADADA #8D79C3 #CACAC8"
+"epub-v2.1__07-complete-sigma-pi-explorer.glb",53,0,53,4,0,52,52,12,4.3,false,false,1.1,1,1,0.3,1,"#5F5FDC #009FFE #F5F9F6 #CACACA #CACAC8 #BDF9FD #3232C1 #9FC5F1 #9FD95A #F19FE5 #BF4530 #91D24F"
+"folder-3dsmax__sigma_me_ss.glb",5,0,5,0,0,5,5,3,1.7,false,false,21.2,12.4,6.6,13.7,0,"#9EF1E4 #3286C2 #CCDDF3"
+"folder-3dsmax__ener_sp3.glb",35,0,35,16,0,23,23,9,2.6,false,false,8.9,3.7,3.8,5,0,"#7CC475 #BBF0FF #FFBBE0 #FAFA00 #5F5FDD #BCBCBC #9D9D9D #DDCDF3 #9EF1C5"

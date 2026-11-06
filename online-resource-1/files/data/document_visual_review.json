@@ -1,0 +1,23 @@
+[
+  {
+    "file": "Manuscript_EN.docx",
+    "sha256": "13a1cf7e63a6ff65074e230582f08266bde9bc95ba5d0fda6bb28d53195bb409",
+    "rendered_pages": 21,
+    "visual_review": "Passed; all pages inspected. Manuscript page bodies 1-10 were pixel-identical to inspected v7 pages; final footer and pages 11-21 inspected directly.",
+    "rendering": "Canonical render_docx.py with LibreOffice, 3 November 2026."
+  },
+  {
+    "file": "Title_page_EN.docx",
+    "sha256": "06e0319e3ba54b316ac372a41156758f878d534714fcd4d07cfcff8a8a07afde",
+    "rendered_pages": 1,
+    "visual_review": "Passed; all pages inspected. Manuscript page bodies 1-10 were pixel-identical to inspected v7 pages; final footer and pages 11-21 inspected directly.",
+    "rendering": "Microsoft Word PDF export via UI, rendered to PNG with pypdfium2; unchanged one-page document reviewed previously."
+  },
+  {
+    "file": "Cover_letter_EN.docx",
+    "sha256": "2a23640e4b3b641328bcb452caceb918bd16d96629ae4b4fb87547d4ae12c4a7",
+    "rendered_pages": 1,
+    "visual_review": "Passed; all pages inspected. Manuscript page bodies 1-10 were pixel-identical to inspected v7 pages; final footer and pages 11-21 inspected directly.",
+    "rendering": "Microsoft Word PDF export via UI, rendered to PNG with pypdfium2; unchanged one-page document reviewed previously."
+  }
+]

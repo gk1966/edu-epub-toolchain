@@ -1,0 +1,13 @@
+# Online Resource 1
+
+**Article:** Accessibility auditing and remediation for interactive 3D publications
+**Manuscript prepared for:** Universal Access in the Information Society
+**Archived copy:** https://doi.org/10.5281/zenodo.24003166 (Zenodo)
+**Authors:** Georgios Korakakis, Konstadina Dalacosta, Maria Vlassi
+**Corresponding author:** Georgios Korakakis, Department of Graphic Design and Visual Communication, School of Applied Arts and Culture, University of West Attica, Egaleo, Athens, Greece. gkorakakis@uniwa.gr
+
+**Contents.** The five interactive pages, the English EPUB derivative, models, tools and reader, figures, the prompts and the original AI outputs (with English reference copies), the stored technical records (`original_records/`) and the verification data (`data/`). Start with `index.html`. File paths cited in the article are relative to this folder.
+
+**Update of 5 November 2026.** The 3D viewer's keyboard handler was corrected (see `data/keyfix_2026-11-05_README.md`), the NVDA check is recorded in `data/nvda_thorium_run.md`, and the scripted re-run of the final release in `data/final_release_rerun_2026-11-05.json`. **Update of 6 November 2026.** Author details were completed: the EPUB title page now gives the university (the line had been replaced by a second copy of the author's name), the footers of the five web pages name the author of the 3D models instead of "the author team", and the source files of the tools carry the copyright line of `LICENSE.txt`. EPUBCheck and the scripted re-run were repeated with the same results (`data/epubcheck_english_2026-11-06.json`, `data/final_release_rerun_2026-11-06.json`). In two NVDA screenshots (`00_…`, `01_…`), the desktop and other publications were masked. The count of text objects represented as geometry was corrected from 24 to 31: in the P4 model, seven text objects (σ ×3, π ×4) have meshes named `PARTn_m` under `Text…` nodes, which the command-line audit (`data/six_model_audit_recheck.json`, kept unchanged) did not count. GLB Lab in the browser counts them. Record: `data/text_geometry_check_2026-11-06.json`, with the script and an image of the glyphs. GLB Lab, the model-audit tool used in the study (version 0.1, in `tools/`), is archived with its corrected version 0.2 at https://doi.org/10.5281/zenodo.24002735; in the 0.1 copies here, only the link to Google Fonts was removed, so that the page makes no network request. Checksums of all files: `SHA256SUMS.txt`.
+
+**Reader.** Edu Ebook Reader (G. Korakakis, MIT licence). Version 1.1.0, the version tested in the article, is included in `tools/reader/`. Release 1.1.1 is archived at https://doi.org/10.5281/zenodo.23989619 (all versions: https://doi.org/10.5281/zenodo.21322911).

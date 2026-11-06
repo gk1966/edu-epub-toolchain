@@ -1,0 +1,8 @@
+check,thorium_3_5_1,edu_ebook_reader_1_1_0
+Book opens and contents are shown,partly (19 navigation links read; menu not operated),done (18 entries)
+3D pages show the 3D model,done (5/5),done (5/5)
+Static views or text version available,done (21/21 images with alt text),done (text version 5/5)
+Greek text read with a Greek voice,partly (Greek synthesis voice completed a phrase),partly (read-aloud started with a Greek voice; pronunciation not judged)
+Videos play,done (2/2 muted),done (2/2 muted)
+Self-assessment questions give feedback,done (1 of 16 cards submitted),done (16/16)
+Dark theme readable,partly (title page: white on #121212, 18.73:1),partly (18 sections checked with axe; items left for manual review)

@@ -1,0 +1,117 @@
+[
+  {
+    "file": "epub/source_en/OEBPS/media/sp-energy.mp4",
+    "sha256": "e0110bd757feffbfa8c4f722f4824b135598a7e9a83fcf7285a3ba5e39ed63e8",
+    "original_matches": true
+  },
+  {
+    "file": "epub/source_en/OEBPS/media/sp-overview.mp4",
+    "sha256": "96d1ce6f5e772a3799f813e064f1e938dfa5c950e992eb595cd286136b031f33",
+    "original_matches": true
+  },
+  {
+    "file": "epub/source_en/OEBPS/images/v3/02-ethyne-structure-3d-m-axis.jpg",
+    "sha256": "2d29bd68da5f0e4ae5c7ef5e4775e39494ccb03a0d40a0e036bd2c641de67d0e",
+    "original_matches": true
+  },
+  {
+    "file": "epub/source_en/OEBPS/images/v3/02-ethyne-structure-3d-m-side.jpg",
+    "sha256": "c7125ac2072ff48fc51679edca0b129aa219c79d969e7f806626ad6ec6dd0d62",
+    "original_matches": true
+  },
+  {
+    "file": "epub/source_en/OEBPS/images/v3/02-ethyne-structure-3d-m-top.jpg",
+    "sha256": "144a570950dabe1d887a48deafbe695af747a1ddc3a41136289664783ed380df",
+    "original_matches": true
+  },
+  {
+    "file": "epub/source_en/OEBPS/images/v3/04-sp-orbital-viewer-m-axis.jpg",
+    "sha256": "cfc4e72d9db7ad0fa79b3994390229b2f4d12488e565deaa7908e5b38a49812d",
+    "original_matches": true
+  },
+  {
+    "file": "epub/source_en/OEBPS/images/v3/04-sp-orbital-viewer-m-side.jpg",
+    "sha256": "285b7a660964fcf88e805ba77d8dde45428a2592dc9547dd2316d7e08b26b2f4",
+    "original_matches": true
+  },
+  {
+    "file": "epub/source_en/OEBPS/images/v3/04-sp-orbital-viewer-m-top.jpg",
+    "sha256": "75d69dd107ff0b79fe699caa0f6c093eba8ac7b2d749940c47c3c2b8b285241f",
+    "original_matches": true
+  },
+  {
+    "file": "epub/source_en/OEBPS/images/v3/06-axes-pi-symmetry-m-axis.jpg",
+    "sha256": "6f1a602bd29107b7c7786800ba7eacd59ccb21d6a739902f19211d4bea8101bd",
+    "original_matches": true
+  },
+  {
+    "file": "epub/source_en/OEBPS/images/v3/06-axes-pi-symmetry-m-side.jpg",
+    "sha256": "37550b9d2bce5dcfa695f17260123c3c7540cf78380b0c8ec82597bfb795a50a",
+    "original_matches": true
+  },
+  {
+    "file": "epub/source_en/OEBPS/images/v3/06-axes-pi-symmetry-m-top.jpg",
+    "sha256": "5fed3fe273c293cb6ed2f9dcc717a5be30303d04e7d36a79ae02b60725c92e58",
+    "original_matches": true
+  },
+  {
+    "file": "epub/source_en/OEBPS/images/v3/07-complete-sigma-pi-explorer-m-axis.jpg",
+    "sha256": "2f7837a23de63cd5884ec7f5508a3c021237a0e2d2b47ac42079143cb39553d0",
+    "original_matches": true
+  },
+  {
+    "file": "epub/source_en/OEBPS/images/v3/07-complete-sigma-pi-explorer-m-side.jpg",
+    "sha256": "b8c33c773723105e3336599d151aefc004c6b1dc065fadd30f9fbe3c98510acf",
+    "original_matches": true
+  },
+  {
+    "file": "epub/source_en/OEBPS/images/v3/07-complete-sigma-pi-explorer-m-top.jpg",
+    "sha256": "6faf8681feffb62e7e5a0fb8a78bac654a3a9d708d7fa6a17057fb1553aaa2ef",
+    "original_matches": true
+  },
+  {
+    "file": "epub/source_en/OEBPS/images/v3/12-compare-3d-c2h2-axis.jpg",
+    "sha256": "c32a9150dfad3ad6323fd1c4308627230548461a73d5da7fe4a03eac2b7c2aee",
+    "original_matches": true
+  },
+  {
+    "file": "epub/source_en/OEBPS/images/v3/12-compare-3d-c2h2-side.jpg",
+    "sha256": "77de3a6842e67413906fc7e5eb75335528e5184f4f9038a93f95b6a7c59691d6",
+    "original_matches": true
+  },
+  {
+    "file": "epub/source_en/OEBPS/images/v3/12-compare-3d-c2h2-top.jpg",
+    "sha256": "027a9d6a038710503f27ff5c3f0502d1050bbb534c74d9ddc08506575e4434ff",
+    "original_matches": true
+  },
+  {
+    "file": "epub/source_en/OEBPS/images/v3/12-compare-3d-c2h4-axis.jpg",
+    "sha256": "cea5eb3725507efd06110731dc0ee4410d76ab2759eb6a8fe56371cc9c723521",
+    "original_matches": true
+  },
+  {
+    "file": "epub/source_en/OEBPS/images/v3/12-compare-3d-c2h4-side.jpg",
+    "sha256": "df587690809c31a4d5bd22cc471e4404b59b982ae0de14e5f238ec8285866f34",
+    "original_matches": true
+  },
+  {
+    "file": "epub/source_en/OEBPS/images/v3/12-compare-3d-c2h4-top.jpg",
+    "sha256": "a2e085e27ea3109e6d20a7da2a1560d6b577dd44192c8afa5b56c2e7319aa571",
+    "original_matches": true
+  },
+  {
+    "file": "epub/source_en/OEBPS/images/v3/12-compare-3d-c2h6-axis.jpg",
+    "sha256": "60a5340c1f6dc45560d7c1cf1fc5ee9f9ce4c3d45301458f0918ef7a8648aa75",
+    "original_matches": true
+  },
+  {
+    "file": "epub/source_en/OEBPS/images/v3/12-compare-3d-c2h6-side.jpg",
+    "sha256": "ebbe06819d2f445556cd82dc179bea8d17923faddd058e75f520211d237e5655",
+    "original_matches": true
+  },
+  {
+    "file": "epub/source_en/OEBPS/images/v3/12-compare-3d-c2h6-top.jpg",
+    "sha256": "4334eb88a6a80c438621c984bda8e39aeb4aadd3808fc3c615788bba7bb439f0",
+    "original_matches": true
+  }
+]

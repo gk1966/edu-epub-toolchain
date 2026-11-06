@@ -1,0 +1,461 @@
+{
+ "description": "Scripted re-run of tasks T1–T6 (five pages) and the non-visual variant of T7 (P4) on the final English EPUB with the keyboard correction of 5 November 2026, plus axe-core 4.10.2 on all content documents. Operator: Claude (AI agent). Keyboard events and DOM assertions in headless Chromium; this is not a human or assistive-technology test.",
+ "epub_sha256": "10a6b363c904403acaf68e10a48724059914aea65b3bdc268908d4be457b6b9e",
+ "tool": "Playwright Chromium (headless, software WebGL)",
+ "chromium": "153.0.8010.12",
+ "axe": "4.10.2",
+ "tasks_run_date": "2026-11-05T21:37:59.768Z",
+ "axe_run_date": "2026-11-05T21:35:05.035Z",
+ "criteria": {
+  "T1": "model description present (>150 characters) for every model",
+  "T2": "after unchecking every non-π part, only π parts remain checked and the live region lists only π parts as visible; not applicable where no π part exists by design (P1, P3)",
+  "T3": "key 2 on the focused canvas gives an announcement starting 'Along'",
+  "T4": "3 × ArrowRight gives 'Rotated 15° right', key 0 gives 'Side view…', and no handled key reaches document listeners",
+  "T5": "description states the numbers of σ and π bonds and the bond angle (reported, checked against chemistry by Claude)",
+  "T6": "at least three static views with alternative text longer than 20 characters",
+  "T7_nonvisual": "P4 descriptions name Plane 2 (stripes) and state the solid outline and the stripes cue"
+ },
+ "pages": [
+  {
+   "page": "P1",
+   "file": "02-ethyne-structure-3d.html",
+   "tasks": {
+    "T1": {
+     "pass": true,
+     "n": 1,
+     "lengths": [
+      1096
+     ]
+    },
+    "T5": {
+     "counts": [
+      {
+       "sigma": "3",
+       "pi": "2",
+       "angle": "180"
+      }
+     ],
+     "zeroPi": [
+      false
+     ]
+    },
+    "T6": {
+     "pass": true,
+     "images": 3,
+     "minAltLength": 71
+    },
+    "T3": {
+     "pass": true,
+     "live": "Along C–C. You are looking along the axis: all the atoms lie one behind another, because the molecule is linear. Visible: Carbon atoms, Hydr"
+    },
+    "T4": {
+     "pass": true,
+     "afterRotate": "Rotated 15° right. Press D for a description of the view.",
+     "afterReset": "Side view. The molecular axis is horizontal: H–C≡C–H in a straight line, with an",
+     "keysReachingDocument": 0
+    },
+    "T2": {
+     "applicable": false,
+     "parts": [
+      "Carbon atoms",
+      "Hydrogen atoms",
+      "C≡C triple bond",
+      "C–H bonds"
+     ]
+    }
+   },
+   "models": [
+    "m"
+   ],
+   "pageErrors": []
+  },
+  {
+   "page": "P2",
+   "file": "04-sp-orbital-viewer.html",
+   "tasks": {
+    "T1": {
+     "pass": true,
+     "n": 1,
+     "lengths": [
+      1351
+     ]
+    },
+    "T5": {
+     "counts": [
+      {
+       "sigma": "3",
+       "pi": "2",
+       "angle": "180"
+      }
+     ],
+     "zeroPi": [
+      false
+     ]
+    },
+    "T6": {
+     "pass": true,
+     "images": 3,
+     "minAltLength": 100
+    },
+    "T3": {
+     "pass": true,
+     "live": "Along C–C. You are looking along the axis: the lobes of the two π bonds form a cross, so the two π bonds are perpendicular to each other. Vi"
+    },
+    "T4": {
+     "pass": true,
+     "afterRotate": "Rotated 15° right. Press D for a description of the view.",
+     "afterReset": "Side view. The C–C axis is horizontal. The sp hybrid lobes are visible along the",
+     "keysReachingDocument": 0
+    },
+    "T2": {
+     "applicable": true,
+     "live": "x, y, z axes: hidden. Visible: 1st π bond, 2nd π bond.",
+     "checkedNow": [
+      "1st π bond",
+      "2nd π bond"
+     ],
+     "pass": true
+    }
+   },
+   "models": [
+    "m"
+   ],
+   "pageErrors": []
+  },
+  {
+   "page": "P3",
+   "file": "06-axes-pi-symmetry.html",
+   "tasks": {
+    "T1": {
+     "pass": true,
+     "n": 1,
+     "lengths": [
+      1320
+     ]
+    },
+    "T5": {
+     "counts": [
+      {
+       "sigma": "3",
+       "pi": "2",
+       "angle": "180"
+      }
+     ],
+     "zeroPi": [
+      false
+     ]
+    },
+    "T6": {
+     "pass": true,
+     "images": 3,
+     "minAltLength": 81
+    },
+    "T3": {
+     "pass": true,
+     "live": "Along C∞. You are looking along C∞: σv1 and σv2 appear as a cross, perpendicular to each other, and σh is seen in full. Visible: sp lobes, M"
+    },
+    "T4": {
+     "pass": true,
+     "afterRotate": "Rotated 15° right. Press D for a description of the view.",
+     "afterReset": "Side view. The C∞ axis is horizontal, with the two sp lobes pointing in opposite",
+     "keysReachingDocument": 0
+    },
+    "T2": {
+     "applicable": false,
+     "parts": [
+      "sp lobes",
+      "Molecular axis C∞",
+      "Other axes",
+      "σh plane",
+      "σv1 plane (stripes)",
+      "σv2 plane (dots)"
+     ]
+    }
+   },
+   "models": [
+    "m"
+   ],
+   "pageErrors": []
+  },
+  {
+   "page": "P4",
+   "file": "07-complete-sigma-pi-explorer.html",
+   "tasks": {
+    "T1": {
+     "pass": true,
+     "n": 1,
+     "lengths": [
+      1699
+     ]
+    },
+    "T5": {
+     "counts": [
+      {
+       "sigma": "3",
+       "pi": "2",
+       "angle": "180"
+      }
+     ],
+     "zeroPi": [
+      false
+     ]
+    },
+    "T6": {
+     "pass": true,
+     "images": 3,
+     "minAltLength": 120
+    },
+    "T3": {
+     "pass": true,
+     "live": "Along C–C. You are looking along the C–C axis. The two planes appear as a cross: they are perpendicular to each other, as are the two π bond"
+    },
+    "T4": {
+     "pass": true,
+     "afterRotate": "Rotated 15° right. Press D for a description of the view.",
+     "afterReset": "Side view. The C–C axis is horizontal. The linear H–C≡C–H arrangement is visible",
+     "keysReachingDocument": 0
+    },
+    "T2": {
+     "applicable": true,
+     "live": "x, y, z axes: hidden. Visible: π bonds.",
+     "checkedNow": [
+      "π bonds"
+     ],
+     "pass": true
+    },
+    "T7_nonvisual": {
+     "pass": true
+    }
+   },
+   "models": [
+    "m"
+   ],
+   "pageErrors": []
+  },
+  {
+   "page": "P5",
+   "file": "12-compare-3d.html",
+   "tasks": {
+    "T1": {
+     "pass": true,
+     "n": 3,
+     "lengths": [
+      1378,
+      1636,
+      1446
+     ]
+    },
+    "T5": {
+     "counts": [
+      {
+       "sigma": "7",
+       "pi": null,
+       "angle": "109.5"
+      },
+      {
+       "sigma": "5",
+       "pi": "1",
+       "angle": "120"
+      },
+      {
+       "sigma": "3",
+       "pi": "2",
+       "angle": "180"
+      }
+     ],
+     "zeroPi": [
+      true,
+      false,
+      false
+     ]
+    },
+    "T6": {
+     "pass": true,
+     "images": 9,
+     "minAltLength": 115
+    },
+    "T3": {
+     "pass": true,
+     "live": "Along C=C. You are looking along the C=C bond. The hydrogen atoms lie on a horizontal line, because the molecule is planar, and the π lobes "
+    },
+    "T4": {
+     "pass": true,
+     "afterRotate": "Rotated 15° right. Press D for a description of the view.",
+     "afterReset": "Side view. The C=C axis is horizontal and you see the molecular plane edge-on. T",
+     "keysReachingDocument": 0
+    },
+    "T2": {
+     "applicable": true,
+     "live": "Coordinate axes: hidden. Visible: π bond (p orbitals).",
+     "checkedNow": [
+      "π bond (p orbitals)"
+     ],
+     "pass": true
+    }
+   },
+   "models": [
+    "c2h6",
+    "c2h4",
+    "c2h2"
+   ],
+   "pageErrors": []
+  }
+ ],
+ "axe_runs": [
+  {
+   "file": "OEBPS/chapters/00-title.xhtml",
+   "violations": [],
+   "incomplete": []
+  },
+  {
+   "file": "OEBPS/chapters/01-how.xhtml",
+   "violations": [],
+   "incomplete": []
+  },
+  {
+   "file": "OEBPS/chapters/02-sigma-pi.xhtml",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:19"
+   ]
+  },
+  {
+   "file": "OEBPS/chapters/03-why-hybridization.xhtml",
+   "violations": [],
+   "incomplete": []
+  },
+  {
+   "file": "OEBPS/chapters/05-sp-orbitals.xhtml",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:29"
+   ]
+  },
+  {
+   "file": "OEBPS/chapters/07-videos.xhtml",
+   "violations": [],
+   "incomplete": [
+    "video-caption:2"
+   ]
+  },
+  {
+   "file": "OEBPS/chapters/08-ethyne-bonding.xhtml",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:5"
+   ]
+  },
+  {
+   "file": "OEBPS/chapters/11-comparison.xhtml",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:12"
+   ]
+  },
+  {
+   "file": "OEBPS/chapters/11b-energy-diagrams.xhtml",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:55"
+   ]
+  },
+  {
+   "file": "OEBPS/chapters/13-misconceptions.xhtml",
+   "violations": [],
+   "incomplete": []
+  },
+  {
+   "file": "OEBPS/chapters/14-quiz.xhtml",
+   "violations": [],
+   "incomplete": []
+  },
+  {
+   "file": "OEBPS/chapters/15-summary.xhtml",
+   "violations": [],
+   "incomplete": []
+  },
+  {
+   "file": "OEBPS/chapters/16-accessibility-references.xhtml",
+   "violations": [],
+   "incomplete": []
+  },
+  {
+   "file": "OEBPS/chapters/fallback-02.xhtml",
+   "violations": [],
+   "incomplete": []
+  },
+  {
+   "file": "OEBPS/chapters/fallback-04.xhtml",
+   "violations": [],
+   "incomplete": []
+  },
+  {
+   "file": "OEBPS/chapters/fallback-06.xhtml",
+   "violations": [],
+   "incomplete": []
+  },
+  {
+   "file": "OEBPS/chapters/fallback-07.xhtml",
+   "violations": [],
+   "incomplete": []
+  },
+  {
+   "file": "OEBPS/chapters/fallback-12.xhtml",
+   "violations": [],
+   "incomplete": []
+  },
+  {
+   "file": "OEBPS/interactive/02-ethyne-structure-3d.html",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:5"
+   ]
+  },
+  {
+   "file": "OEBPS/interactive/04-sp-orbital-viewer.html",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:5"
+   ]
+  },
+  {
+   "file": "OEBPS/interactive/06-axes-pi-symmetry.html",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:5"
+   ]
+  },
+  {
+   "file": "OEBPS/interactive/07-complete-sigma-pi-explorer.html",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:5"
+   ]
+  },
+  {
+   "file": "OEBPS/interactive/12-compare-3d.html",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:5"
+   ]
+  },
+  {
+   "file": "OEBPS/nav.xhtml",
+   "violations": [
+    "target-size:18"
+   ],
+   "incomplete": []
+  }
+ ],
+ "summary": {
+  "combinations_passed": 29,
+  "not_possible_by_design": [
+   "T2 P1",
+   "T2 P3"
+  ],
+  "axe_violations": [
+   "OEBPS/nav.xhtml target-size:18"
+  ],
+  "axe_incomplete": "color-contrast in 10 documents; video-caption in 1"
+ }
+}

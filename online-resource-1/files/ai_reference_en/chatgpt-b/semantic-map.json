@@ -1,0 +1,429 @@
+{
+  "title": "Semantic map of the ethyne model",
+  "source": "montelo_aithinio.glb",
+  "mappingNote": "The original geometry has technical names; the mapping was made from the hierarchy and the geometry and requires a final chemical/visual check. The planes correspond to TRANSPARENT_PARTS_2 and TRANSPARENT_PARTS_1.",
+  "parts": [
+    {
+      "id": "sigma",
+      "name": "σ bonds",
+      "description": "End-on overlap of orbitals along the internuclear axis. Ethyne has one C–C σ bond and two C–H σ bonds.",
+      "nodeIds": [
+        8,
+        12,
+        14,
+        29,
+        45,
+        49,
+        70,
+        74
+      ]
+    },
+    {
+      "id": "sp",
+      "name": "sp hybrid lobes",
+      "description": "Each carbon atom has two sp hybrid orbitals in a linear 180° arrangement. Its two unhybridised p orbitals are perpendicular to each other.",
+      "nodeIds": [
+        19,
+        21,
+        23,
+        25,
+        60,
+        62,
+        64,
+        66
+      ]
+    },
+    {
+      "id": "pi",
+      "name": "π bonds",
+      "description": "The two π bonds result from sideways overlap of the unhybridised p orbitals. Their two mutually perpendicular distributions surround the C–C axis.",
+      "nodeIds": [
+        2,
+        4,
+        6,
+        10,
+        27,
+        31,
+        33,
+        35,
+        37,
+        39,
+        41,
+        43,
+        47,
+        51,
+        53,
+        56,
+        68,
+        72
+      ]
+    },
+    {
+      "id": "plane1",
+      "name": "Plane 1",
+      "description": "The first reference plane shows one orientation of the sideways overlap of the p orbitals. The plane has distinct hatching and a bold outline.",
+      "nodeIds": [
+        127
+      ]
+    },
+    {
+      "id": "plane2",
+      "name": "Plane 2",
+      "description": "The second reference plane is perpendicular to the first. It is additionally distinguished by opposite hatching and a different outline.",
+      "nodeIds": [
+        128
+      ]
+    },
+    {
+      "id": "hydrogen",
+      "name": "Hydrogen atoms",
+      "description": "Two hydrogen atoms are located at the two ends of the linear H–C≡C–H molecule.",
+      "nodeIds": [
+        77,
+        82
+      ]
+    },
+    {
+      "id": "axes",
+      "name": "Axes and markers",
+      "description": "Auxiliary axes, markers and letters support spatial interpretation. They are not additional chemical bonds.",
+      "nodeIds": [
+        97,
+        99,
+        103,
+        105,
+        108,
+        111,
+        114,
+        117,
+        79,
+        84,
+        87,
+        89,
+        91,
+        93,
+        119
+      ]
+    }
+  ],
+  "nodeLabels": {
+    "2": {
+      "originalName": "Circle09-FACES001",
+      "role": "pi",
+      "name": "π bonds",
+      "description": "The two π bonds result from sideways overlap of the unhybridised p orbitals. Their two mutually perpendicular distributions surround the C–C axis."
+    },
+    "4": {
+      "originalName": "Cone01-FACES001",
+      "role": "pi",
+      "name": "π bonds",
+      "description": "The two π bonds result from sideways overlap of the unhybridised p orbitals. Their two mutually perpendicular distributions surround the C–C axis."
+    },
+    "6": {
+      "originalName": "Cone02-FACES001",
+      "role": "pi",
+      "name": "π bonds",
+      "description": "The two π bonds result from sideways overlap of the unhybridised p orbitals. Their two mutually perpendicular distributions surround the C–C axis."
+    },
+    "8": {
+      "originalName": "Cylinder01-FACES001",
+      "role": "sigma",
+      "name": "σ bonds",
+      "description": "End-on overlap of orbitals along the internuclear axis. Ethyne has one C–C σ bond and two C–H σ bonds."
+    },
+    "10": {
+      "originalName": "Cone04-FACES001",
+      "role": "pi",
+      "name": "π bonds",
+      "description": "The two π bonds result from sideways overlap of the unhybridised p orbitals. Their two mutually perpendicular distributions surround the C–C axis."
+    },
+    "12": {
+      "originalName": "Cylinder02-FACES001",
+      "role": "sigma",
+      "name": "σ bonds",
+      "description": "End-on overlap of orbitals along the internuclear axis. Ethyne has one C–C σ bond and two C–H σ bonds."
+    },
+    "14": {
+      "originalName": "PART1_5",
+      "role": "sigma",
+      "name": "σ bonds",
+      "description": "End-on overlap of orbitals along the internuclear axis. Ethyne has one C–C σ bond and two C–H σ bonds."
+    },
+    "19": {
+      "originalName": "Circle02-FACES001",
+      "role": "sp",
+      "name": "sp hybrid lobes",
+      "description": "Each carbon atom has two sp hybrid orbitals in a linear 180° arrangement. Its two unhybridised p orbitals are perpendicular to each other."
+    },
+    "21": {
+      "originalName": "Circle04-FACES001",
+      "role": "sp",
+      "name": "sp hybrid lobes",
+      "description": "Each carbon atom has two sp hybrid orbitals in a linear 180° arrangement. Its two unhybridised p orbitals are perpendicular to each other."
+    },
+    "23": {
+      "originalName": "Circle03-FACES001",
+      "role": "sp",
+      "name": "sp hybrid lobes",
+      "description": "Each carbon atom has two sp hybrid orbitals in a linear 180° arrangement. Its two unhybridised p orbitals are perpendicular to each other."
+    },
+    "25": {
+      "originalName": "Circle01-FACES001",
+      "role": "sp",
+      "name": "sp hybrid lobes",
+      "description": "Each carbon atom has two sp hybrid orbitals in a linear 180° arrangement. Its two unhybridised p orbitals are perpendicular to each other."
+    },
+    "27": {
+      "originalName": "Cone03-FACES001",
+      "role": "pi",
+      "name": "π bonds",
+      "description": "The two π bonds result from sideways overlap of the unhybridised p orbitals. Their two mutually perpendicular distributions surround the C–C axis."
+    },
+    "29": {
+      "originalName": "Cylinder07-FACES001",
+      "role": "sigma",
+      "name": "σ bonds",
+      "description": "End-on overlap of orbitals along the internuclear axis. Ethyne has one C–C σ bond and two C–H σ bonds."
+    },
+    "31": {
+      "originalName": "Circle16-FACES001",
+      "role": "pi",
+      "name": "π bonds",
+      "description": "The two π bonds result from sideways overlap of the unhybridised p orbitals. Their two mutually perpendicular distributions surround the C–C axis."
+    },
+    "33": {
+      "originalName": "Circle05-FACES001",
+      "role": "pi",
+      "name": "π bonds",
+      "description": "The two π bonds result from sideways overlap of the unhybridised p orbitals. Their two mutually perpendicular distributions surround the C–C axis."
+    },
+    "35": {
+      "originalName": "Circle06-FACES001",
+      "role": "pi",
+      "name": "π bonds",
+      "description": "The two π bonds result from sideways overlap of the unhybridised p orbitals. Their two mutually perpendicular distributions surround the C–C axis."
+    },
+    "37": {
+      "originalName": "Circle18-FACES001",
+      "role": "pi",
+      "name": "π bonds",
+      "description": "The two π bonds result from sideways overlap of the unhybridised p orbitals. Their two mutually perpendicular distributions surround the C–C axis."
+    },
+    "39": {
+      "originalName": "Circle19-FACES001",
+      "role": "pi",
+      "name": "π bonds",
+      "description": "The two π bonds result from sideways overlap of the unhybridised p orbitals. Their two mutually perpendicular distributions surround the C–C axis."
+    },
+    "41": {
+      "originalName": "Cone06-FACES001",
+      "role": "pi",
+      "name": "π bonds",
+      "description": "The two π bonds result from sideways overlap of the unhybridised p orbitals. Their two mutually perpendicular distributions surround the C–C axis."
+    },
+    "43": {
+      "originalName": "Cone07-FACES001",
+      "role": "pi",
+      "name": "π bonds",
+      "description": "The two π bonds result from sideways overlap of the unhybridised p orbitals. Their two mutually perpendicular distributions surround the C–C axis."
+    },
+    "45": {
+      "originalName": "Cylinder08-FACES001",
+      "role": "sigma",
+      "name": "σ bonds",
+      "description": "End-on overlap of orbitals along the internuclear axis. Ethyne has one C–C σ bond and two C–H σ bonds."
+    },
+    "47": {
+      "originalName": "Cone08-FACES001",
+      "role": "pi",
+      "name": "π bonds",
+      "description": "The two π bonds result from sideways overlap of the unhybridised p orbitals. Their two mutually perpendicular distributions surround the C–C axis."
+    },
+    "49": {
+      "originalName": "Cylinder09-FACES001",
+      "role": "sigma",
+      "name": "σ bonds",
+      "description": "End-on overlap of orbitals along the internuclear axis. Ethyne has one C–C σ bond and two C–H σ bonds."
+    },
+    "51": {
+      "originalName": "Circle20-FACES001",
+      "role": "pi",
+      "name": "π bonds",
+      "description": "The two π bonds result from sideways overlap of the unhybridised p orbitals. Their two mutually perpendicular distributions surround the C–C axis."
+    },
+    "53": {
+      "originalName": "Circle21-FACES001",
+      "role": "pi",
+      "name": "π bonds",
+      "description": "The two π bonds result from sideways overlap of the unhybridised p orbitals. Their two mutually perpendicular distributions surround the C–C axis."
+    },
+    "56": {
+      "originalName": "Circle22-FACES001",
+      "role": "pi",
+      "name": "π bonds",
+      "description": "The two π bonds result from sideways overlap of the unhybridised p orbitals. Their two mutually perpendicular distributions surround the C–C axis."
+    },
+    "60": {
+      "originalName": "Circle23-FACES001",
+      "role": "sp",
+      "name": "sp hybrid lobes",
+      "description": "Each carbon atom has two sp hybrid orbitals in a linear 180° arrangement. Its two unhybridised p orbitals are perpendicular to each other."
+    },
+    "62": {
+      "originalName": "Circle24-FACES001",
+      "role": "sp",
+      "name": "sp hybrid lobes",
+      "description": "Each carbon atom has two sp hybrid orbitals in a linear 180° arrangement. Its two unhybridised p orbitals are perpendicular to each other."
+    },
+    "64": {
+      "originalName": "Circle25-FACES001",
+      "role": "sp",
+      "name": "sp hybrid lobes",
+      "description": "Each carbon atom has two sp hybrid orbitals in a linear 180° arrangement. Its two unhybridised p orbitals are perpendicular to each other."
+    },
+    "66": {
+      "originalName": "Circle26-FACES001",
+      "role": "sp",
+      "name": "sp hybrid lobes",
+      "description": "Each carbon atom has two sp hybrid orbitals in a linear 180° arrangement. Its two unhybridised p orbitals are perpendicular to each other."
+    },
+    "68": {
+      "originalName": "Cone09-FACES001",
+      "role": "pi",
+      "name": "π bonds",
+      "description": "The two π bonds result from sideways overlap of the unhybridised p orbitals. Their two mutually perpendicular distributions surround the C–C axis."
+    },
+    "70": {
+      "originalName": "Cylinder10-FACES001",
+      "role": "sigma",
+      "name": "σ bonds",
+      "description": "End-on overlap of orbitals along the internuclear axis. Ethyne has one C–C σ bond and two C–H σ bonds."
+    },
+    "72": {
+      "originalName": "Circle27-FACES001",
+      "role": "pi",
+      "name": "π bonds",
+      "description": "The two π bonds result from sideways overlap of the unhybridised p orbitals. Their two mutually perpendicular distributions surround the C–C axis."
+    },
+    "74": {
+      "originalName": "PART1_4",
+      "role": "sigma",
+      "name": "σ bonds",
+      "description": "End-on overlap of orbitals along the internuclear axis. Ethyne has one C–C σ bond and two C–H σ bonds."
+    },
+    "77": {
+      "originalName": "INITIAL_TRANSPARENT_1",
+      "role": "hydrogen",
+      "name": "Hydrogen atoms",
+      "description": "Two hydrogen atoms are located at the two ends of the linear H–C≡C–H molecule."
+    },
+    "79": {
+      "originalName": "Text07-FACES001",
+      "role": "axes",
+      "name": "Axes and markers",
+      "description": "Auxiliary axes, markers and letters support spatial interpretation. They are not additional chemical bonds."
+    },
+    "82": {
+      "originalName": "INITIAL_TRANSPARENT_2",
+      "role": "hydrogen",
+      "name": "Hydrogen atoms",
+      "description": "Two hydrogen atoms are located at the two ends of the linear H–C≡C–H molecule."
+    },
+    "84": {
+      "originalName": "Text08-FACES001",
+      "role": "axes",
+      "name": "Axes and markers",
+      "description": "Auxiliary axes, markers and letters support spatial interpretation. They are not additional chemical bonds."
+    },
+    "87": {
+      "originalName": "Text03-FACES001",
+      "role": "axes",
+      "name": "Axes and markers",
+      "description": "Auxiliary axes, markers and letters support spatial interpretation. They are not additional chemical bonds."
+    },
+    "89": {
+      "originalName": "PART1_3",
+      "role": "axes",
+      "name": "Axes and markers",
+      "description": "Auxiliary axes, markers and letters support spatial interpretation. They are not additional chemical bonds."
+    },
+    "91": {
+      "originalName": "PART1_1",
+      "role": "axes",
+      "name": "Axes and markers",
+      "description": "Auxiliary axes, markers and letters support spatial interpretation. They are not additional chemical bonds."
+    },
+    "93": {
+      "originalName": "PART1_2",
+      "role": "axes",
+      "name": "Axes and markers",
+      "description": "Auxiliary axes, markers and letters support spatial interpretation. They are not additional chemical bonds."
+    },
+    "97": {
+      "originalName": "PART2_7",
+      "role": "axes",
+      "name": "Axes and markers",
+      "description": "Auxiliary axes, markers and letters support spatial interpretation. They are not additional chemical bonds."
+    },
+    "99": {
+      "originalName": "PART2_8",
+      "role": "axes",
+      "name": "Axes and markers",
+      "description": "Auxiliary axes, markers and letters support spatial interpretation. They are not additional chemical bonds."
+    },
+    "103": {
+      "originalName": "PART2_5",
+      "role": "axes",
+      "name": "Axes and markers",
+      "description": "Auxiliary axes, markers and letters support spatial interpretation. They are not additional chemical bonds."
+    },
+    "105": {
+      "originalName": "PART2_6",
+      "role": "axes",
+      "name": "Axes and markers",
+      "description": "Auxiliary axes, markers and letters support spatial interpretation. They are not additional chemical bonds."
+    },
+    "108": {
+      "originalName": "PART2_4",
+      "role": "axes",
+      "name": "Axes and markers",
+      "description": "Auxiliary axes, markers and letters support spatial interpretation. They are not additional chemical bonds."
+    },
+    "111": {
+      "originalName": "PART2_3",
+      "role": "axes",
+      "name": "Axes and markers",
+      "description": "Auxiliary axes, markers and letters support spatial interpretation. They are not additional chemical bonds."
+    },
+    "114": {
+      "originalName": "PART2_2",
+      "role": "axes",
+      "name": "Axes and markers",
+      "description": "Auxiliary axes, markers and letters support spatial interpretation. They are not additional chemical bonds."
+    },
+    "117": {
+      "originalName": "PART2_1",
+      "role": "axes",
+      "name": "Axes and markers",
+      "description": "Auxiliary axes, markers and letters support spatial interpretation. They are not additional chemical bonds."
+    },
+    "119": {
+      "originalName": "Text15-FACES001",
+      "role": "axes",
+      "name": "Axes and markers",
+      "description": "Auxiliary axes, markers and letters support spatial interpretation. They are not additional chemical bonds."
+    },
+    "127": {
+      "originalName": "TRANSPARENT_PARTS_2",
+      "role": "plane1",
+      "name": "Plane 1",
+      "description": "The first reference plane shows one orientation of the sideways overlap of the p orbitals. The plane has distinct hatching and a bold outline."
+    },
+    "128": {
+      "originalName": "TRANSPARENT_PARTS_1",
+      "role": "plane2",
+      "name": "Plane 2",
+      "description": "The second reference plane is perpendicular to the first. It is additionally distinguished by opposite hatching and a different outline."
+    }
+  }
+}

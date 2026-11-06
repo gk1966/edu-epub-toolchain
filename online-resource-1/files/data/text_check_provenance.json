@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-03",
+  "source_file": "04_Epistimonikos_elegxos_Dalakosta.txt",
+  "source_sha256": "9f14e8bd10f421b399d595a8992a733259653dc26ba271292e5d9db2b205967b",
+  "source_header": "Για την Κ. Δαλακώστα • Έλεγχος κειμένου από Codex • 2 Νοεμβρίου 2026",
+  "entries": 71,
+  "flagged_entries": 11,
+  "revision_log_rows": 11,
+  "provenance": "AI-assisted initial check prepared for author review; authors subsequently personally checked materials, without retaining separate item-level human ratings.",
+  "interpretation": "Stored flags and wording revisions, not an independent human rating or accuracy score.",
+  "manuscript_sections_corrected": [
+    "3.8",
+    "4.5"
+  ]
+}

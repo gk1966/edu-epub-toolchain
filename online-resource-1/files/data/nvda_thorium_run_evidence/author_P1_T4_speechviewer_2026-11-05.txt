@@ -1,0 +1,8 @@
+Ethyne C₂H₂ (ball-and-stick) in 3D. Select it and use the arrow keys to rotate it.  interactive 3D model  Keyboard, with the model selected: ← → ↑ ↓ rotate in 15° steps · + − zoom · 1 2 3 views · 0 reset · D describe the view.
+Rotated 15° right. Press D for a description of the view. 
+Rotated 15° right. Press D for a description of the view. 
+Rotated 15° right. Press D for a description of the view. 
+Side view. The molecular axis is horizontal: H–C≡C–H in a straight line, with an angle of 180°. The triple bond appears as three cylinders between the two carbons. Visible: Carbon atoms, Hydrogen atoms, C≡C triple bond, C–H bonds. 
+Rotated 15° right. Press D for a description of the view. 
+Rotated 15° right. Press D for a description of the view. 
+Επιφάνεια εργασίας

@@ -1,0 +1,8 @@
+task,description,page1_ethyne_structure,page2_sp_orbitals,page3_axes_planes,page4_sigma_pi_explorer,page5_ethane_ethene_ethyne,note
+T1,Find and hear/read the model description,done,done,done,done,done,
+T2,Show only the pi bonds (page 5: the pi bond of ethene),not possible,done,not possible,done,done,"Page 1 shows the triple bond as one part (ball-and-stick); page 3 offers symmetry planes, not pi bonds"
+T3,Go to the view along the axis and state what it shows,done,done,done,done,done,Key 2; the view description was announced
+T4,Rotate 45 degrees with the arrow keys and reset,done,done,done,done,done,Three 15-degree steps; key 0 restored the side view
+T5,"Answer: how many sigma and pi bonds, which angle",done,partial,partial,done,done,"Pages 2-3 explained the triple bond (1 sigma + 2 pi) but not the molecule total (3 sigma + 2 pi); summaries revised after the evaluation"
+T6,Find the same information without 3D,done,done,done,done,done,Static views or text version (fallback)
+T7,Tell the two planes apart in the CVD-simulated figure,n/a,n/a,n/a,done,n/a,Stripes distinguish the second plane under all three simulations

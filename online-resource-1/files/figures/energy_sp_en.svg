@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 600" width="1080" height="600" role="img" aria-labelledby="title-sp desc-sp" lang="en">
+<title id="title-sp">sp hybridization of carbon</title>
+<desc id="desc-sp">Energy diagram of the valence orbitals of carbon in three columns. Ground state: 2s with two electrons of opposite spin; 2p with two unpaired electrons in two orbitals and one empty orbital. Excited state: one electron moves from 2s to the empty 2p, giving 2s¹ 2p³ with four unpaired electrons. sp hybridization: 2s and 1 of the 2p orbitals combine into 2 equivalent sp hybrid orbitals, each with one electron, at an energy between 2s and 2p. 2 unhybridized 2p orbitals remain, each with one electron, and form π bonds. Energies are qualitative, not to scale. 2s, 2p and hybrid orbitals differ in colour, fill pattern and label.</desc>
+<defs>
+  <pattern id="pat-s" width="8" height="8" patternUnits="userSpaceOnUse"><rect width="8" height="8" fill="#E6F1F8"/></pattern>
+  <pattern id="pat-p" width="10" height="10" patternUnits="userSpaceOnUse"><rect width="10" height="10" fill="#FBEDE4"/><circle cx="5" cy="5" r="1.3" fill="#D55E00" opacity="0.7"/></pattern>
+  <pattern id="pat-h" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="10" height="10" fill="#E3F4EE"/><rect width="3" height="10" fill="#009E73" opacity="0.55"/></pattern>
+  <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#46525E"/></marker>
+</defs>
+<rect width="1080" height="600" fill="#FFFFFF"/>
+<text x="40" y="44" font-family="Arial, 'Liberation Sans', Helvetica, sans-serif" font-size="26" font-weight="700" fill="#15202B">sp hybridization of carbon</text>
+<g aria-hidden="true"><line x1="70" y1="520" x2="70" y2="100" stroke="#46525E" stroke-width="2" marker-end="url(#arr)"/></g>
+<text x="0" y="0" transform="translate(52 320) rotate(-90)" text-anchor="middle" font-family="Arial, 'Liberation Sans', Helvetica, sans-serif" font-size="18" fill="#46525E">Energy</text>
+<g aria-hidden="true" stroke="#C9D1D8" stroke-width="1" stroke-dasharray="4 6"><line x1="90" y1="170" x2="1050" y2="170"/><line x1="90" y1="430" x2="1050" y2="430"/></g>
+<g aria-hidden="true">
+<rect x="167.0" y="145.0" width="50" height="50" rx="4" fill="url(#pat-p)" stroke="#D55E00" stroke-width="3"/>
+<path d="M192.0 187V155M186.0 162L192.0 153L198.0 162" fill="none" stroke="#15202B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="225.0" y="145.0" width="50" height="50" rx="4" fill="url(#pat-p)" stroke="#D55E00" stroke-width="3"/>
+<path d="M250.0 187V155M244.0 162L250.0 153L256.0 162" fill="none" stroke="#15202B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="283.0" y="145.0" width="50" height="50" rx="4" fill="url(#pat-p)" stroke="#D55E00" stroke-width="3"/>
+</g>
+<text x="155.0" y="177.0" text-anchor="end" font-family="Arial, 'Liberation Sans', Helvetica, sans-serif" font-size="22" font-weight="700" fill="#15202B" stroke="#FFFFFF" stroke-width="8" paint-order="stroke">2p</text>
+<g aria-hidden="true">
+<rect x="225.0" y="405.0" width="50" height="50" rx="4" fill="url(#pat-s)" stroke="#0072B2" stroke-width="3"/>
+<path d="M242.0 447V415M236.0 422L242.0 413L248.0 422" fill="none" stroke="#15202B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M258.0 413V445M252.0 438L258.0 447L264.0 438" fill="none" stroke="#15202B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<text x="213.0" y="437.0" text-anchor="end" font-family="Arial, 'Liberation Sans', Helvetica, sans-serif" font-size="22" font-weight="700" fill="#15202B" stroke="#FFFFFF" stroke-width="8" paint-order="stroke">2s</text>
+<g aria-hidden="true">
+<rect x="457.0" y="145.0" width="50" height="50" rx="4" fill="url(#pat-p)" stroke="#D55E00" stroke-width="3"/>
+<path d="M482.0 187V155M476.0 162L482.0 153L488.0 162" fill="none" stroke="#15202B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="515.0" y="145.0" width="50" height="50" rx="4" fill="url(#pat-p)" stroke="#D55E00" stroke-width="3"/>
+<path d="M540.0 187V155M534.0 162L540.0 153L546.0 162" fill="none" stroke="#15202B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="573.0" y="145.0" width="50" height="50" rx="4" fill="url(#pat-p)" stroke="#D55E00" stroke-width="3"/>
+<path d="M598.0 187V155M592.0 162L598.0 153L604.0 162" fill="none" stroke="#15202B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<text x="445.0" y="177.0" text-anchor="end" font-family="Arial, 'Liberation Sans', Helvetica, sans-serif" font-size="22" font-weight="700" fill="#15202B" stroke="#FFFFFF" stroke-width="8" paint-order="stroke">2p</text>
+<g aria-hidden="true">
+<rect x="515.0" y="405.0" width="50" height="50" rx="4" fill="url(#pat-s)" stroke="#0072B2" stroke-width="3"/>
+<path d="M540.0 447V415M534.0 422L540.0 413L546.0 422" fill="none" stroke="#15202B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<text x="503.0" y="437.0" text-anchor="end" font-family="Arial, 'Liberation Sans', Helvetica, sans-serif" font-size="22" font-weight="700" fill="#15202B" stroke="#FFFFFF" stroke-width="8" paint-order="stroke">2s</text>
+<g aria-hidden="true">
+<rect x="816.0" y="145.0" width="50" height="50" rx="4" fill="url(#pat-p)" stroke="#D55E00" stroke-width="3"/>
+<path d="M841.0 187V155M835.0 162L841.0 153L847.0 162" fill="none" stroke="#15202B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="874.0" y="145.0" width="50" height="50" rx="4" fill="url(#pat-p)" stroke="#D55E00" stroke-width="3"/>
+<path d="M899.0 187V155M893.0 162L899.0 153L905.0 162" fill="none" stroke="#15202B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<text x="804.0" y="177.0" text-anchor="end" font-family="Arial, 'Liberation Sans', Helvetica, sans-serif" font-size="22" font-weight="700" fill="#15202B" stroke="#FFFFFF" stroke-width="8" paint-order="stroke">2p</text>
+<text x="936.0" y="176.0" font-family="Arial, 'Liberation Sans', Helvetica, sans-serif" font-size="15" fill="#46525E" stroke="#FFFFFF" stroke-width="6" paint-order="stroke">unhybridized</text>
+<g aria-hidden="true">
+<rect x="816.0" y="275.0" width="50" height="50" rx="4" fill="url(#pat-h)" stroke="#009E73" stroke-width="3"/>
+<path d="M841.0 317.0V285.0M835.0 292.0L841.0 283.0L847.0 292.0" fill="none" stroke="#15202B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="874.0" y="275.0" width="50" height="50" rx="4" fill="url(#pat-h)" stroke="#009E73" stroke-width="3"/>
+<path d="M899.0 317.0V285.0M893.0 292.0L899.0 283.0L905.0 292.0" fill="none" stroke="#15202B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<text x="804.0" y="307.0" text-anchor="end" font-family="Arial, 'Liberation Sans', Helvetica, sans-serif" font-size="22" font-weight="700" fill="#15202B" stroke="#FFFFFF" stroke-width="8" paint-order="stroke">sp</text>
+<g aria-hidden="true"><line x1="350" y1="300" x2="440" y2="300" stroke="#46525E" stroke-width="2" marker-end="url(#arr)"/></g>
+<text x="395.0" y="282" text-anchor="middle" font-family="Arial, 'Liberation Sans', Helvetica, sans-serif" font-size="16" fill="#46525E">excitation</text>
+<g aria-hidden="true"><line x1="640" y1="300" x2="700" y2="300" stroke="#46525E" stroke-width="2" marker-end="url(#arr)"/></g>
+<text x="670.0" y="282" text-anchor="middle" font-family="Arial, 'Liberation Sans', Helvetica, sans-serif" font-size="16" fill="#46525E">hybridization</text>
+<text x="250" y="505" text-anchor="middle" font-family="Arial, 'Liberation Sans', Helvetica, sans-serif" font-size="18" font-weight="700" fill="#15202B">Ground state</text>
+<text x="540" y="505" text-anchor="middle" font-family="Arial, 'Liberation Sans', Helvetica, sans-serif" font-size="18" font-weight="700" fill="#15202B">Excited state</text>
+<text x="870" y="505" text-anchor="middle" font-family="Arial, 'Liberation Sans', Helvetica, sans-serif" font-size="18" font-weight="700" fill="#15202B">After sp hybridization</text>
+<text x="870" y="530" text-anchor="middle" font-family="Arial, 'Liberation Sans', Helvetica, sans-serif" font-size="15" fill="#46525E">2 equivalent sp hybrid orbitals</text>
+<rect x="110" y="560" width="28" height="22" rx="3" fill="url(#pat-s)" stroke="#0072B2" stroke-width="3" aria-hidden="true"/>
+<text x="148" y="577" font-family="Arial, 'Liberation Sans', Helvetica, sans-serif" font-size="16" fill="#15202B">2s orbital</text>
+<rect x="350" y="560" width="28" height="22" rx="3" fill="url(#pat-p)" stroke="#D55E00" stroke-width="3" aria-hidden="true"/>
+<text x="388" y="577" font-family="Arial, 'Liberation Sans', Helvetica, sans-serif" font-size="16" fill="#15202B">2p orbital</text>
+<rect x="590" y="560" width="28" height="22" rx="3" fill="url(#pat-h)" stroke="#009E73" stroke-width="3" aria-hidden="true"/>
+<text x="628" y="577" font-family="Arial, 'Liberation Sans', Helvetica, sans-serif" font-size="16" fill="#15202B">sp hybrid</text>
+<text x="1050" y="577" text-anchor="end" font-family="Arial, 'Liberation Sans', Helvetica, sans-serif" font-size="14" fill="#46525E">qualitative energies, not to scale</text>
+</svg>

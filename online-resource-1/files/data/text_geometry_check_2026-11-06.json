@@ -1,0 +1,425 @@
+{
+ "rule": "node, mesh or parent name starts with Text (3ds Max text shape)",
+ "earlier_cli_rule": "node or mesh name starts with Text",
+ "files": [
+  {
+   "file": "02-ethyne-structure-3d.glb",
+   "sha256": "30deb8175541978eb9de28d84cd52f84786b357aeadc6bdf899e5c05547d53ad",
+   "textAsGeometry": 0,
+   "earlierRuleCount": 0,
+   "objects": []
+  },
+  {
+   "file": "04-sp-orbital-viewer.glb",
+   "sha256": "2d4fa3d95c066adbc7872a87e673f52d6e653f703ab2780038cc0803b44e661a",
+   "textAsGeometry": 4,
+   "earlierRuleCount": 4,
+   "objects": [
+    {
+     "node": "Text07-FACES001",
+     "mesh": "Text07-FACES001",
+     "parent": "Text006",
+     "vertices": 72,
+     "extent": [
+      0.15299999713897705,
+      0.19499999284744263,
+      0.12700000405311584
+     ],
+     "counted_by_earlier_rule": true
+    },
+    {
+     "node": "Text08-FACES001",
+     "mesh": "Text08-FACES001",
+     "parent": "Text007",
+     "vertices": 72,
+     "extent": [
+      0.15299999713897705,
+      0.19499999284744263,
+      0.12700000405311584
+     ],
+     "counted_by_earlier_rule": true
+    },
+    {
+     "node": "Text03-FACES001",
+     "mesh": "Text03-FACES001",
+     "parent": "Text008",
+     "vertices": 576,
+     "extent": [
+      0.17299999296665192,
+      0.20200000703334808,
+      0.08900000154972076
+     ],
+     "counted_by_earlier_rule": true
+    },
+    {
+     "node": "Text06-FACES001",
+     "mesh": "Text06-FACES001",
+     "parent": "Text009",
+     "vertices": 576,
+     "extent": [
+      0.17299999296665192,
+      0.20200000703334808,
+      0.08900000154972076
+     ],
+     "counted_by_earlier_rule": true
+    }
+   ]
+  },
+  {
+   "file": "06-axes-pi-symmetry.glb",
+   "sha256": "11594afc51d1074cc1955e26945f99a88c1b52243b2ee58df022491c5018ae9a",
+   "textAsGeometry": 0,
+   "earlierRuleCount": 0,
+   "objects": []
+  },
+  {
+   "file": "07-complete-sigma-pi-explorer.glb",
+   "sha256": "33fc38bcbe91959ab9a05216b15f1d665e8c70dd32105e0c0fe99d364911274b",
+   "textAsGeometry": 11,
+   "earlierRuleCount": 4,
+   "objects": [
+    {
+     "node": "Text07-FACES001",
+     "mesh": "Text07-FACES001",
+     "parent": "Text005",
+     "vertices": 72,
+     "extent": [
+      0.15299999713897705,
+      0.19499999284744263,
+      0.12700000405311584
+     ],
+     "counted_by_earlier_rule": true
+    },
+    {
+     "node": "Text08-FACES001",
+     "mesh": "Text08-FACES001",
+     "parent": "Text006",
+     "vertices": 72,
+     "extent": [
+      0.15299999713897705,
+      0.19499999284744263,
+      0.12700000405311584
+     ],
+     "counted_by_earlier_rule": true
+    },
+    {
+     "node": "Text03-FACES001",
+     "mesh": "Text03-FACES001",
+     "parent": "Text007",
+     "vertices": 1396,
+     "extent": [
+      0.26899999380111694,
+      0.19900000095367432,
+      0.12700000405311584
+     ],
+     "counted_by_earlier_rule": true
+    },
+    {
+     "node": "PART1_3",
+     "mesh": "PART1_3",
+     "parent": "Text008",
+     "vertices": 466,
+     "extent": [
+      0.15299999713897705,
+      0.14800000190734863,
+      0.12700000405311584
+     ],
+     "counted_by_earlier_rule": false
+    },
+    {
+     "node": "PART1_1",
+     "mesh": "PART1_1",
+     "parent": "Text009",
+     "vertices": 466,
+     "extent": [
+      0.15299999713897705,
+      0.14800000190734863,
+      0.12700000405311584
+     ],
+     "counted_by_earlier_rule": false
+    },
+    {
+     "node": "PART1_2",
+     "mesh": "PART1_2",
+     "parent": "Text010",
+     "vertices": 466,
+     "extent": [
+      0.15299999713897705,
+      0.14800000190734863,
+      0.12700000405311584
+     ],
+     "counted_by_earlier_rule": false
+    },
+    {
+     "node": "PART2_8",
+     "mesh": "PART2_8",
+     "parent": "Text011",
+     "vertices": 72,
+     "extent": [
+      0.17599999904632568,
+      0.1420000046491623,
+      0.12700000405311584
+     ],
+     "counted_by_earlier_rule": false
+    },
+    {
+     "node": "PART2_6",
+     "mesh": "PART2_6",
+     "parent": "Text012",
+     "vertices": 72,
+     "extent": [
+      0.17599999904632568,
+      0.1420000046491623,
+      0.12700000405311584
+     ],
+     "counted_by_earlier_rule": false
+    },
+    {
+     "node": "PART2_4",
+     "mesh": "PART2_4",
+     "parent": "Text013",
+     "vertices": 72,
+     "extent": [
+      0.17599999904632568,
+      0.1420000046491623,
+      0.12700000405311584
+     ],
+     "counted_by_earlier_rule": false
+    },
+    {
+     "node": "PART2_2",
+     "mesh": "PART2_2",
+     "parent": "Text014",
+     "vertices": 72,
+     "extent": [
+      0.17599999904632568,
+      0.1420000046491623,
+      0.12700000405311584
+     ],
+     "counted_by_earlier_rule": false
+    },
+    {
+     "node": "Text15-FACES001",
+     "mesh": "Text15-FACES001",
+     "parent": "Text015",
+     "vertices": 536,
+     "extent": [
+      0.12300000339746475,
+      0.19900000095367432,
+      0.12700000405311584
+     ],
+     "counted_by_earlier_rule": true
+    }
+   ]
+  },
+  {
+   "file": "ener_sp3.glb",
+   "sha256": "837730d7ba2ba6982814fae99fef7af681a1c5ddec5c5f4491ed76fd200a1e1e",
+   "textAsGeometry": 16,
+   "earlierRuleCount": 16,
+   "objects": [
+    {
+     "node": "Text01-FACES001",
+     "mesh": "Text01-FACES001",
+     "parent": "",
+     "vertices": 2000,
+     "extent": [
+      11.399999618530273,
+      3.0,
+      8.824000358581543
+     ],
+     "counted_by_earlier_rule": true
+    },
+    {
+     "node": "Text03-FACES001",
+     "mesh": "Text03-FACES001",
+     "parent": "",
+     "vertices": 2750,
+     "extent": [
+      12.251999855041504,
+      3.0,
+      8.727999687194824
+     ],
+     "counted_by_earlier_rule": true
+    },
+    {
+     "node": "Text04-FACES001",
+     "mesh": "Text04-FACES001",
+     "parent": "",
+     "vertices": 728,
+     "extent": [
+      6.808000087738037,
+      3.0,
+      8.692000389099121
+     ],
+     "counted_by_earlier_rule": true
+    },
+    {
+     "node": "Text05-FACES001",
+     "mesh": "Text05-FACES001",
+     "parent": "",
+     "vertices": 1192,
+     "extent": [
+      11.612000465393066,
+      3.0,
+      9.947999954223633
+     ],
+     "counted_by_earlier_rule": true
+    },
+    {
+     "node": "Text06-FACES001",
+     "mesh": "Text06-FACES001",
+     "parent": "",
+     "vertices": 758,
+     "extent": [
+      6.738999843597412,
+      3.0,
+      8.692000389099121
+     ],
+     "counted_by_earlier_rule": true
+    },
+    {
+     "node": "Text02-FACES001",
+     "mesh": "Text02-FACES001",
+     "parent": "",
+     "vertices": 72,
+     "extent": [
+      4.703999996185303,
+      4.5,
+      8.692000389099121
+     ],
+     "counted_by_earlier_rule": true
+    },
+    {
+     "node": "Text09-FACES001",
+     "mesh": "Text09-FACES001",
+     "parent": "",
+     "vertices": 1438,
+     "extent": [
+      4.988999843597412,
+      4.0,
+      8.72700023651123
+     ],
+     "counted_by_earlier_rule": true
+    },
+    {
+     "node": "Text10-FACES001",
+     "mesh": "Text10-FACES001",
+     "parent": "",
+     "vertices": 2384,
+     "extent": [
+      7.669000148773193,
+      4.0,
+      8.824000358581543
+     ],
+     "counted_by_earlier_rule": true
+    },
+    {
+     "node": "Text11-FACES001",
+     "mesh": "Text11-FACES001",
+     "parent": "",
+     "vertices": 2384,
+     "extent": [
+      7.669000148773193,
+      4.0,
+      8.824000358581543
+     ],
+     "counted_by_earlier_rule": true
+    },
+    {
+     "node": "Text12-FACES001",
+     "mesh": "Text12-FACES001",
+     "parent": "",
+     "vertices": 1438,
+     "extent": [
+      4.988999843597412,
+      4.0,
+      8.72700023651123
+     ],
+     "counted_by_earlier_rule": true
+    },
+    {
+     "node": "Text13-FACES001",
+     "mesh": "Text13-FACES001",
+     "parent": "",
+     "vertices": 2384,
+     "extent": [
+      7.669000148773193,
+      4.0,
+      8.824000358581543
+     ],
+     "counted_by_earlier_rule": true
+    },
+    {
+     "node": "Text14-FACES001",
+     "mesh": "Text14-FACES001",
+     "parent": "",
+     "vertices": 1438,
+     "extent": [
+      4.988999843597412,
+      4.0,
+      8.72700023651123
+     ],
+     "counted_by_earlier_rule": true
+    },
+    {
+     "node": "Text15-FACES001",
+     "mesh": "Text15-FACES001",
+     "parent": "",
+     "vertices": 2384,
+     "extent": [
+      7.669000148773193,
+      4.0,
+      8.824000358581543
+     ],
+     "counted_by_earlier_rule": true
+    },
+    {
+     "node": "Text16-FACES001",
+     "mesh": "Text16-FACES001",
+     "parent": "",
+     "vertices": 1438,
+     "extent": [
+      4.988999843597412,
+      4.0,
+      8.72700023651123
+     ],
+     "counted_by_earlier_rule": true
+    },
+    {
+     "node": "Text17-FACES001",
+     "mesh": "Text17-FACES001",
+     "parent": "",
+     "vertices": 2384,
+     "extent": [
+      7.669000148773193,
+      4.0,
+      8.824000358581543
+     ],
+     "counted_by_earlier_rule": true
+    },
+    {
+     "node": "Text18-FACES001",
+     "mesh": "Text18-FACES001",
+     "parent": "",
+     "vertices": 1438,
+     "extent": [
+      4.988999843597412,
+      4.0,
+      8.72700023651123
+     ],
+     "counted_by_earlier_rule": true
+    }
+   ]
+  },
+  {
+   "file": "sigma_me_ss.glb",
+   "sha256": "25a7d60c3aa4c5811bcf9560d9411f1acc1b94729809797063b03a079fc20b59",
+   "textAsGeometry": 0,
+   "earlierRuleCount": 0,
+   "objects": []
+  }
+ ],
+ "total": 31,
+ "earlierRuleTotal": 24
+}

@@ -1,0 +1,5 @@
+[English reference translation. The actual experiment used the original Greek prompt, retained in original_ai_outputs/. The separately labelled English output copies in ai_reference_en/ are reading aids; historical results apply to the Greek originals.]
+
+Create an interactive HTML page for EPUB 3 that displays this 3D GLB model of ethyne (attached).
+The student should be able to rotate and zoom the model and show or hide the σ bonds, the π bonds
+and the two planes. Add a short text about σ and π bonds. Chemistry, final year of the Greek Lyceum, in Greek.
