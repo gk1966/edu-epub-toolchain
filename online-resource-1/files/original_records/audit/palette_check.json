@@ -1,0 +1,191 @@
+[
+ {
+  "page": "02-ethyne-structure-3d",
+  "model": "m",
+  "palette": "orig",
+  "minDE00": 0,
+  "worstPair": "Άτομα άνθρακα / Τριπλός δεσμός C≡C (normal)",
+  "below3to1": []
+ },
+ {
+  "page": "02-ethyne-structure-3d",
+  "model": "m",
+  "palette": "dark",
+  "minDE00": 10.9,
+  "worstPair": "Τριπλός δεσμός C≡C / Δεσμοί C–H (tritan)",
+  "below3to1": []
+ },
+ {
+  "page": "02-ethyne-structure-3d",
+  "model": "m",
+  "palette": "light",
+  "minDE00": 8.4,
+  "worstPair": "Τριπλός δεσμός C≡C / Δεσμοί C–H (tritan)",
+  "below3to1": []
+ },
+ {
+  "page": "04-sp-orbital-viewer",
+  "model": "m",
+  "palette": "orig",
+  "minDE00": 0,
+  "worstPair": "1ος δεσμός π / 2ος δεσμός π (normal)",
+  "below3to1": [
+   "Επίπεδο 1 1.9",
+   "Επίπεδο 2 (ρίγες) 1.9",
+   "Άτομα υδρογόνου 1.7"
+  ]
+ },
+ {
+  "page": "04-sp-orbital-viewer",
+  "model": "m",
+  "palette": "dark",
+  "minDE00": 6.9,
+  "worstPair": "Επίπεδο 1 / Άτομα υδρογόνου (deutan)",
+  "below3to1": []
+ },
+ {
+  "page": "04-sp-orbital-viewer",
+  "model": "m",
+  "palette": "light",
+  "minDE00": 8.7,
+  "worstPair": "2ος δεσμός π / Επίπεδο 1 (protan)",
+  "below3to1": []
+ },
+ {
+  "page": "06-axes-pi-symmetry",
+  "model": "m",
+  "palette": "orig",
+  "minDE00": 5.3,
+  "worstPair": "Επίπεδο σh / Επίπεδο σv1 (ρίγες) (protan)",
+  "below3to1": [
+   "Επίπεδο σh 1.7",
+   "Επίπεδο σv1 (ρίγες) 1.6",
+   "Επίπεδο σv2 (τελείες) 1.9"
+  ]
+ },
+ {
+  "page": "06-axes-pi-symmetry",
+  "model": "m",
+  "palette": "dark",
+  "minDE00": 16.7,
+  "worstPair": "Λοβοί sp / Άξονας του μορίου C∞ (tritan)",
+  "below3to1": []
+ },
+ {
+  "page": "06-axes-pi-symmetry",
+  "model": "m",
+  "palette": "light",
+  "minDE00": 13,
+  "worstPair": "Λοβοί sp / Επίπεδο σh (deutan)",
+  "below3to1": []
+ },
+ {
+  "page": "07-complete-sigma-pi-explorer",
+  "model": "m",
+  "palette": "orig",
+  "minDE00": 8.4,
+  "worstPair": "Επίπεδο 1 / Επίπεδο 2 (ρίγες) (deutan)",
+  "below3to1": [
+   "Επίπεδο 1 1.3",
+   "Επίπεδο 2 (ρίγες) 1.9",
+   "Άτομα υδρογόνου 1.7"
+  ]
+ },
+ {
+  "page": "07-complete-sigma-pi-explorer",
+  "model": "m",
+  "palette": "dark",
+  "minDE00": 6.9,
+  "worstPair": "Επίπεδο 1 / Άτομα υδρογόνου (deutan)",
+  "below3to1": []
+ },
+ {
+  "page": "07-complete-sigma-pi-explorer",
+  "model": "m",
+  "palette": "light",
+  "minDE00": 8.4,
+  "worstPair": "Περιοχές δεσμών σ / Επίπεδο 1 (tritan)",
+  "below3to1": []
+ },
+ {
+  "page": "12-compare-3d",
+  "model": "c2h6",
+  "palette": "orig",
+  "minDE00": 0,
+  "worstPair": "Δεσμός σ C–C / Υβριδικά sp³ προς τα H (normal)",
+  "below3to1": [
+   "Άτομα υδρογόνου 2.3"
+  ]
+ },
+ {
+  "page": "12-compare-3d",
+  "model": "c2h6",
+  "palette": "dark",
+  "minDE00": 11.6,
+  "worstPair": "Δεσμός σ C–C / Υβριδικά sp³ προς τα H (deutan)",
+  "below3to1": []
+ },
+ {
+  "page": "12-compare-3d",
+  "model": "c2h6",
+  "palette": "light",
+  "minDE00": 25.4,
+  "worstPair": "Δεσμός σ C–C / Υβριδικά sp³ προς τα H (protan)",
+  "below3to1": []
+ },
+ {
+  "page": "12-compare-3d",
+  "model": "c2h4",
+  "palette": "orig",
+  "minDE00": 0,
+  "worstPair": "Δεσμός σ C–C / Υβριδικά sp² προς τα H (normal)",
+  "below3to1": [
+   "Δεσμός π (τροχιακά p) 1.8",
+   "Άτομα υδρογόνου 2.3"
+  ]
+ },
+ {
+  "page": "12-compare-3d",
+  "model": "c2h4",
+  "palette": "dark",
+  "minDE00": 11.6,
+  "worstPair": "Δεσμός σ C–C / Υβριδικά sp² προς τα H (deutan)",
+  "below3to1": []
+ },
+ {
+  "page": "12-compare-3d",
+  "model": "c2h4",
+  "palette": "light",
+  "minDE00": 17.7,
+  "worstPair": "Δεσμός π (τροχιακά p) / Άτομα υδρογόνου (tritan)",
+  "below3to1": []
+ },
+ {
+  "page": "12-compare-3d",
+  "model": "c2h2",
+  "palette": "orig",
+  "minDE00": 0,
+  "worstPair": "Δεσμός σ C–C / Υβριδικά sp προς τα H (normal)",
+  "below3to1": [
+   "1ος δεσμός π 1.8",
+   "2ος δεσμός π (ρίγες) 1.8",
+   "Άτομα υδρογόνου 2.3"
+  ]
+ },
+ {
+  "page": "12-compare-3d",
+  "model": "c2h2",
+  "palette": "dark",
+  "minDE00": 11.6,
+  "worstPair": "Δεσμός σ C–C / Υβριδικά sp προς τα H (deutan)",
+  "below3to1": []
+ },
+ {
+  "page": "12-compare-3d",
+  "model": "c2h2",
+  "palette": "light",
+  "minDE00": 17.7,
+  "worstPair": "1ος δεσμός π / Άτομα υδρογόνου (tritan)",
+  "below3to1": []
+ }
+]

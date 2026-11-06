@@ -1,0 +1,19 @@
+Learning materials, 3D models, figures and documentation
+  Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
+  https://creativecommons.org/licenses/by-nc/4.0/
+  The 3D models were created by Georgios Korakakis in Autodesk 3ds Max under an Autodesk Education licence
+  and are shared for non-commercial educational and research use only.
+
+Code written for this study (02_tools: a11y3d.src.js, gen.py, configs.py, convert_3dsmax)
+  MIT License. Copyright (c) 2026 Georgios Korakakis
+  Permission is hereby granted, free of charge, to any person obtaining a copy of this software, to deal in the
+  Software without restriction, subject to including this notice. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY.
+
+GLB Lab (02_tools/glb_lab: GLB-Lab-0.1.html, glb_audit_cli.js, verify_pal.js, check_numerical_core.cjs)
+and the CVD Lab 2.1 numerical core (cvd-core.js, unchanged)
+  MIT License. Copyright (c) 2026 Georgios Korakakis
+  Permission is hereby granted, free of charge, to any person obtaining a copy of this software, to deal in the
+  Software without restriction, subject to including this notice. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY.
+
+Third-party components keep their own licences:
+  three.js r160 (MIT) — 02_tools/a11y3d/three-LICENSE.txt, bundled in a11y3d.min.js

@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" lang="el" xml:lang="el">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <title>Ηλεκτρονιακή Δομή Αιθινίου (C2H2) - Χημεία Γ΄ Λυκείου</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --panel-bg: rgba(30, 41, 59, 0.88);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-sigma: #38bdf8;
+            --accent-pi: #f43f5e;
+            --accent-planes: #10b981;
+            --border-color: rgba(255, 255, 255, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: var(--bg-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-main);
+        }
+
+        #canvas-container {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        /* Πλαϊνό UI Ελέγχου */
+        .controls-overlay {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            z-index: 10;
+            background: var(--panel-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 16px;
+            width: 290px;
+            max-width: calc(100vw - 32px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        h1 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: #ffffff;
+        }
+
+        .subtitle {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .toggle-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .toggle-btn:active {
+            transform: scale(0.98);
+        }
+
+        .toggle-btn.active.sigma {
+            background: rgba(56, 189, 248, 0.2);
+            border-color: var(--accent-sigma);
+        }
+
+        .toggle-btn.active.pi {
+            background: rgba(244, 63, 94, 0.2);
+            border-color: var(--accent-pi);
+        }
+
+        .toggle-btn.active.planes {
+            background: rgba(16, 185, 129, 0.2);
+            border-color: var(--accent-planes);
+        }
+
+        .status-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #475569;
+            transition: background 0.2s;
+        }
+
+        .active.sigma .status-indicator { background: var(--accent-sigma); }
+        .active.pi .status-indicator { background: var(--accent-pi); }
+        .active.planes .status-indicator { background: var(--accent-planes); }
+
+        /* Πάνελ Θεωρίας (Χημεία Γ΄ Λυκείου) */
+        .info-card {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            right: 16px;
+            z-index: 10;
+            background: var(--panel-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 14px 18px;
+            font-size: 0.82rem;
+            line-height: 1.5;
+            color: #cbd5e1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .info-card strong {
+            color: #ffffff;
+        }
+
+        .info-card p + p {
+            margin-top: 6px;
+        }
+
+        #loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--text-main);
+            font-size: 0.9rem;
+            z-index: 5;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+    </style>
+
+    <!-- Τοπικά scripts για ασφαλή λειτουργία εντός EPUB 3 -->
+    <script src="../js/three.min.js"></script>
+    <script src="../js/OrbitControls.js"></script>
+    <script src="../js/GLTFLoader.js"></script>
+</head>
+<body>
+
+    <div id="loading">Φόρτωση 3D Μοντέλου...</div>
+    <div id="canvas-container"></div>
+
+    <div class="controls-overlay">
+        <h1>Αιθίνιο (C₂H₂)</h1>
+        <div class="subtitle">sp Υβριδισμός &amp; Δεσμοί</div>
+        <div class="control-group">
+            <button id="btn-sigma" class="toggle-btn active sigma">
+                <span>Δεσμοί σ (Άξονας)</span>
+                <span class="status-indicator"></span>
+            </button>
+            <button id="btn-pi" class="toggle-btn active pi">
+                <span>Δεσμοί π (p-τροχιακά)</span>
+                <span class="status-indicator"></span>
+            </button>
+            <button id="btn-planes" class="toggle-btn active planes">
+                <span>Επίπεδα Επικάλυψης</span>
+                <span class="status-indicator"></span>
+            </button>
+        </div>
+    </div>
+
+    <div class="info-card">
+        <p><strong>Δεσμοί σ (Άξονας):</strong> Κάθε άτομο άνθρακα σχηματίζει 2 γραμμικούς υβριδικούς τροχιακούς λοβούς $sp$ ($180^\circ$). Ο ένας δεσμός $\sigma_{\text{C-C}}$ προκύπτει από την αξονική επικάλυψη $sp\text{-}sp$ και οι δύο $\sigma_{\text{C-H}}$ από αξονικές επικαλύψεις $sp\text{-}s$.</p>
+        <p><strong>Δεσμοί π &amp; Επίπεδα:</strong> Τα δύο μη υβριδισμένα τροχιακά ($2p_y, 2p_z$) κάθε άνθρακα επικαλύπτονται πλευρικά σε δύο αμοιβαία κάθετα επίπεδα, σχηματίζοντας δύο ανεξάρτητους δεσμούς $\pi$ με αυξημένη ηλεκτρονιακή πυκνότητα εκατέρωθεν του διαπυρηνικού άξονα.</p>
+    </div>
+
+    <script>
+        // --- Αρχικοποίηση Σκηνής ---
+        const container = document.getElementById('canvas-container');
+        const loadingEl = document.getElementById('loading');
+
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x0f172a);
+
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+        camera.position.set(0, 3, 14);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.toneMapping = THREE.ACESFilmicToneMapping;
+        renderer.toneMappingExposure = 1.1;
+        container.appendChild(renderer.domElement);
+
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.minDistance = 4;
+        controls.maxDistance = 30;
+
+        // --- Φωτισμός ---
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.9);
+        scene.add(ambientLight);
+
+        const dirLight1 = new THREE.DirectionalLight(0xffffff, 1.2);
+        dirLight1.position.set(10, 15, 10);
+        scene.add(dirLight1);
+
+        const dirLight2 = new THREE.DirectionalLight(0x60a5fa, 0.6);
+        dirLight2.position.set(-10, -10, -10);
+        scene.add(dirLight2);
+
+        // --- Διαχείριση Ομάδων Μοντέλου ---
+        const groups = {
+            sigma: [],
+            pi: [],
+            planes: []
+        };
+
+        const loader = new THREE.GLTFLoader();
+
+        // Εάν το μοντέλο βρίσκεται στον ίδιο κατάλογο με όνομα 'ethyne.glb'
+        loader.load('ethyne.glb', (gltf) => {
+            const root = gltf.scene;
+            
+            // Κεντράρισμα του μοντέλου
+            const box = new THREE.Box3().setFromObject(root);
+            const center = box.getCenter(new THREE.Vector3());
+            root.position.sub(center);
+
+            root.traverse((node) => {
+                if (node.isMesh) {
+                    const name = node.name || '';
+                    
+                    // Ταξινόμηση meshes με βάση τα IDs του GLB
+                    if (name.includes('TRANSPARENT_PARTS')) {
+                        groups.planes.push(node);
+                    } else if (name.includes('PART2_') || name.startsWith('Sphere')) {
+                        groups.pi.push(node);
+                    } else {
+                        // PART1_*, Circle*, Cone*, Cylinder* κλπ.
+                        groups.sigma.push(node);
+                    }
+                }
+            });
+
+            scene.add(root);
+            loadingEl.style.opacity = '0';
+            setTimeout(() => loadingEl.remove(), 300);
+        }, undefined, (err) => {
+            console.error('Σφάλμα φόρτωσης GLB:', err);
+            loadingEl.textContent = 'Σφάλμα κατά τη φόρτωση του μοντέλου.';
+        });
+
+        // --- UI Interactions ---
+        function setupToggle(btnId, groupKey, activeClass) {
+            const btn = document.getElementById(btnId);
+            let visible = true;
+            btn.addEventListener('click', () => {
+                visible = !visible;
+                groups[groupKey].forEach(mesh => {
+                    mesh.visible = visible;
+                });
+                btn.classList.toggle('active', visible);
+            });
+        }
+
+        setupToggle('btn-sigma', 'sigma', 'sigma');
+        setupToggle('btn-pi', 'pi', 'pi');
+        setupToggle('btn-planes', 'planes', 'planes');
+
+        // --- Responsiveness ---
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // --- Render Loop ---
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+        }
+        animate();
+    </script>
+</body>
+</html>

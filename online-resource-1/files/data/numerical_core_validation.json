@@ -1,0 +1,8 @@
+{
+  "source": "https://hajim.rochester.edu/ece/sites/gsharma/ciede2000/dataNprograms/ciede2000testdata.txt",
+  "cases": 34,
+  "failed": [],
+  "max_abs_error": 0.00004949897727168917,
+  "black_white_contrast": 21,
+  "orange_white_contrast": 3.8671837898669135
+}

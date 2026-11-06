@@ -1,0 +1,83 @@
+με δυνατότητα κλικ  κυρίως περιεχόμενο  κύριο ορόσημο  πλαίσιο    κύριο ορόσημο    INTERACTIVE 3D LESSON
+επικεφαλίδα    επίπεδο 1  The structure of ethyne in 3D
+Ball-and-stick model of ethyne, C₂H₂: how the atoms are bonded and why the molecule is linear.
+3D model  περιοχή    interactive 3D model    Ethyne C₂H₂ (ball-and-stick) in 3D. Select it and use the arrow keys to rotate it.
+Carbon atoms
+Views  ομαδοποίηση    κουμπί εναλλαγής  δεν πατήθηκε    1 Side view
+κουμπί εναλλαγής  δεν πατήθηκε    2 Along C–C
+κουμπί εναλλαγής  δεν πατήθηκε    3 Top view
+κουμπί    Zoom in
+Parts: Ethyne C₂H₂ (ball-and-stick)  περιοχή  λίστα  με 4 στοιχεία  Carbon atoms  πλαίσιο επιλογής  επιλεγμένο  
+Carbon atoms
+κουμπί εναλλαγής  δεν πατήθηκε    Highlight
+Carbon atoms
+πλαίσιο επιλογής  επιλεγμένο  
+εκτός λίστα  selected part.
+Show or hide each part. “Highlight” dims the other parts and reads out the description of the 
+επικεφαλίδα    επίπεδο 2  Parts: Ethyne C₂H₂ (ball-and-stick)
+Show or hide each part. “Highlight” dims the other parts and reads out the description of the 
+selected part.
+λίστα  με 4 στοιχεία  πλαίσιο επιλογής  επιλεγμένο  
+Carbon atoms
+κουμπί εναλλαγής  δεν πατήθηκε    Highlight
+πλαίσιο επιλογής  επιλεγμένο  
+Hydrogen atoms
+κουμπί εναλλαγής  δεν πατήθηκε    Highlight
+πλαίσιο επιλογής  επιλεγμένο  
+C≡C triple bond
+κουμπί εναλλαγής  δεν πατήθηκε    Highlight
+πλαίσιο επιλογής  επιλεγμένο  
+C–H bonds
+κουμπί εναλλαγής  δεν πατήθηκε    Highlight
+εκτός λίστα  κουμπί  συμπτυγμένο    Model description
+κουμπί  συμπτυγμένο    Static views
+εκτός περιοχή  If the 3D view does not work, the   σύνδεσμος    static page   contains the same information.
+3D models: Georgios Korakakis, Autodesk 3ds Max, CC BY-NC 4.0. a11y3d viewer with three.js (MIT). 
+If the 3D view does not work, the   σύνδεσμος    static page   contains the same information.
+περιοχή    κουμπί  συμπτυγμένο    Static views
+κουμπί  συμπτυγμένο    Model description
+λίστα  με 4 στοιχεία  κουμπί εναλλαγής  δεν πατήθηκε    Highlight
+C–H bonds
+πλαίσιο επιλογής  επιλεγμένο  
+κουμπί εναλλαγής  δεν πατήθηκε    Highlight
+C≡C triple bond
+πλαίσιο επιλογής  επιλεγμένο  
+κουμπί εναλλαγής  δεν πατήθηκε    Highlight
+Hydrogen atoms
+πλαίσιο επιλογής  επιλεγμένο  
+κουμπί εναλλαγής  δεν πατήθηκε    Highlight
+Carbon atoms
+πλαίσιο επιλογής  επιλεγμένο  
+εκτός λίστα  selected part.
+Show or hide each part. “Highlight” dims the other parts and reads out the description of the 
+επικεφαλίδα    επίπεδο 2  Parts: Ethyne C₂H₂ (ball-and-stick)
+εκτός περιοχή  περιοχή    Rotated 15° right. Press D for a description of the view.
+επικεφαλίδα    επίπεδο 2  What you see now
+εκτός περιοχή  3D model  περιοχή    D describe the view.
+Keyboard, with the model selected: ← → ↑ ↓ rotate in 15° steps · + − zoom · 1 2 3 views · 0 reset · 
+D describe the view.
+εκτός περιοχή  περιοχή    επικεφαλίδα    επίπεδο 2  What you see now
+Rotated 15° right. Press D for a description of the view.
+εκτός περιοχή  περιοχή    επικεφαλίδα    επίπεδο 2  Parts: Ethyne C₂H₂ (ball-and-stick)
+Show or hide each part. “Highlight” dims the other parts and reads out the description of the 
+selected part.
+λίστα  με 4 στοιχεία  πλαίσιο επιλογής  επιλεγμένο  
+Carbon atoms
+κουμπί εναλλαγής  δεν πατήθηκε    Highlight
+πλαίσιο επιλογής  επιλεγμένο  
+Hydrogen atoms
+κουμπί εναλλαγής  δεν πατήθηκε    Highlight
+πλαίσιο επιλογής  επιλεγμένο  
+C≡C triple bond
+κουμπί εναλλαγής  δεν πατήθηκε    Highlight
+πλαίσιο επιλογής  επιλεγμένο  
+C–H bonds
+κουμπί εναλλαγής  δεν πατήθηκε    Highlight
+εκτός λίστα  κουμπί  συμπτυγμένο    Model description
+κουμπί  συμπτυγμένο    Static views
+ανεπτυγμένο
+ανεπτυγμένο
+σχήμα    γραφικό    Side view: The molecular axis is horizontal: H–C≡C–H in a straight line, with an angle of 180°. The 
+3D model  περιοχή  Display  ομαδοποίηση  Labels on the model  κουμπί εναλλαγής  πατήθηκε  
+κουμπί εναλλαγής  δεν πατήθηκε    Auto-rotate
+κουμπί εναλλαγής  πατήθηκε    Labels on the model

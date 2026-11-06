@@ -1,0 +1,87 @@
+[
+ {
+  "name": "ChatGPT A (τελική)",
+  "lang": "el",
+  "canvas": true,
+  "colours": 1,
+  "live": 0,
+  "checkboxes": 4,
+  "buttons": 3,
+  "canvasFocusable": true,
+  "canvasLabel": "Τρισδιάστατο μοντέλο αιθινίου. Σύρε για περιστροφή. Χρησιμοποίησε τη ροδέλα για μεγέθυνση ή τα βελάκια του πληκτρολογίου.",
+  "noscript": 0,
+  "axe": [
+   "color-contrast:1"
+  ],
+  "errors": [],
+  "external": 0
+ },
+ {
+  "name": "ChatGPT B (τελική)",
+  "lang": "el",
+  "canvas": true,
+  "colours": 102,
+  "live": 1,
+  "checkboxes": 7,
+  "buttons": 16,
+  "canvasFocusable": true,
+  "canvasLabel": "Διαδραστικό μοντέλο αιθινίου. Χρησιμοποιήστε τα κουμπιά ή εστιάστε στο μοντέλο και πατήστε βέλη και συν ή πλην.",
+  "noscript": 0,
+  "axe": [],
+  "errors": [],
+  "external": 0
+ },
+ {
+  "name": "Gemini A (όπως δόθηκε)",
+  "lang": "el",
+  "canvas": false,
+  "colours": null,
+  "live": 0,
+  "checkboxes": 0,
+  "buttons": 3,
+  "canvasFocusable": false,
+  "canvasLabel": "",
+  "noscript": 0,
+  "axe": [
+   "meta-viewport:1"
+  ],
+  "errors": [
+   "Failed to load resource: the server responded with a status of 404 (Not Found)",
+   "Failed to load resource: the server responded with a status of 404 (Not Found)",
+   "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ],
+  "external": 0
+ },
+ {
+  "name": "Gemini A (με βιβλιοθήκες από Codex)",
+  "lang": "el",
+  "canvas": true,
+  "colours": 1,
+  "live": 0,
+  "checkboxes": 0,
+  "buttons": 3,
+  "canvasFocusable": false,
+  "canvasLabel": "",
+  "noscript": 0,
+  "axe": [
+   "meta-viewport:1"
+  ],
+  "errors": [],
+  "external": 0
+ },
+ {
+  "name": "Gemini B Pro (τελική, με διόρθωση)",
+  "lang": "el",
+  "canvas": true,
+  "colours": 1,
+  "live": 1,
+  "checkboxes": 7,
+  "buttons": 8,
+  "canvasFocusable": false,
+  "canvasLabel": "",
+  "noscript": 1,
+  "axe": [],
+  "errors": [],
+  "external": 0
+ }
+]

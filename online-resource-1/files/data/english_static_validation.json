@@ -1,0 +1,88 @@
+{
+  "pages": [
+    {
+      "file": "p1-ethyne-structure.html",
+      "language": "en-GB",
+      "web_epub_cfg_equal": true,
+      "source_cfg_equal": true,
+      "glb_payloads_unchanged": true,
+      "static_image_payloads_unchanged": true,
+      "images": 3,
+      "missing_alt": 0
+    },
+    {
+      "file": "p2-sp-orbitals.html",
+      "language": "en-GB",
+      "web_epub_cfg_equal": true,
+      "source_cfg_equal": true,
+      "glb_payloads_unchanged": true,
+      "static_image_payloads_unchanged": true,
+      "images": 3,
+      "missing_alt": 0
+    },
+    {
+      "file": "p3-axes-planes.html",
+      "language": "en-GB",
+      "web_epub_cfg_equal": true,
+      "source_cfg_equal": true,
+      "glb_payloads_unchanged": true,
+      "static_image_payloads_unchanged": true,
+      "images": 3,
+      "missing_alt": 0
+    },
+    {
+      "file": "p4-sigma-pi-explorer.html",
+      "language": "en-GB",
+      "web_epub_cfg_equal": true,
+      "source_cfg_equal": true,
+      "glb_payloads_unchanged": true,
+      "static_image_payloads_unchanged": true,
+      "images": 3,
+      "missing_alt": 0
+    },
+    {
+      "file": "p5-ethane-ethene-ethyne.html",
+      "language": "en-GB",
+      "web_epub_cfg_equal": true,
+      "source_cfg_equal": true,
+      "glb_payloads_unchanged": true,
+      "static_image_payloads_unchanged": true,
+      "images": 9,
+      "missing_alt": 0
+    }
+  ],
+  "missing_resources": [],
+  "xml_errors": [],
+  "script_parse_failures": [],
+  "residual_greek": [],
+  "mp4": [
+    {
+      "video": "overview",
+      "duration": "12.066667",
+      "audio_streams": 0
+    },
+    {
+      "video": "energy",
+      "duration": "3.366667",
+      "audio_streams": 0
+    }
+  ],
+  "runtime_english_tests": "Not completed; historical runtime records apply to the Greek originals.",
+  "epub_entry_count": 55,
+  "mimetype_first_and_uncompressed": true,
+  "epub_matches_expanded_source": true,
+  "epub_sha256": "113c257efc4edccc7f93ec848bccd40b5dd0387ee0ea9e262a5e321afff42957",
+  "bundled_reader_demo_matches_epub": true,
+  "landing_page_missing_links": [],
+  "epubcheck": {
+    "path": ".\\.\\outputs\\Article_package_EN\\supplementary\\epub\\sp-hybridisation-en.epub",
+    "filename": "sp-hybridisation-en.epub",
+    "checkerVersion": "5.3.0",
+    "checkDate": "11-03-2026 00:11:49",
+    "elapsedTime": 3948,
+    "nFatal": 0,
+    "nError": 0,
+    "nWarning": 0,
+    "nUsage": 0
+  }
+}

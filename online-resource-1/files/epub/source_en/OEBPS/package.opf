@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://www.idpf.org/2007/opf" prefix="a11y: http://www.idpf.org/epub/vocab/package/a11y/#" version="3.0" unique-identifier="bookid" xml:lang="en-GB">
+  <metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <dc:identifier id="bookid">urn:uuid:c7a029da-b50f-56f4-9e7a-9fa0953868cd</dc:identifier>
+    <dc:title>sp hybridisation in ethyne</dc:title>
+    <dc:language>en-GB</dc:language>
+    <dc:creator>Georgios Korakakis</dc:creator>
+    <dc:rights>CC BY-NC 4.0</dc:rights>
+    <dc:source>urn:uuid:d62ee5ce-1333-5756-a31a-7bbd60be8d32</dc:source>
+    <dc:subject>Chemistry education</dc:subject>
+    <dc:subject>sp hybridisation</dc:subject>
+    <dc:subject>Ethyne</dc:subject>
+    <dc:subject>σ and π bonds</dc:subject>
+    <dc:description>Interactive EPUB 3 on sp hybridisation and σ and π bonds in ethyne (Chemistry, final year of the Greek Lyceum), with 3D models, videos, interactive figures and questions with immediate feedback. English translation of Greek edition 3.0 (accessible 3D models, energy diagrams for sp, sp² and sp³); a translated derivative that requires verification.</dc:description>
+    <meta property="dcterms:modified">2026-11-06T06:00:00Z</meta>
+    <meta property="schema:accessMode">textual</meta>
+    <meta property="schema:accessMode">visual</meta>
+    <meta property="schema:accessModeSufficient">textual,visual</meta>
+    <meta property="schema:accessModeSufficient">textual</meta>
+    <meta property="schema:accessibilityFeature">structuralNavigation</meta>
+    <meta property="schema:accessibilityFeature">tableOfContents</meta>
+    <meta property="schema:accessibilityFeature">readingOrder</meta>
+    <meta property="schema:accessibilityFeature">alternativeText</meta>
+    <meta property="schema:accessibilityFeature">longDescription</meta>
+    <meta property="schema:accessibilityFeature">displayTransformability</meta>
+    <meta property="schema:accessibilityFeature">ARIA</meta>
+    <meta property="schema:accessibilityHazard">noFlashingHazard</meta>
+    <meta property="schema:accessibilityHazard">noSoundHazard</meta>
+    <meta property="schema:accessibilityHazard">noMotionSimulationHazard</meta>
+    <meta property="schema:accessibilitySummary">English educational derivative with structured navigation, component descriptions, keyboard controls, live-region messages and linked text alternatives. EPUBCheck 5.3.0 reports no errors or warnings for the translated package. Static source, language, payload and numerical checks are documented separately. Complete manual WCAG evaluation and assistive-technology validation of this English derivative have not been completed; no conformance certification is claimed.</meta>
+  </metadata>
+  <manifest>
+    <item id="nav" href="nav.xhtml" media-type="application/xhtml+xml" properties="nav" />
+    <item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml" />
+    <item id="style" href="styles/ebook.css" media-type="text/css" />
+    <item id="cover" href="images/cover.svg" media-type="image/svg+xml" properties="cover-image" />
+    <item id="video-overview" href="media/sp-overview.mp4" media-type="video/mp4" />
+    <item id="video-energy" href="media/sp-energy.mp4" media-type="video/mp4" />
+    <item id="c00" href="chapters/00-title.xhtml" media-type="application/xhtml+xml" />
+    <item id="c01" href="chapters/01-how.xhtml" media-type="application/xhtml+xml" />
+    <item id="c02" href="chapters/02-sigma-pi.xhtml" media-type="application/xhtml+xml" properties="scripted svg" />
+    <item id="c03" href="chapters/03-why-hybridization.xhtml" media-type="application/xhtml+xml" />
+    <item id="c04" href="interactive/02-ethyne-structure-3d.html" media-type="text/html" fallback="fb02" />
+    <item id="fb02" href="chapters/fallback-02.xhtml" media-type="application/xhtml+xml" />
+    <item id="c05" href="chapters/05-sp-orbitals.xhtml" media-type="application/xhtml+xml" properties="svg" />
+    <item id="c06" href="interactive/04-sp-orbital-viewer.html" media-type="text/html" fallback="fb04" />
+    <item id="fb04" href="chapters/fallback-04.xhtml" media-type="application/xhtml+xml" />
+    <item id="c07" href="chapters/07-videos.xhtml" media-type="application/xhtml+xml" />
+    <item id="c08" href="chapters/08-ethyne-bonding.xhtml" media-type="application/xhtml+xml" properties="scripted svg" />
+    <item id="c09" href="interactive/06-axes-pi-symmetry.html" media-type="text/html" fallback="fb06" />
+    <item id="fb06" href="chapters/fallback-06.xhtml" media-type="application/xhtml+xml" />
+    <item id="c10" href="interactive/07-complete-sigma-pi-explorer.html" media-type="text/html" fallback="fb07" />
+    <item id="fb07" href="chapters/fallback-07.xhtml" media-type="application/xhtml+xml" />
+    <item id="c11" href="chapters/11-comparison.xhtml" media-type="application/xhtml+xml" properties="svg" />
+    <item id="c12" href="interactive/12-compare-3d.html" media-type="text/html" fallback="fb12" />
+    <item id="fb12" href="chapters/fallback-12.xhtml" media-type="application/xhtml+xml" />
+    <item id="c13" href="chapters/13-misconceptions.xhtml" media-type="application/xhtml+xml" />
+    <item id="c14" href="chapters/14-quiz.xhtml" media-type="application/xhtml+xml" properties="scripted" />
+    <item id="c15" href="chapters/15-summary.xhtml" media-type="application/xhtml+xml" />
+    <item id="c16" href="chapters/16-accessibility-references.xhtml" media-type="application/xhtml+xml" />
+    <item id="a11y3d" href="scripts/a11y3d.min.js" media-type="text/javascript" />
+    <item id="three-license" href="licenses/three-LICENSE.txt" media-type="text/plain" />
+    <item id="c11b" href="chapters/11b-energy-diagrams.xhtml" media-type="application/xhtml+xml" properties="svg" />
+    <item id="v3-02-ethyne-structure-3d-m-axis" href="images/v3/02-ethyne-structure-3d-m-axis.jpg" media-type="image/jpeg" />
+    <item id="v3-02-ethyne-structure-3d-m-side" href="images/v3/02-ethyne-structure-3d-m-side.jpg" media-type="image/jpeg" />
+    <item id="v3-02-ethyne-structure-3d-m-top" href="images/v3/02-ethyne-structure-3d-m-top.jpg" media-type="image/jpeg" />
+    <item id="v3-04-sp-orbital-viewer-m-axis" href="images/v3/04-sp-orbital-viewer-m-axis.jpg" media-type="image/jpeg" />
+    <item id="v3-04-sp-orbital-viewer-m-side" href="images/v3/04-sp-orbital-viewer-m-side.jpg" media-type="image/jpeg" />
+    <item id="v3-04-sp-orbital-viewer-m-top" href="images/v3/04-sp-orbital-viewer-m-top.jpg" media-type="image/jpeg" />
+    <item id="v3-06-axes-pi-symmetry-m-axis" href="images/v3/06-axes-pi-symmetry-m-axis.jpg" media-type="image/jpeg" />
+    <item id="v3-06-axes-pi-symmetry-m-side" href="images/v3/06-axes-pi-symmetry-m-side.jpg" media-type="image/jpeg" />
+    <item id="v3-06-axes-pi-symmetry-m-top" href="images/v3/06-axes-pi-symmetry-m-top.jpg" media-type="image/jpeg" />
+    <item id="v3-07-complete-sigma-pi-explorer-m-axis" href="images/v3/07-complete-sigma-pi-explorer-m-axis.jpg" media-type="image/jpeg" />
+    <item id="v3-07-complete-sigma-pi-explorer-m-side" href="images/v3/07-complete-sigma-pi-explorer-m-side.jpg" media-type="image/jpeg" />
+    <item id="v3-07-complete-sigma-pi-explorer-m-top" href="images/v3/07-complete-sigma-pi-explorer-m-top.jpg" media-type="image/jpeg" />
+    <item id="v3-12-compare-3d-c2h2-axis" href="images/v3/12-compare-3d-c2h2-axis.jpg" media-type="image/jpeg" />
+    <item id="v3-12-compare-3d-c2h2-side" href="images/v3/12-compare-3d-c2h2-side.jpg" media-type="image/jpeg" />
+    <item id="v3-12-compare-3d-c2h2-top" href="images/v3/12-compare-3d-c2h2-top.jpg" media-type="image/jpeg" />
+    <item id="v3-12-compare-3d-c2h4-axis" href="images/v3/12-compare-3d-c2h4-axis.jpg" media-type="image/jpeg" />
+    <item id="v3-12-compare-3d-c2h4-side" href="images/v3/12-compare-3d-c2h4-side.jpg" media-type="image/jpeg" />
+    <item id="v3-12-compare-3d-c2h4-top" href="images/v3/12-compare-3d-c2h4-top.jpg" media-type="image/jpeg" />
+    <item id="v3-12-compare-3d-c2h6-axis" href="images/v3/12-compare-3d-c2h6-axis.jpg" media-type="image/jpeg" />
+    <item id="v3-12-compare-3d-c2h6-side" href="images/v3/12-compare-3d-c2h6-side.jpg" media-type="image/jpeg" />
+    <item id="v3-12-compare-3d-c2h6-top" href="images/v3/12-compare-3d-c2h6-top.jpg" media-type="image/jpeg" />
+  </manifest>
+  <spine toc="ncx">
+    <itemref idref="c00" />
+    <itemref idref="c01" />
+    <itemref idref="c02" />
+    <itemref idref="c03" />
+    <itemref idref="c04" />
+    <itemref idref="c05" />
+    <itemref idref="c06" />
+    <itemref idref="c07" />
+    <itemref idref="c08" />
+    <itemref idref="c09" />
+    <itemref idref="c10" />
+    <itemref idref="c11" />
+    <itemref idref="c11b" />
+    <itemref idref="c12" />
+    <itemref idref="c13" />
+    <itemref idref="c14" />
+    <itemref idref="c15" />
+    <itemref idref="c16" />
+  </spine>
+</package>

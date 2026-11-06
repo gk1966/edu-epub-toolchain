@@ -1,0 +1,8 @@
+{
+ "page": "P4 (07-complete-sigma-pi-explorer), original palette",
+ "background": "#070810",
+ "plane1": {"colour": "#BF4530", "alpha": 0.3, "contrast_vs_background": 1.30},
+ "plane2": {"colour": "#91D24F", "alpha": 0.3, "contrast_vs_background": 1.90},
+ "CIEDE2000_plane1_vs_plane2_after_blending": {"normal": 35.8, "protanopia": 14.4, "deuteranopia": 8.4, "tritanopia": 35.1},
+ "method": "colours blended with the background at their alpha; CVD simulation Machado et al. (2009), severity 1.0; computed with cvd-core.js (in the tools package)"
+}

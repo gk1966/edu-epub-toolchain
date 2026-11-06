@@ -1,0 +1,185 @@
+{
+ "method": {
+  "js": "page as published, scripts running, after the viewer reports ready",
+  "nojs": "scripts removed and <noscript> content shown, i.e. what a reading system without JavaScript renders; axe injected afterwards"
+ },
+ "js": {
+  "chapters/00-title.xhtml": {
+   "violations": [],
+   "passes": 21,
+   "incomplete": []
+  },
+  "chapters/01-how.xhtml": {
+   "violations": [],
+   "passes": 18,
+   "incomplete": []
+  },
+  "chapters/02-sigma-pi.xhtml": {
+   "violations": [],
+   "passes": 40,
+   "incomplete": [
+    "color-contrast"
+   ]
+  },
+  "chapters/03-why-hybridization.xhtml": {
+   "violations": [],
+   "passes": 18,
+   "incomplete": []
+  },
+  "chapters/05-sp-orbitals.xhtml": {
+   "violations": [],
+   "passes": 28,
+   "incomplete": [
+    "color-contrast"
+   ]
+  },
+  "chapters/07-videos.xhtml": {
+   "violations": [],
+   "passes": 22,
+   "incomplete": [
+    "video-caption"
+   ]
+  },
+  "chapters/08-ethyne-bonding.xhtml": {
+   "violations": [],
+   "passes": 30,
+   "incomplete": [
+    "color-contrast"
+   ]
+  },
+  "chapters/11-comparison.xhtml": {
+   "violations": [],
+   "passes": 33,
+   "incomplete": [
+    "color-contrast"
+   ]
+  },
+  "chapters/11b-energy-diagrams.xhtml": {
+   "violations": [],
+   "passes": 28,
+   "incomplete": [
+    "color-contrast"
+   ]
+  },
+  "chapters/13-misconceptions.xhtml": {
+   "violations": [],
+   "passes": 16,
+   "incomplete": []
+  },
+  "chapters/14-quiz.xhtml": {
+   "violations": [],
+   "passes": 39,
+   "incomplete": []
+  },
+  "chapters/15-summary.xhtml": {
+   "violations": [],
+   "passes": 23,
+   "incomplete": []
+  },
+  "chapters/16-accessibility-references.xhtml": {
+   "violations": [],
+   "passes": 18,
+   "incomplete": []
+  },
+  "chapters/fallback-02.xhtml": {
+   "violations": [],
+   "passes": 32,
+   "incomplete": []
+  },
+  "chapters/fallback-04.xhtml": {
+   "violations": [],
+   "passes": 32,
+   "incomplete": []
+  },
+  "chapters/fallback-06.xhtml": {
+   "violations": [],
+   "passes": 32,
+   "incomplete": []
+  },
+  "chapters/fallback-07.xhtml": {
+   "violations": [],
+   "passes": 32,
+   "incomplete": []
+  },
+  "chapters/fallback-12.xhtml": {
+   "violations": [],
+   "passes": 32,
+   "incomplete": []
+  },
+  "interactive/02-ethyne-structure-3d.html": {
+   "violations": [],
+   "passes": 42,
+   "incomplete": [
+    "color-contrast"
+   ]
+  },
+  "interactive/04-sp-orbital-viewer.html": {
+   "violations": [],
+   "passes": 42,
+   "incomplete": [
+    "color-contrast"
+   ]
+  },
+  "interactive/06-axes-pi-symmetry.html": {
+   "violations": [],
+   "passes": 42,
+   "incomplete": [
+    "color-contrast"
+   ]
+  },
+  "interactive/07-complete-sigma-pi-explorer.html": {
+   "violations": [],
+   "passes": 42,
+   "incomplete": [
+    "color-contrast"
+   ]
+  },
+  "interactive/12-compare-3d.html": {
+   "violations": [],
+   "passes": 42,
+   "incomplete": [
+    "color-contrast"
+   ]
+  }
+ },
+ "nojs": {
+  "interactive/02-ethyne-structure-3d.html": {
+   "violations": [],
+   "passes": 36,
+   "incomplete": [],
+   "scriptsLeft": 0
+  },
+  "interactive/04-sp-orbital-viewer.html": {
+   "violations": [],
+   "passes": 36,
+   "incomplete": [],
+   "scriptsLeft": 0
+  },
+  "interactive/06-axes-pi-symmetry.html": {
+   "violations": [],
+   "passes": 36,
+   "incomplete": [],
+   "scriptsLeft": 0
+  },
+  "interactive/07-complete-sigma-pi-explorer.html": {
+   "violations": [],
+   "passes": 36,
+   "incomplete": [],
+   "scriptsLeft": 0
+  },
+  "interactive/12-compare-3d.html": {
+   "violations": [],
+   "passes": 36,
+   "incomplete": [],
+   "scriptsLeft": 0
+  }
+ },
+ "totals": {
+  "documents_js": 23,
+  "documents_nojs": 5,
+  "violation_nodes": {
+   "js": 0,
+   "nojs": 0
+  }
+ }
+}

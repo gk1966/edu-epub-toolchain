@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1f6f5f">
+  <meta name="author" content="Georgios Korakakis">
+  <title>Install Edu Ebook Reader</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body class="install-page">
+  <main class="install-shell">
+    <section class="install-hero">
+      <div class="install-brand">
+        <span class="brand-mark" aria-hidden="true">E</span>
+        <div>
+          <strong>Edu Ebook Reader</strong>
+          <small>EPUB · PDF · TXT · Markdown</small>
+        </div>
+      </div>
+
+      <label class="language-control install-language" for="installLanguageSelect">
+        <span data-i18n="languageLabel">Language</span>
+        <select id="installLanguageSelect" aria-label="Language" data-i18n-aria="languageLabel">
+          <option value="en">EN</option>
+          <option value="el">EL</option>
+        </select>
+      </label>
+
+      <h1 data-i18n="installTitle">Install the application on your device</h1>
+      <p data-i18n="installSubtitle">Open educational books and notes locally, with basic safety, an offline app shell and support for mobile, tablet and desktop use.</p>
+
+      <div class="install-actions">
+        <button id="installAppButton" class="primary-action" type="button" data-i18n="installButton">
+          Install application
+        </button>
+        <a class="secondary-action" href="./index.html" data-i18n="openWithoutInstall">Open without installing</a>
+      </div>
+
+      <p id="installStatus" class="install-status" role="status" aria-live="polite">
+        Press the install button. If no prompt appears, use the instructions for your device.
+      </p>
+    </section>
+
+    <section class="install-info" aria-label="Installation information" data-i18n-aria="installInfo">
+      <div>
+        <h2>Android / Chrome</h2>
+        <ol>
+          <li data-i18n="androidStep1">Press “Install application”.</li>
+          <li data-i18n="androidStep2">In the prompt, press Install.</li>
+          <li data-i18n="androidStep3">Open Edu Ebook Reader from the new icon on the home screen.</li>
+          <li data-i18n="androidStep4">If no prompt appears, open the Chrome menu and choose Add to Home screen or Install app.</li>
+        </ol>
+      </div>
+
+      <div>
+        <h2>iPhone / iPad</h2>
+        <ol>
+          <li data-i18n="iosStep1">Open the page in Safari.</li>
+          <li data-i18n="iosStep2">Tap the Share button.</li>
+          <li data-i18n="iosStep3">Choose Add to Home Screen.</li>
+          <li data-i18n="iosStep4">Tap Add to place the icon on the home screen.</li>
+        </ol>
+      </div>
+
+      <div>
+        <h2 data-i18n="desktopTitle">Desktop</h2>
+        <ol>
+          <li data-i18n="desktopStep1">Open the page with Chrome or Edge.</li>
+          <li data-i18n="desktopStep2">Press “Install application”.</li>
+          <li data-i18n="desktopStep3">If no prompt appears, use the install icon in the address bar or the browser menu.</li>
+          <li data-i18n="desktopStep4">After installation, open the app from the Start Menu, Dock or desktop.</li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <script src="./install.js" defer></script>
+</body>
+</html>

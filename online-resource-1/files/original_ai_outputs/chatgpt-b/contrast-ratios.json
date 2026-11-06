@@ -1,0 +1,101 @@
+{
+  "palette": {
+    "dark": {
+      "background": "#101827",
+      "sigma": "#00D6EA",
+      "sp": "#FFB454",
+      "pi": "#C5A3FF",
+      "plane1": "#82E6A0",
+      "plane2": "#FFD76C",
+      "hydrogen": "#F5F7FC",
+      "axes": "#FF88B4"
+    },
+    "light": {
+      "background": "#F7F9FD",
+      "sigma": "#006678",
+      "sp": "#874400",
+      "pi": "#653A9C",
+      "plane1": "#176C44",
+      "plane2": "#2058A3",
+      "hydrogen": "#344054",
+      "axes": "#913564"
+    }
+  },
+  "ratios": {
+    "dark": {
+      "sigma": {
+        "opaque": 9.99,
+        "afterAlpha": 9.99,
+        "alpha": 1
+      },
+      "sp": {
+        "opaque": 10.08,
+        "afterAlpha": 10.08,
+        "alpha": 1
+      },
+      "pi": {
+        "opaque": 8.51,
+        "afterAlpha": 8.51,
+        "alpha": 1
+      },
+      "plane1": {
+        "opaque": 11.65,
+        "afterAlpha": 9.24,
+        "alpha": 0.88
+      },
+      "plane2": {
+        "opaque": 12.85,
+        "afterAlpha": 10.13,
+        "alpha": 0.88
+      },
+      "hydrogen": {
+        "opaque": 16.58,
+        "afterAlpha": 16.58,
+        "alpha": 1
+      },
+      "axes": {
+        "opaque": 7.98,
+        "afterAlpha": 7.98,
+        "alpha": 1
+      }
+    },
+    "light": {
+      "sigma": {
+        "opaque": 6.28,
+        "afterAlpha": 6.28,
+        "alpha": 1
+      },
+      "sp": {
+        "opaque": 6.97,
+        "afterAlpha": 6.97,
+        "alpha": 1
+      },
+      "pi": {
+        "opaque": 7.55,
+        "afterAlpha": 7.55,
+        "alpha": 1
+      },
+      "plane1": {
+        "opaque": 6.1,
+        "afterAlpha": 4.73,
+        "alpha": 0.88
+      },
+      "plane2": {
+        "opaque": 6.67,
+        "afterAlpha": 5.1,
+        "alpha": 0.88
+      },
+      "hydrogen": {
+        "opaque": 9.93,
+        "afterAlpha": 9.93,
+        "alpha": 1
+      },
+      "axes": {
+        "opaque": 6.88,
+        "afterAlpha": 6.88,
+        "alpha": 1
+      }
+    }
+  },
+  "formula": "WCAG 2.x relative luminance contrast; alpha composited in sRGB over the theme background."
+}

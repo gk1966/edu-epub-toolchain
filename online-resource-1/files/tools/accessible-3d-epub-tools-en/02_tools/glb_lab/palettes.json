@@ -1,0 +1,688 @@
+[
+  {
+    "page": "02-ethyne-structure-3d",
+    "model": "m",
+    "groups": [
+      {
+        "id": "C",
+        "label": "Carbon atoms",
+        "orig": "#AAAAAA",
+        "safe": {
+          "dark": "#66707A",
+          "light": "#15202B"
+        },
+        "description": "The two carbon atoms, which are sp-hybridised. The two sp hybrid orbitals of each carbon form the C–C and C–H σ bonds; the two unhybridised 2p orbitals form the two π bonds."
+      },
+      {
+        "id": "H",
+        "label": "Hydrogen atoms",
+        "orig": "#E1E1E1",
+        "safe": {
+          "dark": "#FFFFFF",
+          "light": "#7A8590"
+        },
+        "description": "The two terminal hydrogen atoms. Each is bonded to one carbon by a σ bond (sp–1s overlap)."
+      },
+      {
+        "id": "CC",
+        "label": "C≡C triple bond",
+        "orig": "#AAAAAA",
+        "safe": {
+          "dark": "#CC79A7",
+          "light": "#A83D7B"
+        },
+        "description": "Three cylinders between the carbons indicate a bond order of 3: one σ bond (sp–sp) and two π bonds (p–p). The cylinders do not correspond one-to-one to orbitals. Bond order 3, length 1.20 Å, shorter than C=C (1.34 Å) and C–C (1.54 Å)."
+      },
+      {
+        "id": "CH",
+        "label": "C–H bonds",
+        "orig": "#E1E1E1",
+        "safe": {
+          "dark": "#E69F00",
+          "light": "#B35C00"
+        },
+        "description": "Two single σ bonds, one at each end of the molecule, each 1.06 Å long."
+      }
+    ]
+  },
+  {
+    "page": "04-sp-orbital-viewer",
+    "model": "m",
+    "groups": [
+      {
+        "id": "sp",
+        "label": "sp hybrid orbitals",
+        "match": [
+          "Circle01-FACES",
+          "Circle03-FACES",
+          "Circle25-FACES",
+          "Circle26-FACES"
+        ],
+        "orig": "#CACAC8",
+        "safe": {
+          "dark": "#F0E442",
+          "light": "#4D4D4D"
+        },
+        "layer": "front",
+        "description": "Lobes of the sp hybrid orbitals. Each carbon has two, in a straight line at 180°; they form the σ bonds."
+      },
+      {
+        "id": "pi1",
+        "label": "1st π bond",
+        "match": [
+          "PART2_"
+        ],
+        "orig": "#5F5FDD",
+        "safe": {
+          "dark": "#56B4E9",
+          "light": "#0072B2"
+        },
+        "description": "One π bond: sideways overlap of one pair of unhybridised p orbitals, with lobes on both sides of the axis."
+      },
+      {
+        "id": "pi2",
+        "label": "2nd π bond",
+        "match": [
+          "PART1_"
+        ],
+        "orig": "#5F5FDD",
+        "safe": {
+          "dark": "#2F8FD8",
+          "light": "#003F63"
+        },
+        "description": "The second π bond, from the other pair of p orbitals. The axis of its lobes is perpendicular to the axis of the lobes of the 1st π bond."
+      },
+      {
+        "id": "plane1",
+        "label": "Plane 1",
+        "match": [
+          "TRANSPARENT_PARTS_2"
+        ],
+        "orig": "#C1BDDF",
+        "origAlpha": 0.3,
+        "safe": {
+          "dark": "#CC79A7",
+          "light": "#A83D7B"
+        },
+        "safeAlpha": {
+          "dark": 0.45,
+          "light": 0.45
+        },
+        "outline": true,
+        "description": "Contains the C–C axis. It is a symmetry plane of the molecule and also the nodal plane of one of the two π bonds: the π-electron density is zero in this plane. Perpendicular to Plane 2."
+      },
+      {
+        "id": "plane2",
+        "label": "Plane 2 (stripes)",
+        "match": [
+          "TRANSPARENT_PARTS_1"
+        ],
+        "orig": "#C1BDDF",
+        "origAlpha": 0.3,
+        "safe": {
+          "dark": "#009E73",
+          "light": "#00775A"
+        },
+        "safeAlpha": {
+          "dark": 0.45,
+          "light": 0.45
+        },
+        "outline": true,
+        "pattern": "stripes",
+        "description": "Contains the C–C axis. It is a symmetry plane of the molecule and also the nodal plane of one of the two π bonds: the π-electron density is zero in this plane. Perpendicular to Plane 1."
+      },
+      {
+        "id": "H",
+        "label": "Hydrogen atoms",
+        "match": [
+          "INITIAL_TRANSPARENT_",
+          "Text07-FACES",
+          "Text08-FACES"
+        ],
+        "orig": "#FFFFFF",
+        "origAlpha": 0.2,
+        "safe": {
+          "dark": "#FFFFFF",
+          "light": "#6B7680"
+        },
+        "safeAlpha": {
+          "dark": 0.5,
+          "light": 0.8
+        },
+        "description": "The two hydrogen atoms at the ends of the molecule."
+      },
+      {
+        "id": "axes",
+        "label": "x, y, z axes",
+        "matchColor": [
+          "#009FFE",
+          "#F5F9F6"
+        ],
+        "orig": "#009FFE",
+        "safe": {
+          "dark": "#AAB4BE",
+          "light": "#46525E"
+        },
+        "quiet": true,
+        "description": "Coordinate axes. The molecular axis is the C–C axis."
+      }
+    ]
+  },
+  {
+    "page": "06-axes-pi-symmetry",
+    "model": "m",
+    "groups": [
+      {
+        "id": "sp",
+        "label": "sp lobes",
+        "match": [
+          "Circle01-FACES",
+          "Circle03-FACES"
+        ],
+        "orig": "#CACAC8",
+        "safe": {
+          "dark": "#F0E442",
+          "light": "#4D4D4D"
+        },
+        "description": "Lobes of the sp hybrids: each carbon has two sp hybrid orbitals pointing in opposite directions (180°), which give the linear geometry."
+      },
+      {
+        "id": "axisM",
+        "label": "Molecular axis C∞",
+        "orig": "#8D79C3",
+        "safe": {
+          "dark": "#FFFFFF",
+          "light": "#15202B"
+        },
+        "description": "The principal axis. Rotation by any angle about it leaves the molecule unchanged."
+      },
+      {
+        "id": "axesO",
+        "label": "Other axes",
+        "orig": "#8D79C3",
+        "safe": {
+          "dark": "#AAB4BE",
+          "light": "#46525E"
+        },
+        "quiet": true,
+        "description": "Two of the infinitely many C₂ axes: perpendicular to the molecular axis, passing through the midpoint of C≡C."
+      },
+      {
+        "id": "sh",
+        "label": "σh plane",
+        "orig": "#60A3FA",
+        "origAlpha": 0.3,
+        "safe": {
+          "dark": "#CC79A7",
+          "light": "#A83D7B"
+        },
+        "safeAlpha": {
+          "dark": 0.4,
+          "light": 0.4
+        },
+        "outline": true,
+        "description": "Symmetry plane perpendicular to the C∞ axis, at the midpoint of the C≡C bond. Solid fill."
+      },
+      {
+        "id": "sv1",
+        "label": "σv1 plane (stripes)",
+        "orig": "#F471B6",
+        "origAlpha": 0.3,
+        "safe": {
+          "dark": "#009E73",
+          "light": "#00775A"
+        },
+        "safeAlpha": {
+          "dark": 0.4,
+          "light": 0.4
+        },
+        "outline": true,
+        "pattern": "stripes",
+        "description": "Symmetry plane containing the C∞ axis. It is also the nodal plane of one π bond."
+      },
+      {
+        "id": "sv2",
+        "label": "σv2 plane (dots)",
+        "orig": "#4DDD80",
+        "origAlpha": 0.3,
+        "safe": {
+          "dark": "#D55E00",
+          "light": "#B34700"
+        },
+        "safeAlpha": {
+          "dark": 0.4,
+          "light": 0.4
+        },
+        "outline": true,
+        "pattern": "dots",
+        "description": "A second plane containing the axis, perpendicular to σv1. It is the nodal plane of the other π bond."
+      }
+    ]
+  },
+  {
+    "page": "07-complete-sigma-pi-explorer",
+    "model": "m",
+    "groups": [
+      {
+        "id": "sigma",
+        "label": "σ-bond regions",
+        "match": [
+          "PART1_"
+        ],
+        "orig": "#9FD95A",
+        "safe": {
+          "dark": "#E69F00",
+          "light": "#B35C00"
+        },
+        "layer": "front",
+        "description": "Regions of end-on (axial) overlap along the internuclear axis. Ethyne has three σ bonds: one C–C and two C–H."
+      },
+      {
+        "id": "sp",
+        "label": "sp hybrid orbitals",
+        "match": [
+          "Circle01-FACES",
+          "Circle03-FACES",
+          "Circle25-FACES",
+          "Circle26-FACES"
+        ],
+        "orig": "#CACAC8",
+        "safe": {
+          "dark": "#F0E442",
+          "light": "#4D4D4D"
+        },
+        "description": "Lobes of the sp hybrid orbitals. Each carbon atom has two, in a straight line at 180°. The σ bonds are formed from these."
+      },
+      {
+        "id": "pi",
+        "label": "π bonds",
+        "match": [
+          "PART2_",
+          "Circle19-FACES",
+          "Circle09-FACES",
+          "Circle16-FACES",
+          "Circle21-FACES",
+          "Circle05-FACES",
+          "Circle22-FACES",
+          "Circle18-FACES",
+          "Circle06-FACES",
+          "Circle20-FACES",
+          "Circle27-FACES"
+        ],
+        "orig": "#5F5FDC",
+        "safe": {
+          "dark": "#56B4E9",
+          "light": "#0072B2"
+        },
+        "description": "The two π bonds, formed by sideways overlap of the unhybridised p orbitals of the two carbons. The two pairs of p orbitals overlap sideways in mutually perpendicular directions and, together with the C–C σ bond, form the triple bond."
+      },
+      {
+        "id": "plane1",
+        "label": "Plane 1",
+        "match": [
+          "TRANSPARENT_PARTS_2"
+        ],
+        "orig": "#BF4530",
+        "origAlpha": 0.3,
+        "safe": {
+          "dark": "#CC79A7",
+          "light": "#A83D7B"
+        },
+        "safeAlpha": {
+          "dark": 0.45,
+          "light": 0.45
+        },
+        "outline": true,
+        "description": "Contains the C–C axis. It is a symmetry plane of the molecule and also the nodal plane of one of the two π bonds: the π-electron density is zero in this plane. Perpendicular to Plane 2. Shown with a solid outline."
+      },
+      {
+        "id": "plane2",
+        "label": "Plane 2 (stripes)",
+        "match": [
+          "TRANSPARENT_PARTS_1"
+        ],
+        "orig": "#91D24F",
+        "origAlpha": 0.3,
+        "safe": {
+          "dark": "#009E73",
+          "light": "#00775A"
+        },
+        "safeAlpha": {
+          "dark": 0.45,
+          "light": 0.45
+        },
+        "outline": true,
+        "pattern": "stripes",
+        "description": "Contains the C–C axis. It is a symmetry plane of the molecule and also the nodal plane of one of the two π bonds: the π-electron density is zero in this plane. Perpendicular to Plane 1. Shown with stripes and an outline."
+      },
+      {
+        "id": "H",
+        "label": "Hydrogen atoms",
+        "match": [
+          "INITIAL_TRANSPARENT_",
+          "Text07-FACES",
+          "Text08-FACES"
+        ],
+        "orig": "#FFFFFF",
+        "origAlpha": 0.2,
+        "safe": {
+          "dark": "#FFFFFF",
+          "light": "#6B7680"
+        },
+        "safeAlpha": {
+          "dark": 0.5,
+          "light": 0.8
+        },
+        "description": "The two hydrogen atoms at the ends of the molecule. The molecule is linear: H–C≡C–H."
+      },
+      {
+        "id": "labels",
+        "label": "sp and p labels (3D)",
+        "match": [
+          "Text03-FACES",
+          "Text15-FACES"
+        ],
+        "orig": "#F19FE5",
+        "safe": {
+          "dark": "#FFFFFF",
+          "light": "#15202B"
+        },
+        "quiet": true,
+        "description": "The letters sp and p as 3D geometry. A screen reader does not read them; the same names appear in this list."
+      },
+      {
+        "id": "axes",
+        "label": "x, y, z axes",
+        "matchColor": [
+          "#009FFE",
+          "#F5F9F6"
+        ],
+        "orig": "#009FFE",
+        "safe": {
+          "dark": "#AAB4BE",
+          "light": "#46525E"
+        },
+        "quiet": true,
+        "description": "Coordinate axes. The molecular axis is the C–C axis."
+      }
+    ]
+  },
+  {
+    "page": "12-compare-3d",
+    "model": "c2h6",
+    "groups": [
+      {
+        "id": "sigCC",
+        "label": "C–C σ bond",
+        "match": [
+          "sigma_CC_"
+        ],
+        "orig": "#949694",
+        "safe": {
+          "dark": "#E69F00",
+          "light": "#B35C00"
+        },
+        "description": "The two sp³ lobes pointing towards each other along the C–C axis. Their end-on (axial) overlap is the σ bond, common to all three molecules; in ethane it is the only bond between the carbons (single bond)."
+      },
+      {
+        "id": "hyb",
+        "label": "sp³ hybrids towards H",
+        "match": [
+          "_lobe_CH_"
+        ],
+        "orig": "#949694",
+        "safe": {
+          "dark": "#F0E442",
+          "light": "#4D4D4D"
+        },
+        "description": "The remaining sp³ hybrid orbitals: three on each carbon, one for each C–H σ bond."
+      },
+      {
+        "id": "H",
+        "label": "Hydrogen atoms",
+        "match": [
+          "H_atom_"
+        ],
+        "orig": "#31A131",
+        "origAlpha": 0.5,
+        "safe": {
+          "dark": "#FFFFFF",
+          "light": "#6B7680"
+        },
+        "safeAlpha": {
+          "dark": 0.55,
+          "light": 0.8
+        },
+        "description": "The hydrogen atoms (spheres). Each is bonded to one carbon by a σ bond: overlap of a hybrid orbital with the hydrogen 1s orbital."
+      },
+      {
+        "id": "labels",
+        "label": "Letters σ, π, H as 3D geometry",
+        "match": [
+          "label3d_"
+        ],
+        "orig": "#B1581A",
+        "safe": {
+          "dark": "#FFFFFF",
+          "light": "#15202B"
+        },
+        "quiet": true,
+        "off": true,
+        "description": "The letters of the original model, modelled as 3D objects. They are hidden by default: a screen reader does not read them, and the same names appear in this list."
+      },
+      {
+        "id": "axes",
+        "label": "Coordinate axes",
+        "match": [
+          "axis_"
+        ],
+        "orig": "#0059FD",
+        "safe": {
+          "dark": "#AAB4BE",
+          "light": "#46525E"
+        },
+        "quiet": true,
+        "description": "Three perpendicular axes with arrows at each carbon; one coincides with the C–C axis. The axis letters of the original model are not shown, because they were not the same in the three models."
+      }
+    ]
+  },
+  {
+    "page": "12-compare-3d",
+    "model": "c2h4",
+    "groups": [
+      {
+        "id": "sigCC",
+        "label": "C–C σ bond",
+        "match": [
+          "sigma_CC_"
+        ],
+        "orig": "#949694",
+        "safe": {
+          "dark": "#E69F00",
+          "light": "#B35C00"
+        },
+        "description": "The two sp² lobes pointing towards each other along the C–C axis. Their end-on (axial) overlap is the σ bond, common to all three molecules; together with the π bond, it forms the C=C double bond."
+      },
+      {
+        "id": "hyb",
+        "label": "sp² hybrids towards H",
+        "match": [
+          "_lobe_CH_"
+        ],
+        "orig": "#949694",
+        "safe": {
+          "dark": "#F0E442",
+          "light": "#4D4D4D"
+        },
+        "description": "The remaining sp² hybrid orbitals: two on each carbon, one for each C–H σ bond."
+      },
+      {
+        "id": "pi",
+        "label": "π bond (p orbitals)",
+        "match": [
+          "pi_p_lobe_",
+          "pi_overlap_line_"
+        ],
+        "orig": "#1C1CB8",
+        "safe": {
+          "dark": "#56B4E9",
+          "light": "#0072B2"
+        },
+        "description": "The two unhybridised 2p orbitals, one on each carbon, perpendicular to the molecular plane. The lines between them show the sideways overlap above and below the plane: this is the π bond."
+      },
+      {
+        "id": "H",
+        "label": "Hydrogen atoms",
+        "match": [
+          "H_atom_"
+        ],
+        "orig": "#31A131",
+        "origAlpha": 0.5,
+        "safe": {
+          "dark": "#FFFFFF",
+          "light": "#6B7680"
+        },
+        "safeAlpha": {
+          "dark": 0.55,
+          "light": 0.8
+        },
+        "description": "The hydrogen atoms (spheres). Each is bonded to one carbon by a σ bond: overlap of a hybrid orbital with the hydrogen 1s orbital."
+      },
+      {
+        "id": "labels",
+        "label": "Letters σ, π, H as 3D geometry",
+        "match": [
+          "label3d_"
+        ],
+        "orig": "#B1581A",
+        "safe": {
+          "dark": "#FFFFFF",
+          "light": "#15202B"
+        },
+        "quiet": true,
+        "off": true,
+        "description": "The letters of the original model, modelled as 3D objects. They are hidden by default: a screen reader does not read them, and the same names appear in this list."
+      },
+      {
+        "id": "axes",
+        "label": "Coordinate axes",
+        "match": [
+          "axis_"
+        ],
+        "orig": "#0059FD",
+        "safe": {
+          "dark": "#AAB4BE",
+          "light": "#46525E"
+        },
+        "quiet": true,
+        "description": "Three perpendicular axes with arrows at each carbon; one coincides with the C–C axis. The axis letters of the original model are not shown, because they were not the same in the three models."
+      }
+    ]
+  },
+  {
+    "page": "12-compare-3d",
+    "model": "c2h2",
+    "groups": [
+      {
+        "id": "sigCC",
+        "label": "C–C σ bond",
+        "match": [
+          "sigma_CC_"
+        ],
+        "orig": "#949694",
+        "safe": {
+          "dark": "#E69F00",
+          "light": "#B35C00"
+        },
+        "description": "The two sp lobes pointing towards each other along the C–C axis. Their end-on (axial) overlap is the σ bond, common to all three molecules; together with the two π bonds, it forms the C≡C triple bond."
+      },
+      {
+        "id": "hyb",
+        "label": "sp hybrids towards H",
+        "match": [
+          "_lobe_CH_"
+        ],
+        "orig": "#949694",
+        "safe": {
+          "dark": "#F0E442",
+          "light": "#4D4D4D"
+        },
+        "description": "The remaining sp hybrid orbitals: one on each carbon, one for each C–H σ bond."
+      },
+      {
+        "id": "piA",
+        "label": "1st π bond",
+        "match": [
+          "pi1_"
+        ],
+        "orig": "#1C1CB6",
+        "safe": {
+          "dark": "#56B4E9",
+          "light": "#0072B2"
+        },
+        "description": "One π bond: a pair of 2p orbitals with lobes above and below the axis, and the lines indicating sideways overlap."
+      },
+      {
+        "id": "piB",
+        "label": "2nd π bond (stripes)",
+        "match": [
+          "pi2_"
+        ],
+        "orig": "#1C1CB6",
+        "safe": {
+          "dark": "#009E73",
+          "light": "#00775A"
+        },
+        "pattern": "stripes",
+        "description": "The second π bond: the other pair of 2p orbitals, in front of and behind the axis, perpendicular to the 1st π bond."
+      },
+      {
+        "id": "H",
+        "label": "Hydrogen atoms",
+        "match": [
+          "H_atom_"
+        ],
+        "orig": "#31A131",
+        "origAlpha": 0.5,
+        "safe": {
+          "dark": "#FFFFFF",
+          "light": "#6B7680"
+        },
+        "safeAlpha": {
+          "dark": 0.55,
+          "light": 0.8
+        },
+        "description": "The hydrogen atoms (spheres). Each is bonded to one carbon by a σ bond: overlap of a hybrid orbital with the hydrogen 1s orbital."
+      },
+      {
+        "id": "labels",
+        "label": "Letters σ, π, H as 3D geometry",
+        "match": [
+          "label3d_"
+        ],
+        "orig": "#B1581A",
+        "safe": {
+          "dark": "#FFFFFF",
+          "light": "#15202B"
+        },
+        "quiet": true,
+        "off": true,
+        "description": "The letters of the original model, modelled as 3D objects. They are hidden by default: a screen reader does not read them, and the same names appear in this list."
+      },
+      {
+        "id": "axes",
+        "label": "Coordinate axes",
+        "match": [
+          "axis_"
+        ],
+        "orig": "#0059FD",
+        "safe": {
+          "dark": "#AAB4BE",
+          "light": "#46525E"
+        },
+        "quiet": true,
+        "description": "Three perpendicular axes with arrows at each carbon; one coincides with the C–C axis. The axis letters of the original model are not shown, because they were not the same in the three models."
+      }
+    ]
+  }
+]
