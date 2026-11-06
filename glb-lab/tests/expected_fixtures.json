@@ -1,0 +1,90 @@
+{
+ "note": "Expected values for the six fixture models. Parts, names, colours, ΔE00 minima and contrast come from GLB Lab 0.1 (data/six_model_audit_recheck.json in Online Resource 1 of the article); text as geometry from the recount of 6 November 2026 (data/text_geometry_check_2026-11-06.json), which corrected the 0.1 command-line count for 07 from 4 to 11. Background #070810, severity 100%, no role names or opacity overrides.",
+ "background": "#070810",
+ "files": {
+  "02-ethyne-structure-3d.glb": {
+   "partsWithGeometry": 14,
+   "softwareNames": 14,
+   "textAsGeometry": 0,
+   "materials": 14,
+   "distinctColours": 2,
+   "minDE00": {
+    "normal": 13.8,
+    "protan": 13.8,
+    "deutan": 13.8,
+    "tritan": 13.8
+   },
+   "coloursBelow3to1": 0
+  },
+  "04-sp-orbital-viewer.glb": {
+   "partsWithGeometry": 39,
+   "softwareNames": 39,
+   "textAsGeometry": 4,
+   "materials": 37,
+   "distinctColours": 12,
+   "minDE00": {
+    "normal": 0.1,
+    "protan": 0.1,
+    "deutan": 0.1,
+    "tritan": 0.1
+   },
+   "coloursBelow3to1": 1
+  },
+  "06-axes-pi-symmetry.glb": {
+   "partsWithGeometry": 11,
+   "softwareNames": 11,
+   "textAsGeometry": 0,
+   "materials": 11,
+   "distinctColours": 3,
+   "minDE00": {
+    "normal": 4,
+    "protan": 4,
+    "deutan": 3.9,
+    "tritan": 3.9
+   },
+   "coloursBelow3to1": 0
+  },
+  "07-complete-sigma-pi-explorer.glb": {
+   "partsWithGeometry": 53,
+   "softwareNames": 53,
+   "textAsGeometry": 11,
+   "materials": 52,
+   "distinctColours": 12,
+   "minDE00": {
+    "normal": 1.1,
+    "protan": 1,
+    "deutan": 1,
+    "tritan": 0.3
+   },
+   "coloursBelow3to1": 1
+  },
+  "ener_sp3.glb": {
+   "partsWithGeometry": 35,
+   "softwareNames": 35,
+   "textAsGeometry": 16,
+   "materials": 23,
+   "distinctColours": 9,
+   "minDE00": {
+    "normal": 8.9,
+    "protan": 3.7,
+    "deutan": 3.8,
+    "tritan": 5
+   },
+   "coloursBelow3to1": 0
+  },
+  "sigma_me_ss.glb": {
+   "partsWithGeometry": 5,
+   "softwareNames": 5,
+   "textAsGeometry": 0,
+   "materials": 5,
+   "distinctColours": 3,
+   "minDE00": {
+    "normal": 21.2,
+    "protan": 12.4,
+    "deutan": 6.6,
+    "tritan": 13.7
+   },
+   "coloursBelow3to1": 0
+  }
+ }
+}

@@ -1,0 +1,160 @@
+{
+ "date": "2026-11-06T08:47:38.015Z",
+ "browser": "Chromium 153.0.8010.12 (headless, Playwright)",
+ "axe": "axe-core 4.10.2",
+ "views": [
+  {
+   "view": "light, 1280 px",
+   "compatMode": "CSS1Compat",
+   "horizontalScroll": false,
+   "selfTest": "5 of 5 tests passed.",
+   "axeViolations": [],
+   "axeIncomplete": [
+    {
+     "id": "color-contrast",
+     "nodes": 1
+    }
+   ],
+   "pageErrors": [],
+   "externalRequests": []
+  },
+  {
+   "view": "dark, 1280 px",
+   "compatMode": "CSS1Compat",
+   "horizontalScroll": false,
+   "axeViolations": [],
+   "axeIncomplete": [
+    {
+     "id": "color-contrast",
+     "nodes": 1
+    }
+   ],
+   "pageErrors": [],
+   "externalRequests": []
+  },
+  {
+   "view": "light, 390 px",
+   "compatMode": "CSS1Compat",
+   "horizontalScroll": false,
+   "axeViolations": [],
+   "axeIncomplete": [
+    {
+     "id": "color-contrast",
+     "nodes": 43
+    }
+   ],
+   "pageErrors": [],
+   "externalRequests": []
+  }
+ ],
+ "models": [
+  {
+   "file": "02-ethyne-structure-3d.glb",
+   "sha256": "30deb8175541978eb9de28d84cd52f84786b357aeadc6bdf899e5c05547d53ad",
+   "pass": true,
+   "got": {
+    "partsWithGeometry": 14,
+    "softwareNames": 14,
+    "textAsGeometry": 0,
+    "distinctColours": 2,
+    "minDE00": {
+     "normal": 13.8,
+     "protan": 13.8,
+     "deutan": 13.8,
+     "tritan": 13.8
+    },
+    "coloursBelow3to1": 0
+   }
+  },
+  {
+   "file": "04-sp-orbital-viewer.glb",
+   "sha256": "2d4fa3d95c066adbc7872a87e673f52d6e653f703ab2780038cc0803b44e661a",
+   "pass": true,
+   "got": {
+    "partsWithGeometry": 39,
+    "softwareNames": 39,
+    "textAsGeometry": 4,
+    "distinctColours": 12,
+    "minDE00": {
+     "normal": 0.1,
+     "protan": 0.1,
+     "deutan": 0.1,
+     "tritan": 0.1
+    },
+    "coloursBelow3to1": 1
+   }
+  },
+  {
+   "file": "06-axes-pi-symmetry.glb",
+   "sha256": "11594afc51d1074cc1955e26945f99a88c1b52243b2ee58df022491c5018ae9a",
+   "pass": true,
+   "got": {
+    "partsWithGeometry": 11,
+    "softwareNames": 11,
+    "textAsGeometry": 0,
+    "distinctColours": 3,
+    "minDE00": {
+     "normal": 4,
+     "protan": 4,
+     "deutan": 3.9,
+     "tritan": 3.9
+    },
+    "coloursBelow3to1": 0
+   }
+  },
+  {
+   "file": "07-complete-sigma-pi-explorer.glb",
+   "sha256": "33fc38bcbe91959ab9a05216b15f1d665e8c70dd32105e0c0fe99d364911274b",
+   "pass": true,
+   "got": {
+    "partsWithGeometry": 53,
+    "softwareNames": 53,
+    "textAsGeometry": 11,
+    "distinctColours": 12,
+    "minDE00": {
+     "normal": 1.1,
+     "protan": 1,
+     "deutan": 1,
+     "tritan": 0.3
+    },
+    "coloursBelow3to1": 1
+   }
+  },
+  {
+   "file": "ener_sp3.glb",
+   "sha256": "837730d7ba2ba6982814fae99fef7af681a1c5ddec5c5f4491ed76fd200a1e1e",
+   "pass": true,
+   "got": {
+    "partsWithGeometry": 35,
+    "softwareNames": 35,
+    "textAsGeometry": 16,
+    "distinctColours": 9,
+    "minDE00": {
+     "normal": 8.9,
+     "protan": 3.7,
+     "deutan": 3.8,
+     "tritan": 5
+    },
+    "coloursBelow3to1": 0
+   }
+  },
+  {
+   "file": "sigma_me_ss.glb",
+   "sha256": "25a7d60c3aa4c5811bcf9560d9411f1acc1b94729809797063b03a079fc20b59",
+   "pass": true,
+   "got": {
+    "partsWithGeometry": 5,
+    "softwareNames": 5,
+    "textAsGeometry": 0,
+    "distinctColours": 3,
+    "minDE00": {
+     "normal": 21.2,
+     "protan": 12.4,
+     "deutan": 6.6,
+     "tritan": 13.7
+    },
+    "coloursBelow3to1": 0
+   }
+  }
+ ]
+}

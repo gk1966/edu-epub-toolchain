@@ -1,6 +1,6 @@
 # Edu EPUB Toolchain
 
-**Creator** [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21322782.svg)](https://doi.org/10.5281/zenodo.21322782) · **Reader** [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21322911.svg)](https://doi.org/10.5281/zenodo.21322911) · **Demo** [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21322985.svg)](https://doi.org/10.5281/zenodo.21322985)
+**Creator** [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21322782.svg)](https://doi.org/10.5281/zenodo.21322782) · **Reader** [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21322911.svg)](https://doi.org/10.5281/zenodo.21322911) · **Demo** [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21322985.svg)](https://doi.org/10.5281/zenodo.21322985) · **GLB Lab** [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24002735.svg)](https://doi.org/10.5281/zenodo.24002735)
 
 A local-first, DRM-free EPUB 3 toolchain for authoring and reading interactive,
 accessible educational publications with embedded WebGL/Babylon.js 3D content.
@@ -10,6 +10,7 @@ accessible educational publications with embedded WebGL/Babylon.js 3D content.
 | Edu EPUB Creator | [`creator/`](creator/) | 0.5.4 | MIT | Browser-based authoring tool: visual/XHTML/preview editing, reusable learning blocks, Word/Markdown/EPUB/HTML import, and structured EPUB 3 export with navigation and accessibility metadata |
 | Edu Ebook Reader | [`reader/`](reader/) | 1.1.1 | MIT | Installable PWA reader for EPUB 3 with scripting/WebGL support, plus PDF, TXT, MD, HTML, CBZ, DOCX, ODT and FB2 display; accessible interface (skip link, live announcements, focus management, accessibility-metadata panel); refuses DRM-protected files and respects PDF permission flags |
 | Demo module | [`demo/`](demo/) | 1.0.2 | CC BY-NC 4.0 | Interactive chemistry EPUB 3 on sp hybridization in ethyne: 3D molecular/orbital viewers, video and self-check quiz |
+| GLB Lab | [`glb-lab/`](glb-lab/) | 0.2.0 | MIT | Offline browser check of 3D glTF/GLB models: software-generated part names, text modelled as geometry, part descriptions, contrast of role colours, and colour differences under simulated colour vision deficiency, with a self-test against published reference data |
 
 The applications use no app accounts, analytics, or book-upload service; local files remain in the browser. The hosting provider may retain ordinary server logs. PWA
 installation requires HTTPS, or localhost during development; opening the apps from
