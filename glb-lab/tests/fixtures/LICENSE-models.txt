@@ -1,0 +1,8 @@
+The six GLB files in this folder and the sample model in src/sample.js are 3D models created by
+Georgios Korakakis in Autodesk 3ds Max (Autodesk Education licence) for an interactive EPUB on
+sp hybridisation. They are exported as authored, before accessibility remediation, and are used
+here as test fixtures.
+
+Licence: Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
+https://creativecommons.org/licenses/by-nc/4.0/
+Non-commercial educational and research use only.

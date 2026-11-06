@@ -1,0 +1,38 @@
+{
+ "title": "GLB Lab: an accessibility check for 3D glTF/GLB models",
+ "version": "0.2.0",
+ "upload_type": "software",
+ "license": "MIT",
+ "creators": [
+  {
+   "name": "Korakakis, Georgios",
+   "orcid": "0009-0005-0042-6348",
+   "affiliation": "University of West Attica"
+  }
+ ],
+ "keywords": [
+  "accessibility",
+  "glTF",
+  "GLB",
+  "3D models",
+  "colour vision deficiency",
+  "CIEDE2000",
+  "WCAG",
+  "educational publishing",
+  "EPUB"
+ ],
+ "description": "<p>GLB Lab is a single-file, offline browser tool that checks 3D glTF/GLB models for accessibility problems that page and document checkers, such as axe-core for web pages or PAC for PDF, are not designed to examine. It reports software-generated part names, text modelled as geometry, parts without descriptions (extras.a11y), the contrast of role colours with the viewer background (WCAG 2.2, SC 1.4.11) and with each other, and the smallest colour differences (CIEDE2000) between roles under simulated protanopia, deuteranopia and tritanopia (Machado et al., 2009). The model is read locally; nothing is uploaded.</p><p>Version 0.2 adds the detection of text objects whose mesh has another name under a Text parent, warnings for what the colour figures do not cover (textures, vertex colours, emission, unlit and transmission materials, alpha masks, default materials), contrast between roles, a choice of blending space, a reproducible JSON report with the file’s SHA-256, and a self-test against published reference data (34 CIEDE2000 pairs of Sharma et al., 2005; 33 matrices of Machado et al., 2009). A command-line version and tests on six real models are included, together with version 0.1, which was used for the model audit in a study now in preparation as a manuscript.</p><p>Files: <code>glb-lab.html</code> is the tool and opens in a browser; <code>GLB-Lab-0.2.0.zip</code> contains the tool, its source, the command-line version, the tests and their results, the method (METHOD.md) and the validation record (VALIDATION.md). Code: MIT License. The six test models and the sample model are by Georgios Korakakis, CC BY-NC 4.0.</p><p>The tool supports inspection; it does not diagnose and does not show that a model is understandable. Written with the assistance of Claude (Anthropic), an AI system, under the author’s direction.</p>",
+ "notes": "Test models: CC BY-NC 4.0 (Georgios Korakakis). Reference data: Sharma, Wu & Dalal (2005); Machado, Oliveira & Fernandes (2009).",
+ "related_identifiers": [
+  {
+   "identifier": "10.1109/TVCG.2009.113",
+   "relation": "references",
+   "scheme": "doi"
+  },
+  {
+   "identifier": "10.1002/col.20070",
+   "relation": "references",
+   "scheme": "doi"
+  }
+ ]
+}

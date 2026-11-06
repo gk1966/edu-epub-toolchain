@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "GLB Lab: an accessibility check for 3D glTF/GLB models"
+abstract: "A single-file, offline browser tool that checks 3D glTF/GLB models for accessibility problems that page and document checkers are not designed to examine: software-generated part names, text modelled as geometry, missing part descriptions, contrast of role colours with the background and with each other, and the distinguishability of role colours under simulated colour vision deficiency (Machado et al. 2009; CIEDE2000). It includes a self-test against published reference data."
+type: software
+authors:
+  - family-names: Korakakis
+    given-names: Georgios
+    orcid: "https://orcid.org/0009-0005-0042-6348"
+    affiliation: "Department of Graphic Design and Visual Communication, School of Applied Arts and Culture, University of West Attica"
+version: "0.2.0"
+date-released: "2026-11-06"
+license: MIT
+doi: "10.5281/zenodo.24002735"
+repository-code: "https://github.com/gk1966/edu-epub-toolchain/tree/main/glb-lab"
+url: "https://gk1966.github.io/edu-epub-toolchain/glb-lab/"
+keywords:
+  - accessibility
+  - glTF
+  - GLB
+  - 3D models
+  - colour vision deficiency
+  - CIEDE2000
+  - WCAG
+  - educational publishing
+  - EPUB

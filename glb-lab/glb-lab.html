@@ -1,0 +1,670 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GLB Lab 0.2</title>
+<meta name="description" content="Accessibility check for 3D glTF/GLB models: part names, text drawn as geometry, role colours, contrast and colour vision deficiency simulation. Runs in the browser; the model is not uploaded.">
+<meta name="author" content="Georgios Korakakis">
+<meta name="generator" content="GLB Lab 0.2.0">
+<style>
+/* One working column: settings, summary, then numbered panels in the order a teacher checks a model. System fonts only: the page works offline. */
+:root{
+  --paper:#f5f7f8; --panel:#ffffff; --ink:#15202b; --ink-2:#44515e; --rule:#d5dce2;
+  --accent:#0d625d; --accent-tint:#e2f0ee;
+  --good:#1d6b34; --good-bg:#e5f3e8; --warn:#8a5300; --warn-bg:#fbf0dc; --bad:#a3262b; --bad-bg:#f9e3e3;
+  --focus:#1a56c4;
+  --font-body:"Atkinson Hyperlegible","Segoe UI",system-ui,-apple-system,"Noto Sans",Arial,sans-serif;
+  --font-data:"IBM Plex Mono",ui-monospace,"Cascadia Mono",Consolas,"DejaVu Sans Mono",monospace;
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px; --s6:32px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#11171c; --panel:#182027; --ink:#e7edf1; --ink-2:#a9b6c0; --rule:#2e3a44;
+  --accent:#5fc7bd; --accent-tint:#173a38;
+  --good:#7fd39a; --good-bg:#16301f; --warn:#f0b75a; --warn-bg:#3a2c12; --bad:#ff9a9a; --bad-bg:#3d1b1c; --focus:#8ab4ff; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#11171c; --panel:#182027; --ink:#e7edf1; --ink-2:#a9b6c0; --rule:#2e3a44;
+  --accent:#5fc7bd; --accent-tint:#173a38;
+  --good:#7fd39a; --good-bg:#16301f; --warn:#f0b75a; --warn-bg:#3a2c12; --bad:#ff9a9a; --bad-bg:#3d1b1c; --focus:#8ab4ff; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.55;margin:0}
+.skip{position:absolute;left:-10000px;top:8px;z-index:9;background:var(--panel);color:var(--ink);padding:8px 12px;border:2px solid var(--focus)}
+.skip:focus{left:16px}
+.wrap{max-width:1120px;margin:0 auto;padding-block:var(--s5) var(--s6);padding-inline:16px;display:grid;gap:var(--s5)}
+h1,h2,h3{text-wrap:balance;line-height:1.2;margin:0}
+h1{font-size:2rem;letter-spacing:-.01em}
+h1 .ver{font-family:var(--font-data);font-size:.8rem;font-weight:400;color:var(--ink-2);margin-left:var(--s2);letter-spacing:0}
+h2{font-size:1.25rem}
+h2 .n{font-family:var(--font-data);color:var(--accent);margin-right:var(--s2)}
+h3{font-size:1rem}
+p{margin:0;max-width:72ch}
+.lede{color:var(--ink-2)}
+a{color:var(--accent);text-underline-offset:3px}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:3px}
+.mono{font-family:var(--font-data);font-variant-numeric:tabular-nums}
+.small{font-size:.875rem;color:var(--ink-2)}
+header{display:grid;gap:var(--s2)}
+.byline{font-size:.9rem;color:var(--ink-2)}
+.panel{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:var(--s4) var(--s5) var(--s5);display:grid;gap:var(--s4);min-width:0}
+.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:var(--s4);align-items:end}
+.field{display:grid;gap:var(--s1);min-width:0}
+.field label,.field .lab{font-weight:700;font-size:.9rem}
+input[type=text],input[type=number],select{font:inherit;font-family:var(--font-data);font-size:.95rem;padding:6px 8px;border:1px solid var(--ink-2);border-radius:6px;background:var(--panel);color:var(--ink);width:100%;min-width:0;min-height:36px}
+select{font-family:var(--font-body)}
+input[type=color]{width:44px;height:36px;border:1px solid var(--ink-2);border-radius:6px;padding:2px;background:var(--panel)}
+input[type=range]{width:100%;accent-color:var(--accent)}
+input[type=checkbox]{width:20px;height:20px;accent-color:var(--accent)}
+.row{display:flex;gap:var(--s2);align-items:center;flex-wrap:wrap}
+button,.filebtn{font:inherit;font-weight:700;font-size:.95rem;padding:8px 14px;min-height:40px;border-radius:6px;border:1px solid var(--accent);background:var(--accent);color:var(--panel);cursor:pointer}
+button.ghost{background:transparent;color:var(--accent)}
+.drop{border:2px dashed var(--rule);border-radius:10px;padding:var(--s4);display:flex;gap:var(--s3);align-items:center;flex-wrap:wrap}
+.drop.over{border-color:var(--accent);background:var(--accent-tint)}
+.filebtn input{position:absolute;opacity:0;width:1px;height:1px}
+.filebtn{position:relative;display:inline-block}
+.filebtn:focus-within{outline:3px solid var(--focus);outline-offset:2px}
+.summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:var(--s3)}
+.stat{border:1px solid var(--rule);border-radius:10px;padding:var(--s3) var(--s4);background:var(--panel);display:grid;gap:var(--s1);align-content:start}
+.stat .k{font-size:.85rem;color:var(--ink-2);text-transform:uppercase;letter-spacing:.06em;font-weight:700}
+.stat .v{font-family:var(--font-data);font-size:1.5rem;font-variant-numeric:tabular-nums}
+.chip{display:inline-flex;gap:6px;align-items:center;font-size:.85rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;justify-self:start}
+.chip.good{color:var(--good);background:var(--good-bg)}
+.chip.warn{color:var(--warn);background:var(--warn-bg)}
+.chip.bad{color:var(--bad);background:var(--bad-bg)}
+.chip svg{width:12px;height:12px;flex:none}
+.tablewrap{overflow-x:auto;min-width:0}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+caption{text-align:left;font-weight:700;padding-bottom:var(--s2)}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--rule);vertical-align:middle}
+th{font-size:.82rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-2)}
+td.num,th.num{text-align:right;font-family:var(--font-data);font-variant-numeric:tabular-nums}
+.sw{display:inline-block;width:28px;height:20px;border-radius:4px;border:1px solid var(--ink-2);vertical-align:middle}
+.swpair{display:inline-flex;gap:3px;vertical-align:middle}
+.role-in{min-width:220px;font-family:var(--font-body)!important}
+.alpha-in{width:84px}
+.hex-in{width:104px}
+.types{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:var(--s3)}
+.type{border:1px solid var(--rule);border-radius:10px;padding:var(--s3) var(--s4);display:grid;gap:var(--s2);min-width:0;align-content:start}
+.type ol{margin:0;padding-left:1.3em;display:grid;gap:6px}
+.type li{font-size:.9rem}
+.strip{display:flex;flex-wrap:wrap;gap:2px}
+.strip span{width:22px;height:22px;border-radius:3px;border:1px solid var(--rule)}
+ul.warn{margin:0;padding-left:1.2em;display:grid;gap:4px}
+details summary{cursor:pointer;font-weight:700;min-height:32px}
+textarea{width:100%;min-height:180px;font-family:var(--font-data);font-size:.8rem;border:1px solid var(--ink-2);border-radius:6px;background:var(--panel);color:var(--ink);padding:8px}
+.notes{display:grid;gap:var(--s2);font-size:.92rem;color:var(--ink-2)}
+.notes p,.notes li{max-width:84ch}
+.notes h3{color:var(--ink);margin-top:var(--s2)}
+.status{min-height:1.5em;font-weight:700}
+footer{font-size:.85rem;color:var(--ink-2);border-top:1px solid var(--rule);padding-top:var(--s3)}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+@media print{.drop,button,.filebtn{display:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#h-load">Skip to the model check</a>
+<main class="wrap">
+  <header>
+    <h1>GLB Lab <span class="ver">0.2.0</span></h1>
+    <p class="lede">Checks a 3D glTF/GLB model for things that page and document checkers (such as axe-core for web pages or PAC for PDF) are not designed to examine: whether its parts have meaningful names, whether labels are drawn as geometry instead of text, whether the role colours remain distinguishable under simulated colour vision deficiency, and whether they have enough contrast. The model is read in this browser and is not uploaded anywhere; the page works offline.</p>
+    <p class="byline">Georgios Korakakis · University of West Attica · <a href="#about">About, method and citation</a></p>
+  </header>
+
+  <section class="panel" aria-labelledby="h-load">
+    <h2 id="h-load" tabindex="-1"><span class="n">1</span>Model and settings</h2>
+    <div class="drop" id="drop">
+      <label class="filebtn">Choose a .glb or .gltf file
+        <input type="file" id="file" accept=".glb,.gltf,model/gltf-binary,model/gltf+json">
+      </label>
+      <button type="button" class="ghost" id="sample">Load the sample</button>
+      <span class="small">or drag a file here</span>
+    </div>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+    <div class="controls">
+      <div class="field">
+        <label for="bgHex">Viewer background</label>
+        <div class="row"><input type="color" id="bgPick" aria-label="Choose background colour"><input type="text" id="bgHex" class="hex-in" autocomplete="off" spellcheck="false" aria-describedby="bgHelp"></div>
+        <span class="small" id="bgHelp">The colour behind the model in your viewer, as #RRGGBB.</span>
+      </div>
+      <div class="field">
+        <label for="sev">Simulation severity: <span id="sevOut" class="mono"></span>%</label>
+        <input type="range" id="sev" min="0" max="100" step="10">
+        <span class="small">100% = dichromacy (protanopia, deuteranopia, tritanopia).</span>
+      </div>
+      <div class="field">
+        <label for="thr">Exploratory ΔE₀₀ threshold</label>
+        <input type="number" id="thr" min="1" max="40" step="0.5">
+        <span class="small">Not a validated limit; it only orders what to look at.</span>
+      </div>
+      <div class="field">
+        <label for="space">Blending of transparent parts</label>
+        <select id="space">
+          <option value="srgb">On sRGB values (WebGL default)</option>
+          <option value="linear">In linear light</option>
+        </select>
+        <span class="small">Choose how your viewer blends; see Method.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="summary" aria-label="Summary" id="summary"></section>
+
+  <section class="panel" aria-labelledby="h-roles">
+    <h2 id="h-roles"><span class="n">2</span>Role colours and contrast with the background</h2>
+    <p class="small">Each row is one material colour of the model. Enter what it represents (e.g. “π bond”), the colour the viewer actually shows, and its opacity. Contrast is calculated on the colour after blending with the background. Rows with the same role name count as one role.</p>
+    <div class="tablewrap"><table id="roles"><caption>Colour roles</caption><thead><tr>
+      <th scope="col">Include</th><th scope="col">Material colour</th><th scope="col">Role</th><th scope="col">On screen</th><th scope="col" class="num">Opacity</th><th scope="col">Result</th><th scope="col" class="num">Parts</th><th scope="col" class="num">Contrast</th><th scope="col">3:1 with background</th>
+    </tr></thead><tbody></tbody></table></div>
+  </section>
+
+  <section class="panel" aria-labelledby="h-pairs">
+    <h2 id="h-pairs"><span class="n">3</span>Closest role pairs under simulated colour vision deficiency</h2>
+    <p class="small">The five pairs with the smallest colour difference ΔE₀₀ for each type of vision, after the Machado et al. (2009) simulation of the “Result” colours.</p>
+    <div class="types" id="types"></div>
+  </section>
+
+  <section class="panel" aria-labelledby="h-rc">
+    <h2 id="h-rc"><span class="n">4</span>Contrast between roles</h2>
+    <p class="small">WCAG 2.2, success criterion 1.4.11, asks for 3:1 between a graphical part and the colours next to it. The tool cannot know which roles touch on screen, so it lists every pair below 3:1: check those that are adjacent, or separate them with an outline, pattern or label.</p>
+    <div id="rcBox"></div>
+  </section>
+
+  <section class="panel" aria-labelledby="h-sem">
+    <h2 id="h-sem"><span class="n">5</span>Part names, text as geometry and descriptions</h2>
+    <p class="small">A screen reader can announce a part only if the model or the viewer gives it a name. Names such as “Cone002” or “VMtl003” are generated by the software and convey nothing. Letters modelled as geometry (e.g. “σ”, “π”, “H”) are invisible to assistive technology and need a text equivalent. We recommend <span class="mono">extras.a11y = {"label", "description"}</span> on each part.</p>
+    <div id="semStats" class="row"></div>
+    <details><summary>List of parts</summary>
+      <div class="tablewrap"><table id="nodes"><caption>Parts with geometry</caption><thead><tr><th scope="col">Name</th><th scope="col">Mesh</th><th scope="col">Parent</th><th scope="col">Colour</th><th scope="col">Findings</th></tr></thead><tbody></tbody></table></div>
+    </details>
+  </section>
+
+  <section class="panel" aria-labelledby="h-warn">
+    <h2 id="h-warn"><span class="n">6</span>What the colour figures do not cover in this model</h2>
+    <div id="warnBox"></div>
+  </section>
+
+  <section class="panel" aria-labelledby="h-rep">
+    <h2 id="h-rep"><span class="n">7</span>Report</h2>
+    <p class="small">The JSON report records the tool version, the file’s SHA-256, every setting and rule, and all results, so that a check can be repeated. Copy it, or download it with the role table as CSV.</p>
+    <div class="row"><button type="button" id="copyJson">Copy JSON</button><button type="button" class="ghost" id="dlJson">Download JSON</button><button type="button" class="ghost" id="dlCsv">Download role CSV</button><span id="copyStatus" class="small" role="status" aria-live="polite"></span></div>
+    <label for="report" class="small">JSON report</label>
+    <textarea id="report" readonly></textarea>
+  </section>
+
+  <section class="panel" aria-labelledby="h-test">
+    <h2 id="h-test"><span class="n">8</span>Self-test of the calculations</h2>
+    <p class="small">Runs the reference tests in this browser: CIEDE2000 against the 34 pairs of Sharma et al. (2005), the 33 simulation matrices against the table published by Machado et al., and WCAG contrast against known values.</p>
+    <div class="row"><button type="button" id="runTest">Run the self-test</button><span id="testStatus" class="small" role="status" aria-live="polite"></span></div>
+    <div class="tablewrap"><table id="testTable" hidden><caption>Self-test results</caption><thead><tr><th scope="col">Test</th><th scope="col">Result</th><th scope="col">Detail</th></tr></thead><tbody></tbody></table></div>
+  </section>
+
+  <section class="notes panel" aria-labelledby="about" id="aboutBox">
+    <h2 id="about">About, method and citation</h2>
+    <h3>Method</h3>
+    <ul>
+      <li><strong>Colour of a part.</strong> The material’s baseColorFactor (linear in glTF 2.0) is converted to sRGB. Lighting, shadows, specular highlights, tone mapping, textures and vertex colours are not modelled, so the values describe material colours, not every pixel. Panel 6 lists what this model contains beyond that.</li>
+      <li><strong>Opacity.</strong> Used only for alphaMode BLEND, as in glTF 2.0. Blending α·colour + (1−α)·background is computed either on 8-bit sRGB values (as WebGL does in its default, sRGB-encoded drawing buffer) or in linear light (as with a linear render target).</li>
+      <li><strong>Contrast.</strong> WCAG 2.2 relative luminance and contrast ratio; the 3:1 criterion is that of success criterion 1.4.11, Non-text Contrast.</li>
+      <li><strong>Colour vision deficiency.</strong> Machado, Oliveira &amp; Fernandes (2009) matrices applied in linear sRGB, with linear interpolation between the published severities (steps of 10%). Out-of-gamut results are clipped. A simulation is a model of average dichromatic or anomalous vision, not of a particular person.</li>
+      <li><strong>Colour difference.</strong> CIEDE2000 (kL = kC = kH = 1) on CIELAB from sRGB, D65, 2° observer, implemented according to Sharma, Wu &amp; Dalal (2005). The threshold is exploratory.</li>
+      <li><strong>Names and text.</strong> A part has a software-generated name when its node name is empty or matches common generated patterns (Cone002, Circle09-FACES001, VMtl003, PART1_5 …). Text as geometry: a geometry-bearing node whose own, mesh or parent name starts with “Text” (3ds Max text shapes; the exporter may name their mesh PARTn_m). Both are heuristics for models from 3ds Max and similar software; check the list of parts.</li>
+      <li><strong>Numerical core.</strong> CVD Lab 2.1 (Georgios Korakakis), included unchanged; panel 8 tests it.</li>
+    </ul>
+    <p>The tool is neither a diagnosis nor proof that a model is understandable. It shows where to look.</p>
+    <h3>References</h3>
+    <ul>
+      <li>Machado, G.M., Oliveira, M.M., Fernandes, L.A.F.: A physiologically-based model for simulation of color vision deficiency. IEEE Trans. Vis. Comput. Graph. 15(6), 1291–1298 (2009). <a href="https://doi.org/10.1109/TVCG.2009.113">doi:10.1109/TVCG.2009.113</a></li>
+      <li>Sharma, G., Wu, W., Dalal, E.N.: The CIEDE2000 color-difference formula: implementation notes, supplementary test data, and mathematical observations. Color Res. Appl. 30(1), 21–30 (2005). <a href="https://doi.org/10.1002/col.20070">doi:10.1002/col.20070</a></li>
+      <li>W3C: Web Content Accessibility Guidelines (WCAG) 2.2, W3C Recommendation (2023). <a href="https://www.w3.org/TR/WCAG22/">www.w3.org/TR/WCAG22</a></li>
+      <li>Khronos Group: glTF 2.0 Specification. <a href="https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html">registry.khronos.org/glTF</a></li>
+    </ul>
+    <h3>Author, licence and citation</h3>
+    <p>Georgios Korakakis, Department of Graphic Design and Visual Communication, School of Applied Arts and Culture, University of West Attica, Egaleo, Athens, Greece. ORCID <a href="https://orcid.org/0009-0005-0042-6348">0009-0005-0042-6348</a>. Contact: <a href="mailto:gkorakakis@uniwa.gr">gkorakakis@uniwa.gr</a>.</p>
+    <p>MIT License. The code was written with the assistance of Claude (Anthropic), an AI system, under the author’s direction; the author checked and is responsible for it. The sample model is © Georgios Korakakis, CC BY-NC 4.0.</p>
+    <p>Cite as: Korakakis, G.: GLB Lab: an accessibility check for 3D glTF/GLB models, version 0.2.0. Zenodo (2026). <a href="https://doi.org/10.5281/zenodo.24002735">https://doi.org/10.5281/zenodo.24002735</a></p>
+  </section>
+  <footer>GLB Lab 0.2.0 · <span id="ftYear">2026</span> Georgios Korakakis · MIT License</footer>
+</main>
+
+<script>
+/* CVD Lab 2.0.0 — numerical core. Matrices: Machado et al., 2009, author supplement. */
+const MATRICES = {"protan":[[1,0,0,0,1,0,0,0,1],[0.856167,0.182038,-0.038205,0.029342,0.955115,0.015544,-0.00288,-0.001563,1.004443],[0.734766,0.334872,-0.069637,0.05184,0.919198,0.028963,-0.004928,-0.004209,1.009137],[0.630323,0.465641,-0.095964,0.069181,0.890046,0.040773,-0.006308,-0.007724,1.014032],[0.539009,0.579343,-0.118352,0.082546,0.866121,0.051332,-0.007136,-0.011959,1.019095],[0.458064,0.679578,-0.137642,0.092785,0.846313,0.060902,-0.007494,-0.016807,1.024301],[0.38545,0.769005,-0.154455,0.100526,0.829802,0.069673,-0.007442,-0.02219,1.029632],[0.319627,0.849633,-0.169261,0.106241,0.815969,0.07779,-0.007025,-0.028051,1.035076],[0.259411,0.923008,-0.18242,0.110296,0.80434,0.085364,-0.006276,-0.034346,1.040622],[0.203876,0.990338,-0.194214,0.112975,0.794542,0.092483,-0.005222,-0.041043,1.046265],[0.152286,1.052583,-0.204868,0.114503,0.786281,0.099216,-0.003882,-0.048116,1.051998]],"deutan":[[1,0,0,0,1,0,0,0,1],[0.866435,0.177704,-0.044139,0.049567,0.939063,0.01137,-0.003453,0.007233,0.99622],[0.760729,0.319078,-0.079807,0.090568,0.889315,0.020117,-0.006027,0.013325,0.992702],[0.675425,0.43385,-0.109275,0.125303,0.847755,0.026942,-0.00795,0.018572,0.989378],[0.605511,0.52856,-0.134071,0.155318,0.812366,0.032316,-0.009376,0.023176,0.9862],[0.547494,0.607765,-0.155259,0.181692,0.781742,0.036566,-0.01041,0.027275,0.983136],[0.498864,0.674741,-0.173604,0.205199,0.754872,0.039929,-0.011131,0.030969,0.980162],[0.457771,0.731899,-0.18967,0.226409,0.731012,0.042579,-0.011595,0.034333,0.977261],[0.422823,0.781057,-0.203881,0.245752,0.709602,0.044646,-0.011843,0.037423,0.974421],[0.392952,0.82361,-0.216562,0.263559,0.69021,0.046232,-0.01191,0.040281,0.97163],[0.367322,0.860646,-0.227968,0.280085,0.672501,0.047413,-0.01182,0.04294,0.968881]],"tritan":[[1,0,0,0,1,0,0,0,1],[0.92667,0.092514,-0.019184,0.021191,0.964503,0.014306,0.008437,0.054813,0.93675],[0.89572,0.13333,-0.02905,0.029997,0.9454,0.024603,0.013027,0.104707,0.882266],[0.905871,0.127791,-0.033662,0.026856,0.941251,0.031893,0.01341,0.148296,0.838294],[0.948035,0.08949,-0.037526,0.014364,0.946792,0.038844,0.010853,0.193991,0.795156],[1.017277,0.027029,-0.044306,-0.006113,0.958479,0.047634,0.006379,0.248708,0.744913],[1.104996,-0.046633,-0.058363,-0.032137,0.971635,0.060503,0.001336,0.317922,0.680742],[1.193214,-0.109812,-0.083402,-0.058496,0.97941,0.079086,-0.002346,0.403492,0.598854],[1.257728,-0.139648,-0.118081,-0.078003,0.975409,0.102594,-0.003316,0.501214,0.502102],[1.278864,-0.125333,-0.153531,-0.084748,0.957674,0.127074,-0.000989,0.601151,0.399838],[1.255528,-0.076749,-0.178779,-0.078411,0.930809,0.147602,0.004733,0.691367,0.3039]]};
+const CVD = (() => {
+ const clamp=x=>Math.max(0,Math.min(1,x));
+ const decode=x=>x<=0.04045?x/12.92:((x+0.055)/1.055)**2.4;
+ const encode=x=>{x=clamp(x);return x<=0.0031308?12.92*x:1.055*x**(1/2.4)-0.055;};
+ const lut=Array.from({length:256},(_,i)=>decode(i/255));
+ function matrix(type,severity=100){
+  if(!Object.hasOwn(MATRICES,type)||!Number.isFinite(severity)||severity<0||severity>100)throw Error('Invalid simulation');
+  const v=severity/10,a=Math.floor(v),b=Math.min(10,a+1),t=v-a;
+  return MATRICES[type][a].map((x,i)=>x+(MATRICES[type][b][i]-x)*t);
+ }
+ function transform(rgb,type='deutan',severity=100){
+  const [r,g,b]=rgb.map(x=>decode(x/255));
+  if(type==='normal'||(severity===0&&type!=='gray'))return {rgb:[...rgb],clipped:false};
+  const m=type==='gray'?[.2126,.7152,.0722,.2126,.7152,.0722,.2126,.7152,.0722]:matrix(type,severity);
+  const v=[m[0]*r+m[1]*g+m[2]*b,m[3]*r+m[4]*g+m[5]*b,m[6]*r+m[7]*g+m[8]*b];
+  return {rgb:v.map(x=>255*encode(x)),clipped:v.some(x=>x< -1e-6||x>1.000001)};
+ }
+ function pixels(data,type,severity){
+  const out=new Uint8ClampedArray(data.length);let clipped=0;
+  if(type==='normal'||(severity===0&&type!=='gray'))return {data:new Uint8ClampedArray(data),clipped:0};
+  const m=type==='gray'?[.2126,.7152,.0722,.2126,.7152,.0722,.2126,.7152,.0722]:matrix(type,severity);
+  for(let i=0;i<data.length;i+=4){
+   const r=lut[data[i]],g=lut[data[i+1]],b=lut[data[i+2]];
+   const x=m[0]*r+m[1]*g+m[2]*b,y=m[3]*r+m[4]*g+m[5]*b,z=m[6]*r+m[7]*g+m[8]*b;
+   if(x< -1e-6||y< -1e-6||z< -1e-6||x>1.000001||y>1.000001||z>1.000001)clipped++;
+   out[i]=Math.round(255*encode(x));out[i+1]=Math.round(255*encode(y));out[i+2]=Math.round(255*encode(z));out[i+3]=data[i+3];
+  }return {data:out,clipped};
+ }
+ function lab(rgb){
+  const [r,g,b]=rgb.map(x=>decode(x/255));
+  const f=t=>t>216/24389?Math.cbrt(t):(24389/27*t+16)/116;
+  const x=f((.4124564*r+.3575761*g+.1804375*b)/.95047),y=f(.2126729*r+.7151522*g+.072175*b),z=f((.0193339*r+.119192*g+.9503041*b)/1.08883);
+  return [116*y-16,500*(x-y),200*(y-z)];
+ }
+ // CIEDE2000, kL=kC=kH=1. Hue wrap follows Sharma, Wu & Dalal (2005).
+ function deltaE(a,b){
+  const [L1,a1,b1]=a,[L2,a2,b2]=b,rad=Math.PI/180;
+  const c1=Math.hypot(a1,b1),c2=Math.hypot(a2,b2),cb=(c1+c2)/2;
+  const G=.5*(1-Math.sqrt(cb**7/(cb**7+25**7))),ap1=(1+G)*a1,ap2=(1+G)*a2;
+  const C1=Math.hypot(ap1,b1),C2=Math.hypot(ap2,b2);
+  const hue=(x,y)=>(Math.atan2(y,x)/rad+360)%360;
+  const h1=C1===0?0:hue(ap1,b1),h2=C2===0?0:hue(ap2,b2);
+  const dL=L2-L1,dC=C2-C1;let dh=h2-h1;
+  if(C1*C2===0)dh=0;else if(dh>180)dh-=360;else if(dh< -180)dh+=360;
+  const dH=2*Math.sqrt(C1*C2)*Math.sin(dh*rad/2),Lm=(L1+L2)/2,Cm=(C1+C2)/2;
+  let hm;if(C1*C2===0)hm=h1+h2;else if(Math.abs(h1-h2)<=180)hm=(h1+h2)/2;else hm=(h1+h2+(h1+h2<360?360:-360))/2;
+  const T=1-.17*Math.cos((hm-30)*rad)+.24*Math.cos(2*hm*rad)+.32*Math.cos((3*hm+6)*rad)-.20*Math.cos((4*hm-63)*rad);
+  const Sl=1+.015*(Lm-50)**2/Math.sqrt(20+(Lm-50)**2),Sc=1+.045*Cm,Sh=1+.015*Cm*T;
+  const Rt=-2*Math.sqrt(Cm**7/(Cm**7+25**7))*Math.sin(60*Math.exp(-(((hm-275)/25)**2))*rad);
+  const vL=dL/Sl,vC=dC/Sc,vH=dH/Sh;
+  return Math.sqrt(Math.max(0,vL*vL+vC*vC+vH*vH+Rt*vC*vH));
+ }
+ const luminance=rgb=>rgb.map(x=>decode(x/255)).reduce((s,x,i)=>s+x*[.2126,.7152,.0722][i],0);
+ const contrast=(a,b)=>{const x=luminance(a),y=luminance(b);return (Math.max(x,y)+.05)/(Math.min(x,y)+.05);};
+ const fromHex=s=>{if(!/^#[0-9a-f]{6}$/i.test(s))throw Error('Invalid hex');return [1,3,5].map(i=>parseInt(s.slice(i,i+2),16));};
+ const hex=rgb=>'#'+rgb.map(x=>Math.round(Math.max(0,Math.min(255,x))).toString(16).padStart(2,'0')).join('').toUpperCase();
+ function pairs(colors,type,severity){
+  const out=[];
+  for(let i=0;i<colors.length;i++)for(let j=i+1;j<colors.length;j++){
+   const a=fromHex(colors[i].hex),b=fromHex(colors[j].hex),sa=transform(a,type,severity),sb=transform(b,type,severity);
+   const original=deltaE(lab(a),lab(b)),simulated=deltaE(lab(sa.rgb),lab(sb.rgb));
+   out.push({i,j,original,simulated,retention:original<1?null:100*simulated/original,contrast:contrast(a,b),simulatedContrast:contrast(sa.rgb,sb.rgb),clipped:sa.clipped||sb.clipped});
+  }return out.sort((a,b)=>a.simulated-b.simulated);
+ }
+ return {decode,encode,matrix,transform,pixels,lab,deltaE,luminance,contrast,fromHex,hex,pairs};
+})();
+if(typeof module!=='undefined')module.exports=CVD;
+
+</script>
+<script>
+/* GLB Lab 0.2 — model analysis core (no DOM).
+   Copyright (c) 2026 Georgios Korakakis. MIT License, see LICENSE.
+   Uses the CVD Lab 2.1 numerical core (cvd-core.js, unchanged). */
+(function (root, factory) {
+  if (typeof module !== 'undefined' && module.exports) module.exports = factory(require('./cvd-core.js'));
+  else root.GLBCore = factory(typeof CVD !== 'undefined' ? CVD : root.CVD); // CVD is a global const in the page
+})(typeof self !== 'undefined' ? self : this, function (CVD) {
+  'use strict';
+  const VERSION = '0.2.0';
+
+  // Names that modelling software generates (3ds Max, Babylon exporter, Blender defaults).
+  const GENERIC = /^(?:\d*\s*-\s*)?(?:V\d*)?(?:Cone|Cyl|Cylinder|Sph|Sphere|Box|Circle|Torus|Plane|Mesh|Object|Group|Grp|Xfm|Mtl|Text|Line|Omni|Default|Material|Node|PART\d*|TRANSPARENT_PARTS|INITIAL_TRANSPARENT|Teapot|Geosphere|Capsule|Tube|Shape|Cube|Icosphere|UVSphere)[\s_#.\-]*\d*(?:[_\-]?FACES\d*)?(?:_\d+)?$/i;
+  const GENERIC_MATERIAL = /^\d+\s*-\s*Default$/i;
+  // 3ds Max text shapes are exported as nodes named Text…; the Babylon exporter may give their mesh
+  // a different name (e.g. PART1_3) under a Text… parent, so the parent name is checked too.
+  const TEXTGEO = /^(?:V\d*)?Text\d*/i;
+
+  const RULES = {
+    softwareName: 'node name empty or matching the pattern of names generated by modelling software (GENERIC)',
+    textAsGeometry: 'geometry-bearing node whose own, mesh or parent name starts with "Text" (3ds Max text shape)',
+    described: 'node or mesh has extras.a11y.label or extras.a11y.description',
+    colour: 'material baseColorFactor (linear) converted to sRGB; texture, lighting and tone mapping not modelled',
+    alpha: 'opacity used only when alphaMode is BLEND (glTF 2.0); MASK and OPAQUE are drawn opaque',
+    defaultMaterial: 'primitive without material uses the glTF default material (white, opaque)'
+  };
+
+  const MAGIC_GLTF = 0x46546C67, CHUNK_JSON = 0x4E4F534A;
+
+  function parse(buffer) {
+    const ab = buffer instanceof ArrayBuffer ? buffer : buffer.buffer.slice(buffer.byteOffset, buffer.byteOffset + buffer.byteLength);
+    const dv = new DataView(ab);
+    if (ab.byteLength >= 20 && dv.getUint32(0, true) === MAGIC_GLTF) {
+      const version = dv.getUint32(4, true);
+      if (version !== 2) throw Error('Only glTF 2.0 is supported (this file is version ' + version + ').');
+      const len = dv.getUint32(12, true), type = dv.getUint32(16, true);
+      if (type !== CHUNK_JSON) throw Error('The first chunk of the GLB is not JSON.');
+      return JSON.parse(new TextDecoder().decode(new Uint8Array(ab, 20, len)));
+    }
+    let j;
+    try { j = JSON.parse(new TextDecoder().decode(new Uint8Array(ab))); } catch (e) { throw Error('The file is not GLB or glTF.'); }
+    if (!j.asset || String(j.asset.version || '').split('.')[0] !== '2') throw Error('Only glTF 2.0 is supported.');
+    return j;
+  }
+
+  const linToHex = c => CVD.hex(c.slice(0, 3).map(v => 255 * CVD.encode(v)));
+
+  function analyse(gltf) {
+    const ext = gltf.extensionsUsed || [];
+    const mats = (gltf.materials || []).map((m, k) => {
+      const p = m.pbrMetallicRoughness || {}, f = p.baseColorFactor || [1, 1, 1, 1], e = m.extensions || {};
+      const emissive = (m.emissiveFactor || [0, 0, 0]).some(x => x > 0) || !!m.emissiveTexture;
+      return {
+        index: k, name: m.name || '', hex: linToHex(f), alpha: f[3] ?? 1, alphaMode: m.alphaMode || 'OPAQUE',
+        alphaCutoff: m.alphaMode === 'MASK' ? (m.alphaCutoff ?? 0.5) : null,
+        texture: !!p.baseColorTexture, unlit: !!e.KHR_materials_unlit, emissive, transmission: !!e.KHR_materials_transmission,
+        otherExtensions: Object.keys(e).filter(x => x !== 'KHR_materials_unlit' && x !== 'KHR_materials_transmission'),
+        softwareName: !m.name || GENERIC.test(m.name) || GENERIC_MATERIAL.test(m.name)
+      };
+    });
+    const DEFAULT = { index: -1, name: '(glTF default material)', hex: '#FFFFFF', alpha: 1, alphaMode: 'OPAQUE', alphaCutoff: null, texture: false, unlit: false, emissive: false, transmission: false, otherExtensions: [], softwareName: true, isDefault: true };
+    const nodesIn = gltf.nodes || [], meshes = gltf.meshes || [];
+    const parent = {}; nodesIn.forEach((n, i) => (n.children || []).forEach(c => { parent[c] = i; }));
+    const usedMat = new Map(); let vertexColours = 0, noMaterial = 0, primitives = 0;
+    const nodes = [];
+    nodesIn.forEach((n, i) => {
+      if (n.mesh === undefined) return;
+      const mesh = meshes[n.mesh] || {};
+      const own = n.name || '', meshName = mesh.name || '';
+      const par = parent[i] !== undefined ? ((nodesIn[parent[i]] || {}).name || '') : '';
+      const hexes = new Set(); let vc = false;
+      (mesh.primitives || []).forEach(p => {
+        primitives++;
+        const m = p.material !== undefined && mats[p.material] ? mats[p.material] : DEFAULT;
+        if (m.isDefault) noMaterial++;
+        if (p.attributes && p.attributes.COLOR_0 !== undefined) { vc = true; vertexColours++; }
+        hexes.add(m.hex);
+        if (!usedMat.has(m)) usedMat.set(m, new Set());
+        usedMat.get(m).add(i);
+      });
+      const a11y = (n.extras && n.extras.a11y) || (mesh.extras && mesh.extras.a11y) || null;
+      nodes.push({
+        index: i, name: own || '(no name)', mesh: meshName, parent: par, hexes: [...hexes],
+        softwareName: !own || GENERIC.test(own),
+        textAsGeometry: [own, meshName, par].some(x => x && TEXTGEO.test(x)),
+        described: !!(a11y && (a11y.label || a11y.description)),
+        label: a11y && a11y.label ? String(a11y.label) : '', vertexColours: vc
+      });
+    });
+    // One row per distinct on-screen material colour (materials with the same colour are merged).
+    const byHex = new Map();
+    for (const [m, set] of usedMat) {
+      const key = m.hex;
+      const r = byHex.get(key) || { hex: key, materials: [], parts: new Set(), alpha: 1, blend: false, texture: false, unlit: false, emissive: false, mask: false };
+      r.materials.push(m.name || '(no name)'); set.forEach(x => r.parts.add(x));
+      if (m.alphaMode === 'BLEND') { r.blend = true; r.alpha = Math.min(r.alpha, m.alpha); }
+      r.texture = r.texture || m.texture; r.unlit = r.unlit || m.unlit; r.emissive = r.emissive || m.emissive; r.mask = r.mask || m.alphaMode === 'MASK';
+      byHex.set(key, r);
+    }
+    const colours = [...byHex.values()].map(r => ({ ...r, parts: r.parts.size })).sort((a, b) => b.parts - a.parts);
+    const used = [...usedMat.keys()];
+    const warnings = [];
+    const w = (code, count, text) => { if (count) warnings.push({ code, count, text }); };
+    w('texture', used.filter(m => m.texture).length, 'materials with a base-colour texture: their colours are not analysed');
+    w('vertexColours', vertexColours, 'primitives with vertex colours (COLOR_0): the colour on screen is multiplied by them and is not analysed');
+    w('emissive', used.filter(m => m.emissive).length, 'materials with emission: they look brighter than their base colour');
+    w('unlit', used.filter(m => m.unlit).length, 'materials marked unlit (KHR_materials_unlit): shown with their base colour, no lighting');
+    w('transmission', used.filter(m => m.transmission).length, 'materials with transmission (KHR_materials_transmission): what lies behind shows through, so the colour on screen is not the base colour');
+    w('mask', used.filter(m => m.alphaMode === 'MASK').length, 'materials with alphaMode MASK: drawn opaque where alpha ≥ cutoff, invisible elsewhere');
+    w('defaultMaterial', noMaterial, 'primitives without a material: the glTF default (white) is assumed');
+    w('extensions', ext.length, 'extensions used: ' + ext.join(', '));
+    return {
+      asset: gltf.asset || {}, extensionsUsed: ext,
+      counts: {
+        partsWithGeometry: nodes.length, softwareNames: nodes.filter(x => x.softwareName).length,
+        textAsGeometry: nodes.filter(x => x.textAsGeometry).length, described: nodes.filter(x => x.described).length,
+        materials: mats.length, softwareMaterialNames: mats.filter(m => m.softwareName).length,
+        materialsUsed: used.filter(m => !m.isDefault).length, distinctColours: colours.length, primitives
+      },
+      materials: mats, nodes, colours, warnings
+    };
+  }
+
+  // Opacity blending with the background. 'srgb': on 8-bit sRGB values, as WebGL blends in an
+  // sRGB-encoded default framebuffer; 'linear': in linear light, as with a linear render target.
+  function blend(hex, alpha, bgHex, space) {
+    const c = CVD.fromHex(hex), b = CVD.fromHex(bgHex), a = Math.max(0, Math.min(1, Number(alpha)));
+    if (space === 'linear') return CVD.hex(c.map((x, i) => 255 * CVD.encode(a * CVD.decode(x / 255) + (1 - a) * CVD.decode(b[i] / 255))));
+    return CVD.hex(c.map((x, i) => a * x + (1 - a) * b[i]));
+  }
+
+  // Contrast between every pair of roles (WCAG 2.2 SC 1.4.11 concerns adjacent colours).
+  function roleContrasts(roles) {
+    const out = [];
+    for (let i = 0; i < roles.length; i++) for (let j = i + 1; j < roles.length; j++)
+      out.push({ a: roles[i].label, b: roles[j].label, aHex: roles[i].hex, bHex: roles[j].hex, contrast: CVD.contrast(CVD.fromHex(roles[i].hex), CVD.fromHex(roles[j].hex)) });
+    return out.sort((x, y) => x.contrast - y.contrast);
+  }
+
+  // Self-test: CIEDE2000 against Sharma, Wu & Dalal (2005), Machado matrices against the authors'
+  // published table, WCAG contrast against known values, sRGB round trip.
+  function selfTest(sharmaText, machadoRef) {
+    const res = [];
+    const rows = sharmaText.trim().split(/\r?\n/).map(s => s.trim().split(/\s+/).map(Number));
+    let maxE = 0; rows.forEach(x => { maxE = Math.max(maxE, Math.abs(CVD.deltaE(x.slice(0, 3), x.slice(3, 6)) - x[6])); });
+    res.push({ test: 'CIEDE2000, ' + rows.length + ' reference pairs (Sharma et al. 2005)', pass: rows.length === 34 && maxE <= 5e-5, detail: 'max |error| ' + maxE.toExponential(2) + ' (limit 5e-5, the 4-decimal rounding of the data)' });
+    let maxM = 0, n = 0;
+    for (const t of ['protan', 'deutan', 'tritan']) for (let s = 0; s <= 10; s++) { n++; CVD.matrix(t, s * 10).forEach((v, i) => { maxM = Math.max(maxM, Math.abs(v - machadoRef[t][s][i])); }); }
+    res.push({ test: 'Machado et al. (2009) matrices, ' + n + ' of 33, against the published table', pass: n === 33 && maxM < 1e-9, detail: 'max |difference| ' + maxM });
+    let rowSum = 0;
+    for (const t of ['protan', 'deutan', 'tritan']) for (let s = 0; s <= 10; s++) { const m = CVD.matrix(t, s * 10); for (let r = 0; r < 3; r++) rowSum = Math.max(rowSum, Math.abs(m[3 * r] + m[3 * r + 1] + m[3 * r + 2] - 1)); }
+    res.push({ test: 'Simulation keeps white and greys (row sums = 1)', pass: rowSum < 2e-6, detail: 'max |row sum − 1| ' + rowSum.toExponential(2) });
+    const k = [[[0, 0, 0], [255, 255, 255], 21], [[118, 118, 118], [255, 255, 255], 4.54], [[0x77, 0x77, 0x77], [255, 255, 255], 4.48]];
+    const cOk = k.every(([a, b, e]) => Math.abs(CVD.contrast(a, b) - e) < 0.005);
+    res.push({ test: 'WCAG contrast: black/white 21:1, #767676/white 4.54:1, #777777/white 4.48:1', pass: cOk, detail: k.map(([a, b]) => CVD.contrast(a, b).toFixed(3)).join(', ') });
+    let rt = true; for (let i = 0; i < 256; i++) if (Math.round(255 * CVD.encode(CVD.decode(i / 255))) !== i) rt = false;
+    res.push({ test: 'sRGB decode/encode round trip, 256 values', pass: rt, detail: rt ? 'all equal' : 'mismatch' });
+    return res;
+  }
+
+  return { VERSION, RULES, GENERIC, TEXTGEO, parse, analyse, blend, roleContrasts, selfTest, linToHex };
+});
+
+</script>
+<script>
+const SHARMA_DATA = "50.0000\t2.6772\t-79.7751\t50.0000\t0.0000\t-82.7485\t2.0425\n50.0000\t3.1571\t-77.2803\t50.0000\t0.0000\t-82.7485\t2.8615\n50.0000\t2.8361\t-74.0200\t50.0000\t0.0000\t-82.7485\t3.4412\n50.0000\t-1.3802\t-84.2814\t50.0000\t0.0000\t-82.7485\t1.0000\n50.0000\t-1.1848\t-84.8006\t50.0000\t0.0000\t-82.7485\t1.0000\n50.0000\t-0.9009\t-85.5211\t50.0000\t0.0000\t-82.7485\t1.0000\n50.0000\t0.0000\t0.0000\t50.0000\t-1.0000\t2.0000\t2.3669\n50.0000\t-1.0000\t2.0000\t50.0000\t0.0000\t0.0000\t2.3669\n50.0000\t2.4900\t-0.0010\t50.0000\t-2.4900\t0.0009\t7.1792\n50.0000\t2.4900\t-0.0010\t50.0000\t-2.4900\t0.0010\t7.1792\n50.0000\t2.4900\t-0.0010\t50.0000\t-2.4900\t0.0011\t7.2195\n50.0000\t2.4900\t-0.0010\t50.0000\t-2.4900\t0.0012\t7.2195\n50.0000\t-0.0010\t2.4900\t50.0000\t0.0009\t-2.4900\t4.8045\n50.0000\t-0.0010\t2.4900\t50.0000\t0.0010\t-2.4900\t4.8045\n50.0000\t-0.0010\t2.4900\t50.0000\t0.0011\t-2.4900\t4.7461\n50.0000\t2.5000\t0.0000\t50.0000\t0.0000\t-2.5000\t4.3065\n50.0000\t2.5000\t0.0000\t73.0000\t25.0000\t-18.0000\t27.1492\n50.0000\t2.5000\t0.0000\t61.0000\t-5.0000\t29.0000\t22.8977\n50.0000\t2.5000\t0.0000\t56.0000\t-27.0000\t-3.0000\t31.9030\n50.0000\t2.5000\t0.0000\t58.0000\t24.0000\t15.0000\t19.4535\n50.0000\t2.5000\t0.0000\t50.0000\t3.1736\t0.5854\t1.0000\n50.0000\t2.5000\t0.0000\t50.0000\t3.2972\t0.0000\t1.0000\n50.0000\t2.5000\t0.0000\t50.0000\t1.8634\t0.5757\t1.0000\n50.0000\t2.5000\t0.0000\t50.0000\t3.2592\t0.3350\t1.0000\n60.2574\t-34.0099\t36.2677\t60.4626\t-34.1751\t39.4387\t1.2644\n63.0109\t-31.0961\t-5.8663\t62.8187\t-29.7946\t-4.0864\t1.2630\n61.2901\t3.7196\t-5.3901\t61.4292\t2.2480\t-4.9620\t1.8731\n35.0831\t-44.1164\t3.7933\t35.0232\t-40.0716\t1.5901\t1.8645\n22.7233\t20.0904\t-46.6940\t23.0331\t14.9730\t-42.5619\t2.0373\n36.4612\t47.8580\t18.3852\t36.2715\t50.5065\t21.2231\t1.4146\n90.8027\t-2.0831\t1.4410\t91.1528\t-1.6435\t0.0447\t1.4441\n90.9257\t-0.5406\t-0.9208\t88.6381\t-0.8985\t-0.7239\t1.5381\n6.7747\t-0.2908\t-2.4247\t5.8714\t-0.0985\t-2.2286\t0.6377\n2.0776\t0.0795\t-1.1350\t0.9033\t-0.0636\t-0.5514\t0.9082\n\n";
+const MACHADO_REF = {"protan":[[1.0,0.0,-0.0,0.0,1.0,0.0,-0.0,-0.0,1.0],[0.856167,0.182038,-0.038205,0.029342,0.955115,0.015544,-0.00288,-0.001563,1.004443],[0.734766,0.334872,-0.069637,0.05184,0.919198,0.028963,-0.004928,-0.004209,1.009137],[0.630323,0.465641,-0.095964,0.069181,0.890046,0.040773,-0.006308,-0.007724,1.014032],[0.539009,0.579343,-0.118352,0.082546,0.866121,0.051332,-0.007136,-0.011959,1.019095],[0.458064,0.679578,-0.137642,0.092785,0.846313,0.060902,-0.007494,-0.016807,1.024301],[0.38545,0.769005,-0.154455,0.100526,0.829802,0.069673,-0.007442,-0.02219,1.029632],[0.319627,0.849633,-0.169261,0.106241,0.815969,0.07779,-0.007025,-0.028051,1.035076],[0.259411,0.923008,-0.18242,0.110296,0.80434,0.085364,-0.006276,-0.034346,1.040622],[0.203876,0.990338,-0.194214,0.112975,0.794542,0.092483,-0.005222,-0.041043,1.046265],[0.152286,1.052583,-0.204868,0.114503,0.786281,0.099216,-0.003882,-0.048116,1.051998]],"deutan":[[1.0,0.0,-0.0,0.0,1.0,0.0,-0.0,-0.0,1.0],[0.866435,0.177704,-0.044139,0.049567,0.939063,0.01137,-0.003453,0.007233,0.99622],[0.760729,0.319078,-0.079807,0.090568,0.889315,0.020117,-0.006027,0.013325,0.992702],[0.675425,0.43385,-0.109275,0.125303,0.847755,0.026942,-0.00795,0.018572,0.989378],[0.605511,0.52856,-0.134071,0.155318,0.812366,0.032316,-0.009376,0.023176,0.9862],[0.547494,0.607765,-0.155259,0.181692,0.781742,0.036566,-0.01041,0.027275,0.983136],[0.498864,0.674741,-0.173604,0.205199,0.754872,0.039929,-0.011131,0.030969,0.980162],[0.457771,0.731899,-0.18967,0.226409,0.731012,0.042579,-0.011595,0.034333,0.977261],[0.422823,0.781057,-0.203881,0.245752,0.709602,0.044646,-0.011843,0.037423,0.974421],[0.392952,0.82361,-0.216562,0.263559,0.69021,0.046232,-0.01191,0.040281,0.97163],[0.367322,0.860646,-0.227968,0.280085,0.672501,0.047413,-0.01182,0.04294,0.968881]],"tritan":[[1.0,0.0,-0.0,0.0,1.0,0.0,-0.0,-0.0,1.0],[0.92667,0.092514,-0.019184,0.021191,0.964503,0.014306,0.008437,0.054813,0.93675],[0.89572,0.13333,-0.02905,0.029997,0.9454,0.024603,0.013027,0.104707,0.882266],[0.905871,0.127791,-0.033662,0.026856,0.941251,0.031893,0.01341,0.148296,0.838294],[0.948035,0.08949,-0.037526,0.014364,0.946792,0.038844,0.010853,0.193991,0.795156],[1.017277,0.027029,-0.044306,-0.006113,0.958479,0.047634,0.006379,0.248708,0.744913],[1.104996,-0.046633,-0.058363,-0.032137,0.971635,0.060503,0.001336,0.317922,0.680742],[1.193214,-0.109812,-0.083402,-0.058496,0.97941,0.079086,-0.002346,0.403492,0.598854],[1.257728,-0.139648,-0.118081,-0.078003,0.975409,0.102594,-0.003316,0.501214,0.502102],[1.278864,-0.125333,-0.153531,-0.084748,0.957674,0.127074,-0.000989,0.601151,0.399838],[1.255528,-0.076749,-0.178779,-0.078411,0.930809,0.147602,0.004733,0.691367,0.3039]]};
+/* Sample: the model of the page “Exploring σ and π bonds in full” (EPUB v2.1), JSON part only.
+   © Georgios Korakakis, CC BY-NC 4.0. Roles as defined by the EPUB viewer, keyed by material colour. */
+const SAMPLE = {"asset":{"version":"2.0","generator":"babylon.js glTF exporter for 3dsmax 2025 v20250127.3"},"scenes":[{"nodes":[0,127,128]}],"scene":0,"nodes":[{"children":[1,3,5,7,9,11,13,15,16,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,55,57,67,69,71,73,75,80,85,86,88,90,92,94,100,106,112,118,120,121,122,123,124,125,126],"name":"V2Grp001"},{"children":[2],"name":"Circle010"},{"mesh":0,"name":"Circle09-FACES001"},{"children":[4],"name":"Cone002"},{"mesh":1,"name":"Cone01-FACES001"},{"children":[6],"name":"Cone003"},{"mesh":2,"name":"Cone02-FACES001"},{"children":[8],"name":"Cylinder002"},{"mesh":3,"name":"Cylinder01-FACES001"},{"children":[10],"name":"Cone004"},{"mesh":4,"name":"Cone04-FACES001"},{"children":[12],"name":"Cylinder003"},{"mesh":5,"name":"Cylinder02-FACES001"},{"children":[14],"name":"Cylinder004"},{"mesh":6,"name":"PART1_5"},{"name":"Text003"},{"children":[17,22,24],"name":"Group005"},{"children":[18,20],"name":"Group006"},{"children":[19],"name":"Circle011"},{"mesh":7,"name":"Circle02-FACES001"},{"children":[21],"name":"Circle012"},{"mesh":8,"name":"Circle04-FACES001"},{"children":[23],"name":"Circle013"},{"mesh":9,"name":"Circle03-FACES001"},{"children":[25],"name":"Circle014"},{"mesh":10,"name":"Circle01-FACES001"},{"children":[27],"name":"Cone005"},{"mesh":11,"name":"Cone03-FACES001"},{"children":[29],"name":"Cylinder005"},{"mesh":12,"name":"Cylinder07-FACES001"},{"children":[31],"name":"Circle015"},{"mesh":13,"name":"Circle16-FACES001"},{"children":[33],"name":"Circle016"},{"mesh":14,"name":"Circle05-FACES001"},{"children":[35],"name":"Circle017"},{"mesh":15,"name":"Circle06-FACES001"},{"children":[37],"name":"Circle018"},{"mesh":16,"name":"Circle18-FACES001"},{"children":[39],"name":"Circle019"},{"mesh":17,"name":"Circle19-FACES001"},{"children":[41],"name":"Cone006"},{"mesh":18,"name":"Cone06-FACES001"},{"children":[43],"name":"Cone007"},{"mesh":19,"name":"Cone07-FACES001"},{"children":[45],"name":"Cylinder006"},{"mesh":20,"name":"Cylinder08-FACES001"},{"children":[47],"name":"Cone008"},{"mesh":21,"name":"Cone08-FACES001"},{"children":[49],"name":"Cylinder007"},{"mesh":22,"name":"Cylinder09-FACES001"},{"children":[51],"name":"Circle020"},{"mesh":23,"name":"Circle20-FACES001"},{"children":[53],"name":"Circle021"},{"mesh":24,"name":"Circle21-FACES001"},{"name":"Text004"},{"children":[56],"name":"Circle022"},{"mesh":25,"name":"Circle22-FACES001"},{"children":[58,63,65],"name":"Group007"},{"children":[59,61],"name":"Group008"},{"children":[60],"name":"Circle023"},{"mesh":26,"name":"Circle23-FACES001"},{"children":[62],"name":"Circle024"},{"mesh":27,"name":"Circle24-FACES001"},{"children":[64],"name":"Circle025"},{"mesh":28,"name":"Circle25-FACES001"},{"children":[66],"name":"Circle026"},{"mesh":29,"name":"Circle26-FACES001"},{"children":[68],"name":"Cone009"},{"mesh":30,"name":"Cone09-FACES001"},{"children":[70],"name":"Cylinder008"},{"mesh":31,"name":"Cylinder10-FACES001"},{"children":[72],"name":"Circle027"},{"mesh":32,"name":"Circle27-FACES001"},{"children":[74],"name":"Cylinder009"},{"mesh":33,"name":"PART1_4"},{"children":[76,78],"name":"Group009"},{"children":[77],"name":"Sphere002"},{"mesh":34,"name":"INITIAL_TRANSPARENT_1"},{"children":[79],"name":"Text005"},{"mesh":35,"name":"Text07-FACES001"},{"children":[81,83],"name":"Group010"},{"children":[82],"name":"Sphere003"},{"mesh":36,"name":"INITIAL_TRANSPARENT_2"},{"children":[84],"name":"Text006"},{"mesh":37,"name":"Text08-FACES001"},{"name":"Sphere004"},{"children":[87],"name":"Text007"},{"mesh":38,"name":"Text03-FACES001"},{"children":[89],"name":"Text008"},{"mesh":39,"name":"PART1_3"},{"children":[91],"name":"Text009"},{"mesh":40,"name":"PART1_1"},{"children":[93],"name":"Text010"},{"mesh":41,"name":"PART1_2"},{"children":[95,98],"name":"Group011"},{"children":[96],"name":"Cylinder010"},{"children":[97],"name":"V2Xfm001"},{"mesh":42,"name":"PART2_7"},{"children":[99],"name":"Text011"},{"mesh":43,"name":"PART2_8"},{"children":[101,104],"name":"Group012"},{"children":[102],"name":"Cylinder011"},{"children":[103],"name":"V2Xfm002"},{"mesh":44,"name":"PART2_5"},{"children":[105],"name":"Text012"},{"mesh":45,"name":"PART2_6"},{"children":[107,109],"name":"Group013"},{"children":[108],"name":"Text013"},{"mesh":46,"name":"PART2_4"},{"children":[110],"name":"Cylinder012"},{"children":[111],"name":"V2Xfm003"},{"mesh":47,"name":"PART2_3"},{"children":[113,115],"name":"Group014"},{"children":[114],"name":"Text014"},{"mesh":48,"name":"PART2_2"},{"children":[116],"name":"Cylinder013"},{"children":[117],"name":"V2Xfm004"},{"mesh":49,"name":"PART2_1"},{"children":[119],"name":"Text015"},{"mesh":50,"name":"Text15-FACES001"},{"name":"Sphere005"},{"name":"Text016"},{"name":"Text017"},{"name":"Omni002"},{"name":"Omni003"},{"name":"Omni004"},{"name":"Omni005"},{"mesh":51,"name":"TRANSPARENT_PARTS_2"},{"mesh":52,"name":"TRANSPARENT_PARTS_1"}],"meshes":[{"name":"Circle09-FACES001","primitives":[{"material":0}]},{"name":"Cone01-FACES001","primitives":[{"material":1}]},{"name":"Cone02-FACES001","primitives":[{"material":2}]},{"name":"Cylinder01-FACES001","primitives":[{"material":3}]},{"name":"Cone04-FACES001","primitives":[{"material":4}]},{"name":"Cylinder02-FACES001","primitives":[{"material":5}]},{"name":"PART1_5","primitives":[{"material":6}]},{"name":"Circle02-FACES001","primitives":[{"material":7}]},{"name":"Circle04-FACES001","primitives":[{"material":8}]},{"name":"Circle03-FACES001","primitives":[{"material":9}]},{"name":"Circle01-FACES001","primitives":[{"material":10}]},{"name":"Cone03-FACES001","primitives":[{"material":11}]},{"name":"Cylinder07-FACES001","primitives":[{"material":12}]},{"name":"Circle16-FACES001","primitives":[{"material":13}]},{"name":"Circle05-FACES001","primitives":[{"material":14}]},{"name":"Circle06-FACES001","primitives":[{"material":15}]},{"name":"Circle18-FACES001","primitives":[{"material":16}]},{"name":"Circle19-FACES001","primitives":[{"material":17}]},{"name":"Cone06-FACES001","primitives":[{"material":18}]},{"name":"Cone07-FACES001","primitives":[{"material":19}]},{"name":"Cylinder08-FACES001","primitives":[{"material":20}]},{"name":"Cone08-FACES001","primitives":[{"material":21}]},{"name":"Cylinder09-FACES001","primitives":[{"material":22}]},{"name":"Circle20-FACES001","primitives":[{"material":23}]},{"name":"Circle21-FACES001","primitives":[{"material":24}]},{"name":"Circle22-FACES001","primitives":[{"material":25}]},{"name":"Circle23-FACES001","primitives":[{"material":26}]},{"name":"Circle24-FACES001","primitives":[{"material":27}]},{"name":"Circle25-FACES001","primitives":[{"material":28}]},{"name":"Circle26-FACES001","primitives":[{"material":29}]},{"name":"Cone09-FACES001","primitives":[{"material":30}]},{"name":"Cylinder10-FACES001","primitives":[{"material":31}]},{"name":"Circle27-FACES001","primitives":[{"material":32}]},{"name":"PART1_4","primitives":[{"material":33}]},{"name":"INITIAL_TRANSPARENT_1","primitives":[{"material":34}]},{"name":"Text07-FACES001","primitives":[{"material":35}]},{"name":"INITIAL_TRANSPARENT_2","primitives":[{"material":34}]},{"name":"Text08-FACES001","primitives":[{"material":36}]},{"name":"Text03-FACES001","primitives":[{"material":37}]},{"name":"PART1_3","primitives":[{"material":38}]},{"name":"PART1_1","primitives":[{"material":39}]},{"name":"PART1_2","primitives":[{"material":40}]},{"name":"PART2_7","primitives":[{"material":41}]},{"name":"PART2_8","primitives":[{"material":42}]},{"name":"PART2_5","primitives":[{"material":43}]},{"name":"PART2_6","primitives":[{"material":44}]},{"name":"PART2_4","primitives":[{"material":45}]},{"name":"PART2_3","primitives":[{"material":46}]},{"name":"PART2_2","primitives":[{"material":47}]},{"name":"PART2_1","primitives":[{"material":48}]},{"name":"Text15-FACES001","primitives":[{"material":49}]},{"name":"TRANSPARENT_PARTS_2","primitives":[{"material":50}]},{"name":"TRANSPARENT_PARTS_1","primitives":[{"material":51}]}],"materials":[{"name":"VMtl001","pbrMetallicRoughness":{"baseColorFactor":[0.113725,0.113725,0.717647,1.0]},"alphaMode":null},{"name":"VMtl002","pbrMetallicRoughness":{"baseColorFactor":[0.0,0.34902,0.992157,1.0]},"alphaMode":null},{"name":"VMtl003","pbrMetallicRoughness":{"baseColorFactor":[0.0,0.34902,0.992157,1.0]},"alphaMode":null},{"name":"VMtl004","pbrMetallicRoughness":{"baseColorFactor":[0.909804,0.94902,0.92549,1.0]},"alphaMode":null},{"name":"VMtl005","pbrMetallicRoughness":{"baseColorFactor":[0.0,0.34902,0.992157,1.0]},"alphaMode":null},{"name":"VMtl006","pbrMetallicRoughness":{"baseColorFactor":[0.909804,0.94902,0.92549,1.0]},"alphaMode":null},{"name":"VMtl007","pbrMetallicRoughness":{"baseColorFactor":[0.909804,0.94902,0.92549,1.0]},"alphaMode":null},{"name":"VMtl009","pbrMetallicRoughness":{"baseColorFactor":[0.588235,0.588235,0.588235,1.0]},"alphaMode":null},{"name":"VMtl010","pbrMetallicRoughness":{"baseColorFactor":[0.588235,0.588235,0.588235,1.0]},"alphaMode":null},{"name":"VMtl011","pbrMetallicRoughness":{"baseColorFactor":[0.588235,0.588235,0.580392,1.0]},"alphaMode":null},{"name":"VMtl012","pbrMetallicRoughness":{"baseColorFactor":[0.588235,0.588235,0.580392,1.0]},"alphaMode":null},{"name":"VMtl013","pbrMetallicRoughness":{"baseColorFactor":[0.0,0.34902,0.992157,1.0]},"alphaMode":null},{"name":"VMtl014","pbrMetallicRoughness":{"baseColorFactor":[0.909804,0.94902,0.92549,1.0]},"alphaMode":null},{"name":"VMtl015","pbrMetallicRoughness":{"baseColorFactor":[0.113725,0.113725,0.717647,1.0]},"alphaMode":null},{"name":"VMtl016","pbrMetallicRoughness":{"baseColorFactor":[0.113725,0.113725,0.717647,1.0]},"alphaMode":null},{"name":"VMtl017","pbrMetallicRoughness":{"baseColorFactor":[0.113725,0.113725,0.717647,1.0]},"alphaMode":null},{"name":"VMtl018","pbrMetallicRoughness":{"baseColorFactor":[0.113725,0.113725,0.717647,1.0]},"alphaMode":null},{"name":"VMtl019","pbrMetallicRoughness":{"baseColorFactor":[0.113725,0.113725,0.717647,1.0]},"alphaMode":null},{"name":"VMtl020","pbrMetallicRoughness":{"baseColorFactor":[0.0,0.34902,0.992157,1.0]},"alphaMode":null},{"name":"VMtl021","pbrMetallicRoughness":{"baseColorFactor":[0.0,0.34902,0.992157,1.0]},"alphaMode":null},{"name":"VMtl022","pbrMetallicRoughness":{"baseColorFactor":[0.909804,0.94902,0.92549,1.0]},"alphaMode":null},{"name":"VMtl023","pbrMetallicRoughness":{"baseColorFactor":[0.0,0.34902,0.992157,1.0]},"alphaMode":null},{"name":"VMtl024","pbrMetallicRoughness":{"baseColorFactor":[0.909804,0.94902,0.92549,1.0]},"alphaMode":null},{"name":"VMtl025","pbrMetallicRoughness":{"baseColorFactor":[0.113725,0.113725,0.717647,1.0]},"alphaMode":null},{"name":"VMtl026","pbrMetallicRoughness":{"baseColorFactor":[0.113725,0.113725,0.717647,1.0]},"alphaMode":null},{"name":"VMtl028","pbrMetallicRoughness":{"baseColorFactor":[0.113725,0.113725,0.717647,1.0]},"alphaMode":null},{"name":"VMtl029","pbrMetallicRoughness":{"baseColorFactor":[0.588235,0.588235,0.588235,1.0]},"alphaMode":null},{"name":"VMtl030","pbrMetallicRoughness":{"baseColorFactor":[0.588235,0.588235,0.588235,1.0]},"alphaMode":null},{"name":"VMtl031","pbrMetallicRoughness":{"baseColorFactor":[0.588235,0.588235,0.580392,1.0]},"alphaMode":null},{"name":"VMtl032","pbrMetallicRoughness":{"baseColorFactor":[0.588235,0.588235,0.580392,1.0]},"alphaMode":null},{"name":"VMtl033","pbrMetallicRoughness":{"baseColorFactor":[0.0,0.34902,0.992157,1.0]},"alphaMode":null},{"name":"VMtl034","pbrMetallicRoughness":{"baseColorFactor":[0.909804,0.94902,0.92549,1.0]},"alphaMode":null},{"name":"VMtl035","pbrMetallicRoughness":{"baseColorFactor":[0.113725,0.113725,0.717647,1.0]},"alphaMode":null},{"name":"VMtl036","pbrMetallicRoughness":{"baseColorFactor":[0.909804,0.94902,0.92549,1.0]},"alphaMode":null},{"name":"VMtl037","pbrMetallicRoughness":{"baseColorFactor":[0.5062223,0.943467259,0.9833966,1.0]},"alphaMode":null},{"name":"VMtl038","pbrMetallicRoughness":{"baseColorFactor":[0.0313726,0.0313726,0.533333,1.0]},"alphaMode":null},{"name":"VMtl040","pbrMetallicRoughness":{"baseColorFactor":[0.0313726,0.0313726,0.533333,1.0]},"alphaMode":null},{"name":"VMtl042","pbrMetallicRoughness":{"baseColorFactor":[0.345098,0.560784,0.882353,1.0]},"alphaMode":null},{"name":"VMtl043","pbrMetallicRoughness":{"baseColorFactor":[0.345098,0.694118,0.101961,1.0]},"alphaMode":null},{"name":"VMtl044","pbrMetallicRoughness":{"baseColorFactor":[0.345098,0.694118,0.101961,1.0]},"alphaMode":null},{"name":"VMtl045","pbrMetallicRoughness":{"baseColorFactor":[0.345098,0.694118,0.101961,1.0]},"alphaMode":null},{"name":"VMtl046","pbrMetallicRoughness":{"baseColorFactor":[0.113725,0.113725,0.717647,1.0]},"alphaMode":null},{"name":"VMtl047","pbrMetallicRoughness":{"baseColorFactor":[0.113725,0.113725,0.717647,1.0]},"alphaMode":null},{"name":"VMtl048","pbrMetallicRoughness":{"baseColorFactor":[0.113725,0.113725,0.717647,1.0]},"alphaMode":null},{"name":"VMtl049","pbrMetallicRoughness":{"baseColorFactor":[0.113725,0.113725,0.717647,1.0]},"alphaMode":null},{"name":"VMtl050","pbrMetallicRoughness":{"baseColorFactor":[0.113725,0.113725,0.717647,1.0]},"alphaMode":null},{"name":"VMtl051","pbrMetallicRoughness":{"baseColorFactor":[0.113725,0.113725,0.717647,1.0]},"alphaMode":null},{"name":"VMtl052","pbrMetallicRoughness":{"baseColorFactor":[0.113725,0.113725,0.717647,1.0]},"alphaMode":null},{"name":"VMtl053","pbrMetallicRoughness":{"baseColorFactor":[0.113725,0.113725,0.717647,1.0]},"alphaMode":null},{"name":"VMtl054","pbrMetallicRoughness":{"baseColorFactor":[0.882353,0.345098,0.780392,1.0]},"alphaMode":null},{"name":"Material #4","pbrMetallicRoughness":{"baseColorFactor":[0.519900143,0.05963949,0.03002226,1.0]},"alphaMode":null},{"name":"VMtl039","pbrMetallicRoughness":{"baseColorFactor":[0.28108573,0.6410416,0.07755734,1.0]},"alphaMode":null}]};
+const SAMPLE_NAME = "sample: “Exploring σ and π bonds in full” (EPUB v2.1)";
+const SAMPLE_BG = "#070810";
+const SAMPLE_ROLES = {
+  "#9FD95A":{role:"σ-bond regions"},
+  "#5F5FDC":{role:"π-bond lobes and regions"},
+  "#BF4530":{role:"Symmetry plane 1", alpha:0.3},
+  "#91D24F":{role:"Symmetry plane 2", alpha:0.3},
+  "#CACAC8":{role:"σ-bond lobes (sp)"},
+  "#BDF9FD":{role:"Hydrogen atoms", display:"#FFFFFF", alpha:0.2},
+  "#3232C1":{role:"Hydrogen atoms", display:"#FFFFFF", alpha:0.2},
+  "#F19FE5":{role:"3D label A (sp or p)"},
+  "#9FC5F1":{role:"3D label B (sp or p)"},
+  "#009FFE":{role:"Axes"},
+  "#F5F9F6":{role:"Axes (white)"},
+  "#CACACA":{role:"Auxiliary discs (hidden by the viewer)", active:false}
+};
+
+</script>
+<script>
+'use strict';
+const TYPES=[["normal","Normal vision"],["protan","Protanopia"],["deutan","Deuteranopia"],["tritan","Tritanopia"]];
+const S={file:null,sha256:null,gltf:null,a:null,bg:SAMPLE_BG,sev:100,thr:10,space:'srgb',roles:[],results:{},rc:[]};
+const $=id=>document.getElementById(id);
+const icon={good:'<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.5l2.5 2.5L10 3.5" fill="none" stroke="currentColor" stroke-width="2"/></svg>',
+  warn:'<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M6 1l5 10H1z" fill="currentColor"/></svg>',
+  bad:'<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 2.5l7 7M9.5 2.5l-7 7" stroke="currentColor" stroke-width="2"/></svg>'};
+const chip=(k,t)=>`<span class="chip ${k}">${icon[k]}${t}</span>`;
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmt=(x,d=1)=>Number.isFinite(x)?x.toLocaleString('en-GB',{minimumFractionDigits:d,maximumFractionDigits:d}):'—';
+const validHex=h=>/^#[0-9a-f]{6}$/i.test(h);
+
+async function sha256(buf){
+  try{ if(!crypto||!crypto.subtle) return null; const d=await crypto.subtle.digest('SHA-256',buf); return [...new Uint8Array(d)].map(b=>b.toString(16).padStart(2,'0')).join(''); }
+  catch(e){ return null; }
+}
+
+function analyse(gltf,fileName,presets,hash){
+  const a=GLBCore.analyse(gltf);
+  S.gltf=gltf; S.file=fileName; S.sha256=hash; S.a=a;
+  S.roles=a.colours.map(c=>{
+    const p=(presets||{})[c.hex]||{};
+    return {hex:c.hex,mat:c.materials.slice(0,3).join(", ")+(c.materials.length>3?` +${c.materials.length-3}`:""),role:p.role||"",display:p.display||c.hex,alpha:p.alpha??(c.blend?c.alpha:1),active:p.active??true,parts:c.parts,flags:c};
+  });
+  renderRoles(); compute();
+  $('status').textContent=`Loaded: ${fileName} · ${a.counts.partsWithGeometry} parts with geometry · ${S.roles.length} material colours.`;
+}
+
+function eff(r){ return GLBCore.blend(validHex(r.display)?r.display:r.hex, r.alpha, S.bg, S.space); }
+
+function renderRoles(){
+  const tb=$('roles').tBodies[0]; tb.innerHTML="";
+  S.roles.forEach((r,i)=>{
+    const f=r.flags, notes=[f.texture?'texture':'',f.unlit?'unlit':'',f.emissive?'emissive':'',f.transmission?'transmission':'',f.mask?'alpha mask':'',f.blend?'blended':''].filter(Boolean).join(' · ');
+    const tr=document.createElement('tr');
+    tr.innerHTML=`<td><input type="checkbox" id="act${i}" ${r.active?"checked":""} aria-label="Include ${esc(r.hex)} in the check"></td>
+      <td><span class="sw" style="background:${r.hex}"></span> <span class="mono">${r.hex}</span><div class="small">${esc(r.mat)}${notes?" · "+esc(notes):""}</div></td>
+      <td><input type="text" class="role-in" id="role${i}" value="${esc(r.role)}" placeholder="what does it represent?" aria-label="Role of ${esc(r.hex)}"></td>
+      <td><input type="text" class="hex-in" id="disp${i}" value="${esc(r.display)}" aria-label="On-screen colour for ${esc(r.hex)}" spellcheck="false"></td>
+      <td class="num"><input type="number" class="alpha-in" id="alpha${i}" min="0" max="1" step="0.05" value="${r.alpha}" aria-label="Opacity for ${esc(r.hex)}"></td>
+      <td><span class="sw" id="eff${i}"></span> <span class="mono small" id="effHex${i}"></span></td>
+      <td class="num">${r.parts}</td><td class="num" id="con${i}"></td><td id="pass${i}"></td>`;
+    tb.appendChild(tr);
+    $('act'+i).addEventListener('change',e=>{r.active=e.target.checked;compute();});
+    $('role'+i).addEventListener('input',e=>{r.role=e.target.value;compute();});
+    $('disp'+i).addEventListener('input',e=>{r.display=e.target.value.trim();compute();});
+    $('alpha'+i).addEventListener('input',e=>{const v=parseFloat(e.target.value);if(Number.isFinite(v)&&v>=0&&v<=1){r.alpha=v;compute();}});
+  });
+}
+
+const label=r=>r.role||r.hex;
+
+function activeRoles(){
+  // Rows that share a role name are one role: keep the one that colours most parts.
+  const byRole=new Map();
+  S.roles.filter(r=>r.active).forEach(r=>{const k=(r.role||r.hex).trim().toLowerCase();const o=byRole.get(k);if(!o||r.parts>o.parts)byRole.set(k,r);});
+  return [...byRole.values()];
+}
+
+function compute(){
+  const bg=CVD.fromHex(S.bg);
+  S.roles.forEach((r,i)=>{
+    r.eff=eff(r); r.contrast=CVD.contrast(CVD.fromHex(r.eff),bg);
+    $('eff'+i).style.background=r.eff; $('effHex'+i).textContent=r.eff;
+    $('con'+i).textContent=fmt(r.contrast,2)+":1";
+    $('pass'+i).innerHTML=!r.active?'<span class="small">excluded</span>':r.contrast>=3?chip('good','passes'):chip('bad','below 3:1');
+    $('disp'+i).setAttribute('aria-invalid',validHex(r.display)?'false':'true');
+  });
+  const act=activeRoles(), colors=act.map(r=>({hex:r.eff}));
+  S.results={};
+  const box=$('types'); box.innerHTML="";
+  TYPES.forEach(([t,name])=>{
+    const pr=colors.length>1?CVD.pairs(colors,t,S.sev):[];
+    S.results[t]=pr.map(p=>({a:label(act[p.i]),b:label(act[p.j]),aHex:act[p.i].eff,bHex:act[p.j].eff,dE:p.simulated,dEoriginal:p.original,clipped:p.clipped}));
+    const sim=h=>t==="normal"?h:CVD.hex(CVD.transform(CVD.fromHex(h),t,S.sev).rgb);
+    const below=S.results[t].filter(p=>p.dE<S.thr).length;
+    const div=document.createElement('div'); div.className='type';
+    div.innerHTML=`<h3>${name}</h3>
+      <div class="strip" aria-hidden="true">${act.map(r=>`<span style="background:${sim(r.eff)}"></span>`).join("")}</div>
+      <p class="small">${colors.length<2?"At least two active colours are needed.":below?chip(below>2?'bad':'warn',`${below} pair(s) below ${fmt(S.thr,1)}`):chip('good',`no pair below ${fmt(S.thr,1)}`)}</p>
+      <ol>${S.results[t].slice(0,5).map(p=>`<li><span class="swpair" aria-hidden="true"><span class="sw" style="background:${sim(p.aHex)}"></span><span class="sw" style="background:${sim(p.bHex)}"></span></span> ${esc(p.a)} / ${esc(p.b)}: <span class="mono">ΔE₀₀ ${fmt(p.dE,1)}</span>${p.clipped?' <span class="small">(clipped)</span>':''}</li>`).join("")}</ol>`;
+    box.appendChild(div);
+  });
+  S.rc=GLBCore.roleContrasts(act.map(r=>({label:label(r),hex:r.eff})));
+  const low=S.rc.filter(p=>p.contrast<3);
+  $('rcBox').innerHTML=act.length<2?'<p class="small">At least two active roles are needed.</p>':
+    `<p>${low.length?chip('warn',`${low.length} of ${S.rc.length} role pairs below 3:1`):chip('good',`all ${S.rc.length} role pairs at 3:1 or more`)}</p>`+
+    (low.length?`<div class="tablewrap"><table><caption>Role pairs below 3:1</caption><thead><tr><th scope="col">Pair</th><th scope="col" class="num">Contrast</th></tr></thead><tbody>${low.slice(0,40).map(p=>`<tr><td><span class="swpair" aria-hidden="true"><span class="sw" style="background:${p.aHex}"></span><span class="sw" style="background:${p.bHex}"></span></span> ${esc(p.a)} / ${esc(p.b)}</td><td class="num">${fmt(p.contrast,2)}:1</td></tr>`).join('')}</tbody></table></div>${low.length>40?`<p class="small">Showing 40 of ${low.length}; all are in the report.</p>`:''}`:'');
+  renderSem(); renderWarn(); renderSummary(); renderReport();
+}
+
+function renderSem(){
+  const c=S.a.counts, n=c.partsWithGeometry;
+  $('semStats').innerHTML=[
+    c.softwareNames?chip(c.softwareNames/n>.5?'bad':'warn',`${c.softwareNames} of ${n} with software-generated names`):chip('good','all names look meaningful'),
+    c.described===n&&n?chip('good','all have a description'):chip('bad',`${n-c.described} of ${n} without a description`),
+    c.textAsGeometry?chip('warn',`${c.textAsGeometry} text objects as geometry`):chip('good','no text as geometry found')
+  ].join(" ");
+  const tb=$('nodes').tBodies[0];
+  tb.innerHTML=S.a.nodes.slice(0,500).map(x=>`<tr><td class="mono">${esc(x.name)}</td><td class="mono small">${esc(x.mesh)}</td><td class="mono small">${esc(x.parent)}</td><td>${x.hexes.map(h=>`<span class="sw" style="background:${h}" title="${h}"></span>`).join(" ")}</td><td>${[x.softwareName?chip('warn','software-generated name'):'',x.described?chip('good','described'):chip('bad','no description'),x.textAsGeometry?chip('warn','text as geometry'):'',x.vertexColours?chip('warn','vertex colours'):''].join(" ")}</td></tr>`).join("")+(S.a.nodes.length>500?`<tr><td colspan="5" class="small">Showing 500 of ${S.a.nodes.length} parts; all are in the report.</td></tr>`:'');
+}
+
+function renderWarn(){
+  const w=S.a.warnings;
+  $('warnBox').innerHTML=w.length?`<ul class="warn">${w.map(x=>`<li>${chip('warn',String(x.count))} ${esc(x.text)}</li>`).join('')}</ul>`:
+    `<p>${chip('good','none found')} No textures, vertex colours, emission, unlit or transmission materials, alpha masks, default materials or extensions. Lighting and tone mapping are still not modelled.</p>`;
+}
+
+function worst(t){const r=S.results[t]||[];return r.length?r[0]:null;}
+function renderSummary(){
+  const c=S.a.counts, n=c.partsWithGeometry;
+  const act=S.roles.filter(r=>r.active), lowC=act.filter(r=>r.contrast<3).length;
+  const w=["protan","deutan","tritan"].map(worst).filter(Boolean).sort((a,b)=>a.dE-b.dE)[0], wn=worst("normal");
+  const rcLow=S.rc.filter(p=>p.contrast<3).length;
+  const stat=(k,v,c2,sub)=>`<div class="stat"><span class="k">${k}</span><span class="v">${v}</span>${c2}<span class="small">${sub}</span></div>`;
+  $('summary').innerHTML=[
+    stat("Meaningful names",`${n-c.softwareNames}/${n}`,c.softwareNames?chip(c.softwareNames/n>.5?'bad':'warn','names needed'):chip('good','OK'),"parts with geometry"),
+    stat("Text as geometry",`${c.textAsGeometry}`,c.textAsGeometry?chip('warn','needs a text equivalent'):chip('good','none found'),"labels drawn as shapes"),
+    stat("Roles below 3:1",`${lowC}/${act.length}`,lowC?chip('bad','low contrast'):chip('good','all pass'),"with the background"),
+    stat("Smallest ΔE₀₀ with CVD",w?fmt(w.dE,1):"—",w?(w.dE<S.thr?chip('bad','below threshold'):chip('good','above threshold')):'',w?`${esc(w.a)} / ${esc(w.b)}`:"—"),
+    stat("Role pairs below 3:1",`${rcLow}`,rcLow?chip('warn','check adjacent ones'):chip('good','none'),"between roles"),
+    stat("Not covered",`${S.a.warnings.length}`,S.a.warnings.length?chip('warn','see panel 6'):chip('good','none found'),"textures, emission …")
+  ].join("");
+}
+
+function report(){
+  return {tool:"GLB Lab "+GLBCore.VERSION,date:new Date().toISOString(),file:S.file,sha256:S.sha256,asset:S.a.asset,
+    settings:{background:S.bg,severityPercent:S.sev,exploratoryThresholdDE00:S.thr,blending:S.space},
+    method:{simulation:"Machado et al. 2009, linear sRGB, linear interpolation between published severities, clipped",difference:"CIEDE2000 (Sharma et al. 2005), sRGB→CIELAB, D65/2°, kL=kC=kH=1",contrast:"WCAG 2.2 relative luminance; SC 1.4.11 needs 3:1",blending:S.space==='srgb'?"alpha*colour+(1-alpha)*background on 8-bit sRGB values":"alpha*colour+(1-alpha)*background in linear light",core:"CVD Lab 2.1 numerical core, unchanged",rules:GLBCore.RULES},
+    counts:S.a.counts,warnings:S.a.warnings,
+    roles:S.roles.map(r=>({materialHex:r.hex,materials:r.flags.materials,role:r.role,displayHex:r.display,alpha:r.alpha,effectiveHex:r.eff,parts:r.parts,active:r.active,contrastToBackground:+r.contrast.toFixed(3),passes1411:r.contrast>=3})),
+    closestPairs:Object.fromEntries(Object.entries(S.results).map(([t,v])=>[t,v.slice(0,5).map(p=>({a:p.a,b:p.b,aHex:p.aHex,bHex:p.bHex,dE00:+p.dE.toFixed(3),clipped:p.clipped}))])),
+    roleContrasts:S.rc.map(p=>({a:p.a,b:p.b,contrast:+p.contrast.toFixed(3)})),
+    parts:S.a.nodes.map(x=>({name:x.name,mesh:x.mesh,parent:x.parent,colours:x.hexes,softwareName:x.softwareName,textAsGeometry:x.textAsGeometry,described:x.described,label:x.label||undefined}))};
+}
+function renderReport(){ $('report').value=JSON.stringify(report(),null,2); }
+function csv(){
+  const q=s=>`"${String(s).replace(/"/g,'""')}"`;
+  return ["materialHex,role,displayHex,alpha,effectiveHex,parts,active,contrast,passes_1.4.11"].concat(S.roles.map(r=>[r.hex,q(r.role),r.display,r.alpha,r.eff,r.parts,r.active,r.contrast.toFixed(2),r.contrast>=3].join(","))).join("\n");
+}
+async function copy(text,what){
+  try{await navigator.clipboard.writeText(text);$('copyStatus').textContent=`Copied: ${what}.`;}
+  catch(e){const t=$('report');t.focus();t.select();$('copyStatus').textContent=`Copying was not allowed. The report is selected: press Ctrl+C.`;}
+}
+function download(text,name,type){
+  const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([text],{type})); a.download=name; document.body.appendChild(a); a.click(); setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},0);
+  $('copyStatus').textContent=`Downloaded: ${name}.`;
+}
+const base=()=>(S.file||'model').replace(/^sample:.*/,'sample').replace(/\.[^.]+$/,'').replace(/[^\w.-]+/g,'_');
+
+function setBg(h){ if(!validHex(h)) {$('bgHex').setAttribute('aria-invalid','true');return;} $('bgHex').setAttribute('aria-invalid','false'); S.bg=h.toUpperCase(); $('bgPick').value=h.toLowerCase(); if(document.activeElement!==$('bgHex')) $('bgHex').value=S.bg; if(S.roles.length) compute(); }
+async function loadFile(f){
+  try{ const buf=await f.arrayBuffer(); const g=GLBCore.parse(buf); analyse(g,f.name,null,await sha256(buf)); }
+  catch(e){ $('status').textContent=`Could not read ${f.name}: ${e.message}`; }
+}
+function runTest(){
+  const r=GLBCore.selfTest(SHARMA_DATA,MACHADO_REF), tb=$('testTable');
+  tb.tBodies[0].innerHTML=r.map(x=>`<tr><td>${esc(x.test)}</td><td>${x.pass?chip('good','passed'):chip('bad','failed')}</td><td class="mono small">${esc(x.detail)}</td></tr>`).join('');
+  tb.hidden=false; const ok=r.filter(x=>x.pass).length;
+  $('testStatus').textContent=`${ok} of ${r.length} tests passed.`;
+}
+$('file').addEventListener('change',e=>{const f=e.target.files[0]; if(f) loadFile(f);});
+const drop=$('drop');
+['dragenter','dragover'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add('over');}));
+['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove('over');}));
+drop.addEventListener('drop',e=>{const f=e.dataTransfer.files[0]; if(f) loadFile(f);});
+$('sample').addEventListener('click',()=>{setBg(SAMPLE_BG);analyse(SAMPLE,SAMPLE_NAME,SAMPLE_ROLES,null);});
+$('bgPick').addEventListener('input',e=>{setBg(e.target.value);$('bgHex').value=S.bg;});
+$('bgHex').addEventListener('input',e=>setBg(e.target.value.trim()));
+$('sev').addEventListener('input',e=>{S.sev=+e.target.value;$('sevOut').textContent=S.sev;if(S.roles.length)compute();});
+$('thr').addEventListener('input',e=>{const v=parseFloat(e.target.value);if(Number.isFinite(v)&&v>0){S.thr=v;if(S.roles.length)compute();}});
+$('space').addEventListener('change',e=>{S.space=e.target.value;if(S.roles.length)compute();});
+$('copyJson').addEventListener('click',()=>copy(JSON.stringify(report(),null,2),"JSON report"));
+$('dlJson').addEventListener('click',()=>download(JSON.stringify(report(),null,2),`glb-lab_${base()}.json`,'application/json'));
+$('dlCsv').addEventListener('click',()=>download(csv(),`glb-lab_${base()}_roles.csv`,'text/csv'));
+$('runTest').addEventListener('click',runTest);
+$('sev').value=S.sev; $('sevOut').textContent=S.sev; $('thr').value=S.thr; $('space').value=S.space;
+setBg(SAMPLE_BG); $('bgHex').value=S.bg; analyse(SAMPLE,SAMPLE_NAME,SAMPLE_ROLES,null);
+</script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+{
+ "tool": "GLB Lab 0.2.0",
+ "node": "v22.23.4",
+ "date": "2026-11-06T08:47:37.734Z",
+ "passed": 14,
+ "total": 14,
+ "results": [
+  {
+   "group": "numerical core",
+   "test": "CIEDE2000, 34 reference pairs (Sharma et al. 2005)",
+   "pass": true,
+   "detail": "max |error| 4.95e-5 (limit 5e-5, the 4-decimal rounding of the data)"
+  },
+  {
+   "group": "numerical core",
+   "test": "Machado et al. (2009) matrices, 33 of 33, against the published table",
+   "pass": true,
+   "detail": "max |difference| 0"
+  },
+  {
+   "group": "numerical core",
+   "test": "Simulation keeps white and greys (row sums = 1)",
+   "pass": true,
+   "detail": "max |row sum − 1| 1.00e-6"
+  },
+  {
+   "group": "numerical core",
+   "test": "WCAG contrast: black/white 21:1, #767676/white 4.54:1, #777777/white 4.48:1",
+   "pass": true,
+   "detail": "21.000, 4.542, 4.478"
+  },
+  {
+   "group": "numerical core",
+   "test": "sRGB decode/encode round trip, 256 values",
+   "pass": true,
+   "detail": "all equal"
+  },
+  {
+   "group": "glTF",
+   "test": "linear baseColorFactor to sRGB: 0.5→#BCBCBC, 0.2158605→#808080",
+   "pass": true,
+   "detail": "#BCBCBC #808080"
+  },
+  {
+   "group": "glTF",
+   "test": "blending: white at 0.2 over black = #333333 (sRGB) and #7C7C7C (linear)",
+   "pass": true,
+   "detail": "#333333 #7C7C7C"
+  },
+  {
+   "group": "rules",
+   "test": "synthetic model: names, text under Text… parent, a11y label, vertex colours, unlit, default material, BLEND",
+   "pass": true,
+   "detail": "{\"partsWithGeometry\":3,\"softwareNames\":2,\"textAsGeometry\":1,\"described\":1,\"materials\":2,\"softwareMaterialNames\":1,\"materialsUsed\":2,\"distinctColours\":3,\"primitives\":3}"
+  },
+  {
+   "group": "regression",
+   "test": "02-ethyne-structure-3d.glb",
+   "pass": true,
+   "detail": "parts 14, text 0, colours 2, ΔE00 13.8/13.8/13.8/13.8"
+  },
+  {
+   "group": "regression",
+   "test": "04-sp-orbital-viewer.glb",
+   "pass": true,
+   "detail": "parts 39, text 4, colours 12, ΔE00 0.1/0.1/0.1/0.1"
+  },
+  {
+   "group": "regression",
+   "test": "06-axes-pi-symmetry.glb",
+   "pass": true,
+   "detail": "parts 11, text 0, colours 3, ΔE00 4/4/3.9/3.9"
+  },
+  {
+   "group": "regression",
+   "test": "07-complete-sigma-pi-explorer.glb",
+   "pass": true,
+   "detail": "parts 53, text 11, colours 12, ΔE00 1.1/1/1/0.3"
+  },
+  {
+   "group": "regression",
+   "test": "ener_sp3.glb",
+   "pass": true,
+   "detail": "parts 35, text 16, colours 9, ΔE00 8.9/3.7/3.8/5"
+  },
+  {
+   "group": "regression",
+   "test": "sigma_me_ss.glb",
+   "pass": true,
+   "detail": "parts 5, text 0, colours 3, ΔE00 21.2/12.4/6.6/13.7"
+  }
+ ]
+}
