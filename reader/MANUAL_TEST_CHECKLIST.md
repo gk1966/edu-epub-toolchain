@@ -32,6 +32,9 @@ Tested environment — browser: __________  OS: __________  date: __________
 - [ ] Add a **bookmark** and a **local note**, reopen the same local file and confirm both remain on the device.
 - [ ] Export notes → a local JSON file contains the bookmarks and notes; no network request is made.
 
+## Body attributes (version 1.1.2)
+- [ ] Open an EPUB whose chapter has attributes on `body` (for example `class`, `epub:type` or `data-*`) → in the displayed document the `body` element has the same attributes; a script that reads them works.
+
 ## PDF permissions (version 1.1.1)
 - [ ] Open a PDF whose permissions forbid copying and extraction for accessibility → "Text of this page" shows the restriction message; search finds nothing; read-aloud reads nothing.
 - [ ] Open an unrestricted PDF → the page text is shown and searchable.

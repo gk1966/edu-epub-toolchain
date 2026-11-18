@@ -1,4 +1,4 @@
-const CACHE_NAME = "edu-ebook-reader-v18-1.1.1";
+const CACHE_NAME = "edu-ebook-reader-v19-1.1.2";
 const APP_SHELL = [
   "./",
   "./index.html",

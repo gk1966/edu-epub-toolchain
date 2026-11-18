@@ -8,7 +8,7 @@ accessible educational publications with embedded WebGL/Babylon.js 3D content.
 | Component | Folder | Version | License | What it is |
 |---|---|---|---|---|
 | Edu EPUB Creator | [`creator/`](creator/) | 0.5.4 | MIT | Browser-based authoring tool: visual/XHTML/preview editing, reusable learning blocks, Word/Markdown/EPUB/HTML import, and structured EPUB 3 export with navigation and accessibility metadata |
-| Edu Ebook Reader | [`reader/`](reader/) | 1.1.1 | MIT | Installable PWA reader for EPUB 3 with scripting/WebGL support, plus PDF, TXT, MD, HTML, CBZ, DOCX, ODT and FB2 display; accessible interface (skip link, live announcements, focus management, accessibility-metadata panel); refuses DRM-protected files and respects PDF permission flags |
+| Edu Ebook Reader | [`reader/`](reader/) | 1.1.2 | MIT | Installable PWA reader for EPUB 3 with scripting/WebGL support, plus PDF, TXT, MD, HTML, CBZ, DOCX, ODT and FB2 display; accessible interface (skip link, live announcements, focus management, accessibility-metadata panel); refuses DRM-protected files and respects PDF permission flags |
 | Demo module | [`demo/`](demo/) | 1.0.2 | CC BY-NC 4.0 | Interactive chemistry EPUB 3 on sp hybridization in ethyne: 3D molecular/orbital viewers, video and self-check quiz |
 | GLB Lab | [`glb-lab/`](glb-lab/) | 0.2.0 | MIT | Offline browser check of 3D glTF/GLB models: software-generated part names, text modelled as geometry, part descriptions, contrast of role colours, and colour differences under simulated colour vision deficiency, with a self-test against published reference data |
 
