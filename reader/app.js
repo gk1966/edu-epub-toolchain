@@ -1542,6 +1542,14 @@
     ].filter(Boolean).join(" ");
     const head = doc.head ? doc.head.innerHTML : "";
     const body = doc.body ? doc.body.innerHTML : doc.documentElement.innerHTML;
+    // Keep the attributes of the chapter's body element (id, class, lang, dir, epub:type,
+    // data-*, style ...). Publication scripts and style rules may depend on them.
+    const bodyAttrs = doc.body
+      ? Array.from(doc.body.attributes)
+        .filter((attr) => /^[A-Za-z_][\w:.-]*$/.test(attr.name))
+        .map((attr) => `${attr.name}="${escapeHtml(attr.value)}"`)
+        .join(" ")
+      : "";
     const readerCss = readerShellCss();
     const bridge = readerBridgeScript(fragment);
     const csp = [
@@ -1569,7 +1577,7 @@
   <style>${readerCss}</style>
   ${head}
 </head>
-<body>${body}${bridge}</body>
+<body${bodyAttrs ? ` ${bodyAttrs}` : ""}>${body}${bridge}</body>
 </html>`;
   }
 

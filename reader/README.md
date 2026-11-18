@@ -49,6 +49,10 @@ DRM-protected EPUBs. See `LEGAL_NOTE.md`.
 ## Citation
 See `CITATION.cff`.
 
+## Version 1.1.2 (2026-11-18)
+
+Chapter documents keep the attributes of their `body` element, so that publication scripts and style rules that depend on them work. See `CHANGELOG.md`.
+
 ## Version 1.1.1 (2026-11-05)
 
 Respects PDF permission flags: page text is shown, searched or read aloud only when the PDF allows copying or extraction for accessibility. See `CHANGELOG.md`.

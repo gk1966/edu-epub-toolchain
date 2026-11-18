@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.2 — 2026-11-18
+
+### Rendering of EPUB 3 content
+- Chapter documents keep the attributes of their `body` element (`id`, `class`, `lang`, `dir`, `epub:type`, `data-*`, `style` and others). Until now only the contents of `body` were carried into the displayed document, so publication scripts and style rules that depended on an attribute of `body` did not work: a script that read its settings from `data-*` attributes of `body` found none.
+- Service-worker cache renamed to `edu-ebook-reader-v19-1.1.2`.
+
 ## 1.1.1 — 2026-11-05
 
 ### Legal scope
